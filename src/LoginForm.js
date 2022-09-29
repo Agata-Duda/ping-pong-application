@@ -1,23 +1,31 @@
 import React from "react";
+import Collapsible from "react-collapsible"
 import { useForm } from "react-hook-form";
 
 const LoginForm = () => {
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
-    console.log(watch("example"));
+    console.log(watch("login"));
 
     return ( 
-        <div id="formLogin" className="Loginform"> 
-        <h4>Login</h4>
-        <form onSubmit={handleSubmit(onSubmit)}>
-            <input defaultValue={"Username"} {...register("Username")} />
-            <br/>
-            <input defaultValue={"Password"} {...register("Password", { required: true})} />
-            {errors.exampleRequired && <span> This field is required</span>}
-            <br/>
-            <input type="submit" value="Login"/>
-        </form>
-    </div>
+        <Collapsible id ="LogInCollapse" trigger={<b> Log In</b>} triggerWhenOpen={<b> Log In</b>}>
+        <div id="formLogin" className="Loginform">
+                    <form onSubmit={handleSubmit(onSubmit)}>
+                        <input id="loginUsername" defaultValue={"Username"} {...register("Username")} />
+                        <br/>
+                        <input id="loginPassword" defaultValue={"Password"} {...register("Password", { required: true})} />
+                        {errors.loginRequired && <span> Password is required</span>}
+                        <br/>
+                        <div id="submitDiv">
+                        <input id="submitButtonLogin" type="submit" value="Log In"/>
+                        </div>
+                    </form>
+            
+                
+        </div>
+        
+        </Collapsible> 
+         
      );
 }
  

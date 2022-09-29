@@ -28,12 +28,49 @@
   background-color: #FF0041 ;
   justify-content: center;
   align-items: center;
-  padding-left: 1.5cm;
-  padding-right: 1.5cm;
-  padding-bottom: .5cm;
-  border-radius: 25px;
+  padding-top: 0;
+  padding-left: 0cm;
+  padding-right: 0cm;
+  padding-bottom: 0cm;
+  border-radius: 20px;
+  width: 7cm;
+  height: 3.5cm;
 
 }
+
+#formSignup{
+  background-color: #FF0041 ;
+  justify-content: center;
+  align-items: center;
+  padding-top: .5;
+  padding-bottom: .5cm;
+  padding-right: 0cm;
+  padding-left: 1cm;
+  margin-bottom: .5cm;
+  border-radius: 20px;
+  width: 5cm;
+}
+.Collapsible{
+  background-color: #FF0041;
+  margin-bottom: .75cm;
+  border-radius: 25px;
+  padding-top: .15cm;
+  padding-bottom: .15cm;
+  width: 7cm;
+}
+
+#submitButtonLogin{
+  background-color: white;
+  border-width: 2px;
+  border-color: whitesmoke;
+  border-radius: 20px;
+  width: 2.5cm;
+  height: .7cm;
+  text-align: center;
+  margin-top: .4cm;
+  
+}
+
 
 .App-link {
   color: #61dafb;
