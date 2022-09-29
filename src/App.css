@@ -24,6 +24,17 @@
   color: white;
 }
 
+#formLogin {
+  background-color: #FF0041 ;
+  justify-content: center;
+  align-items: center;
+  padding-left: 1.5cm;
+  padding-right: 1.5cm;
+  padding-bottom: .5cm;
+  border-radius: 25px;
+
+}
+
 .App-link {
   color: #61dafb;
 }
