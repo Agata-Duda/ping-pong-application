@@ -1,6 +1,9 @@
 .App {
   text-align: center;
+  background-color: #00193A;
 }
+
+
 
 .App-logo {
   height: 50vmin;
@@ -34,8 +37,10 @@
   padding-bottom: 0cm;
   border-radius: 20px;
   width: 7cm;
-  height: 3cm;
-
+  height: 3.5cm;
+}
+.pingpongapp{
+  background-color: #00193A;
 }
 
 #formSignup{
@@ -49,9 +54,10 @@
   margin-bottom: .5cm;
   border-radius: 20px;
   width: 7cm;
+  height: 7.5cm;
 }
 .Collapsible{
-  background-color: #FF0041;
+  background-color: #ff0041;
   margin-bottom: .75cm;
   border-radius: 25px;
   padding-top: .15cm;
@@ -70,7 +76,6 @@
   margin-top: .4cm;
   
 }
-
 
 .App-link {
   color: #61dafb;

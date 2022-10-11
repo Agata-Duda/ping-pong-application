@@ -11,3 +11,64 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+.navbar {
+  display: flex;
+  align-items: center;
+  max-width:100%;
+  height: 1.3cm;
+  justify-items: center;
+
+  border-bottom: 1px solid #f2f2f2;
+  background-color: #ff0041;
+  color: #00193A;
+}
+.header-logo{
+  padding-top: .7cm;
+  max-height: 3cm;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+.header{
+  background-color: #00193A;
+  text-align: center;
+  align-items: right;
+}
+.user{
+  padding-left:1.5cm;
+}
+.username{
+  display: inline-block;
+  padding-left: .4cm;
+  vertical-align:bottom;
+  font-size: 18px;
+  font-style: italic;
+}
+.userIcon{
+  padding-top: .2cm;
+}
+.tabs{
+  padding-left: 60%;
+}
+
+a:link{
+  padding-left: 1cm;
+  text-decoration: none;
+  color: #f56200;
+  font-size: 18px;
+  font-weight: bold;
+}
+a:active{
+  color: white;
+
+}
+
+a:hover{
+	  font-size: 18px;
+    color: white;
+	  text-shadow: 1px 1px 1px #00193A;
+				
+}
+a:visited{
+  color: #f2f2f2;
+}

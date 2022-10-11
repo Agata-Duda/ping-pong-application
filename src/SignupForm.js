@@ -2,13 +2,11 @@ import React from "react";
 import Collapsible from "react-collapsible";
 import { useForm } from "react-hook-form";
 
-
-
 const SignupForm = () => {
     const {register, handleSubmit, watch, formState: { errors } } = useForm();
     const onSubmit = data => console.log(data);
     console.log(watch("signup"));
-
+    
     return ( 
         <Collapsible trigger={<b>Sign up</b>} triggerWhenOpen={<b>Sign up</b>}>
             <div id="formSignup" className="SignupForm">
@@ -23,7 +21,7 @@ const SignupForm = () => {
                         <input id="SignupEmail" defaultValue={"Email"} {...register("Email", { required: true})} />
                         {errors.loginRequired && <span> Password is required</span>}
                         <br/>
-                        <select value={""} onChange={""}>
+                        <select>
                             <option value="Software Engineer"> Software Engineer</option>
                             <option value="UI Developer"> UI Developer </option>
                             <option value="Dev Ops"> Dev Ops</option>
@@ -36,10 +34,7 @@ const SignupForm = () => {
                                 <input id="submitButtonLogin" type="submit" value="Sign Up"/>
                             </div>
                     </form>
-                
-                    
             </div>
-            
         </Collapsible> 
      );
 }
