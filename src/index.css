@@ -11,64 +11,136 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
 .navbar {
   display: flex;
   align-items: center;
   max-width:100%;
-  height: 1.3cm;
+  height: 1.1cm;
   justify-items: center;
-
   border-bottom: 1px solid #f2f2f2;
   background-color: #ff0041;
   color: #00193A;
+  padding-left: 0cm;
 }
+
 .header-logo{
-  padding-top: .7cm;
+  padding-top: 0cm;
+  padding-bottom: 15px;
   max-height: 3cm;
   margin-left: auto;
   margin-right: auto;
   display: block;
 }
+
 .header{
   background-color: #00193A;
   text-align: center;
   align-items: right;
 }
+
 .user{
-  padding-left:1.5cm;
+  padding-left:1cm;
 }
+
 .username{
   display: inline-block;
   padding-left: .4cm;
   vertical-align:bottom;
-  font-size: 18px;
+  font-size: 16px;
   font-style: italic;
-}
-.userIcon{
-  padding-top: .2cm;
-}
-.tabs{
-  padding-left: 60%;
+  color: white;
 }
 
-a:link{
+#UserAccount-Icon{
+  padding: .1cm;
+  font-size: 36px;
+  color: #f2f2f2;
+}
+
+.tabs{
+  padding-left: 49%;
+}
+
+#UserAccount-Icon:link,
+.bookingLink:link,
+.predictionLink:link,
+.scoreBoardLink:link{
   padding-left: 1cm;
   text-decoration: none;
   color: #f56200;
   font-size: 18px;
   font-weight: bold;
 }
-a:active{
-  color: white;
 
+#UserAccount-Icon:active,
+.bookingLink:active,
+.predictionLink:active,
+.scoreBoardLink:active{
+  color: white;
 }
 
-a:hover{
+.bookingLink:hover,
+.predictionLink:hover,
+.scoreBoardLink:hover{
 	  font-size: 18px;
     color: white;
 	  text-shadow: 1px 1px 1px #00193A;
-				
 }
-a:visited{
+
+.bookingLink:visited,
+.predictionLink:visited,
+.scoreBoardLink:visited{
+  color: whitesmoke;
+}
+
+.Footer{
   color: #f2f2f2;
+  background-image: linear-gradient(
+    to right, 
+    #ff0041,
+    #FD3A2D, 
+    #FE612C,
+    #FF872C,
+    #FFA12C 
+   );
+   position: absolute;
+   bottom: 0;
+   width: 100%;
+   justify-items: center;
+   align-items: center;
+   display: flex;
+}
+
+.FooterImg{
+  position: absolute;
+  right: 50px;
+  bottom: 10px;
+  padding: 20px;
+  height: 45px;
+}
+
+.adminContact{
+  padding-left: 50px;
+  text-align:justify;
+}
+
+#contactAdminHeading{
+  padding-top: 20px;
+}
+
+.emailLink:link{
+  text-decoration: none;
+  color: white;
+}
+.emailLink:visited{
+  text-decoration: none;
+  color: white;
+}
+.emailLink:hover{
+ opacity: 60%;
+  color: white;
+}
+.trading{
+  font-size: 12px;
 }
