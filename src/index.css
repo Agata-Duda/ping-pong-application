@@ -230,8 +230,11 @@ a{
 .UserGamesContainer{
   box-shadow: 1px 1px 5px 1px #00193A;
   padding: 40px;
+  padding-left: 50px;
   margin-left: 20px;
   margin-top: 20px;
+  display: inline-block;
+  justify-content: center;
   height: 180px;
   width: 250px;
   margin-right: 10px;
@@ -247,5 +250,21 @@ a{
   height: 180px;
   width: 160px;
   margin-right: 10px;
+}
+Button{
+  height: .7cm;
+  width: 3.5cm;
+  margin: 15px;
+  padding: 5px;
+  background-color: #ff0041;
+  border-radius: 20px;
+  border-style: none;
+  text-align: center;
+  color: #ffffff;
+  font-weight: 500;
+  box-shadow: 1px 1px 2px #00193A;
+}
+Button:hover{
+  box-shadow: 1px 1px 5px 1px #00193A;
 
 }

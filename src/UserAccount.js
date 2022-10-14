@@ -27,10 +27,10 @@ const UserAccount = () => (
                     </div>
             </div>
             <div className="UserGamesContainer">
-                <p> Games Details</p>
-                <p> Total Games: </p>
+                <p> <b>Game Details</b> </p>
                 <p> Games Won: </p>
                 <p> Games Lost: </p>
+                <p> Total Games: </p>
             </div>
             <div className="UserUpdateButtonsContainer">
                 <button> Change Password </button>
@@ -41,5 +41,5 @@ const UserAccount = () => (
         </div> 
         <Footer/>
     </div>
-    );
+);
 export default UserAccount;
