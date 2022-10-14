@@ -4,7 +4,9 @@ import Footer from "./Footer";
 const ScoreBoard = () => (
         <div>
             <Header/>
-            <h1> Score Board</h1>
+            <div>
+                <h1> Leaderboard Table</h1>
+            </div>
             <Footer/>
         </div>
       );

@@ -8,10 +8,8 @@ import BookingPage from "./BookingPage";
 import PredictionPage from "./PredictionPage";
 import ScoreBoard from "./ScoreBoard";
 
-
 function App() {
   return (
-   
       <Router>
             <Switch>
               <Route exact path = "/">
@@ -37,7 +35,6 @@ function App() {
               </Route>
             </Switch>
       </Router>
-  
   );
 }
 

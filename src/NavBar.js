@@ -15,6 +15,7 @@ const NavBar = () => {
                <p className="username"> {username} </p> 
            </div>
             <div className="tabs">
+                <Link to ="/Home" className="homeLink"> Home </Link>
                 <Link to ="/BookingPage" className="bookingLink"> Booking </Link>
                 <Link to ="/PredictionPage" className="predictionLink"> Predictions </Link>
                 <Link to ="/ScoreBoard" className="scoreBoardLink"> Score Board </Link>

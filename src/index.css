@@ -59,13 +59,14 @@ code {
 }
 
 .tabs{
-  padding-left: 49%;
+  padding-left: 48%;
 }
 
 #UserAccount-Icon:link,
 .bookingLink:link,
 .predictionLink:link,
-.scoreBoardLink:link{
+.scoreBoardLink:link,
+.homeLink:link{
   padding-left: 1cm;
   text-decoration: none;
   color: #f56200;
@@ -75,12 +76,14 @@ code {
 
 #UserAccount-Icon:active,
 .bookingLink:active,
+.homeLink:active,
 .predictionLink:active,
 .scoreBoardLink:active{
   color: white;
 }
 
 .bookingLink:hover,
+.homeLink:hover,
 .predictionLink:hover,
 .scoreBoardLink:hover{
 	  font-size: 18px;
@@ -89,6 +92,7 @@ code {
 }
 
 .bookingLink:visited,
+.homeLink:visited,
 .predictionLink:visited,
 .scoreBoardLink:visited{
   color: whitesmoke;
@@ -104,8 +108,7 @@ code {
     #FF872C,
     #FFA12C 
    );
-   position: absolute;
-   bottom: 0;
+   margin-top: 22vw;
    width: 100%;
    justify-items: center;
    align-items: center;
@@ -113,10 +116,9 @@ code {
 }
 
 .FooterImg{
-  position: absolute;
-  right: 50px;
-  bottom: 10px;
-  padding: 20px;
+  display: inline-block;
+  padding-left: 500px;
+  padding-right: 0cm;
   height: 45px;
 }
 
@@ -125,13 +127,19 @@ code {
   text-align:justify;
 }
 
-#contactAdminHeading{
-  padding-top: 20px;
+#contactAdminHeadingFooter{
+  font-size: 16px;
+  font-weight: 700;
+  padding-left: 1px;
+}
+#contactDetailsFooter{
+  font-size: 14px;
 }
 
 .emailLink:link{
   text-decoration: none;
   color: white;
+  font-size: 14px;
 }
 .emailLink:visited{
   text-decoration: none;
@@ -142,5 +150,102 @@ code {
   color: white;
 }
 .trading{
+  padding-bottom: 10px;
+  padding-top: 0px;
   font-size: 12px;
+}
+.userAccount{
+  background-color: #ffffff;
+}
+#UserIconUserPage{
+  font-size: 80px;
+}
+.CardHolder,
+.userAccount{
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  text-decoration: none;
+}
+
+.BookingCard,
+.PredictionCard,
+.ScoreBoardCard{
+  box-shadow: 1px 1px 5px 1px #00193A;
+  padding: 10px;
+  margin-left: 30px;
+  margin-top: 20px;
+  height: 180px;
+  width: 250px;
+  margin-right: 40px;
+}
+.BookingCard:hover,
+.PredictionCard:hover,
+.ScoreBoardCard:hover{
+  box-shadow: 2px 2px 5px 3px #00193A;
+}
+.BookingCardImg{
+  height: 3cm;
+  width: 2.5cm;
+  display: block;
+  margin: auto;
+  width: 50%;
+}
+
+.CardHolder p{
+  font-size: 16px;
+  text-decoration: none;
+  text-align: center;
+  color: black;
+}
+.ScoreBoardCardImg{
+  height: 3cm;
+  padding-top: 5px;
+  display: block;
+  margin: auto;
+  width: 70%;
+}
+a{
+  text-decoration: none;
+}
+.UserDetailsContainer{
+  box-shadow: 1px 1px 5px 1px #00193A;
+  padding: 40px;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 300px;
+  width: 500px;
+  margin-right: 10px;
+}
+.UserDetailsContainer h4{
+  text-align: center;
+}
+.UserDetailsContainer4{
+  
+  display: flex;
+}
+.UserDetailsContainer1{
+  padding-left: 20px;
+}
+.UserGamesContainer{
+  box-shadow: 1px 1px 5px 1px #00193A;
+  padding: 40px;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 180px;
+  width: 250px;
+  margin-right: 10px;
+}
+
+.UserUpdateButtonsContainer{
+  display:inline-block;
+  justify-content: center;
+  box-shadow: 1px 1px 5px 1px #00193A;
+  padding: 40px;
+  margin-left: 20px;
+  margin-top: 20px;
+  height: 180px;
+  width: 160px;
+  margin-right: 10px;
+
 }

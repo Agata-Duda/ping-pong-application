@@ -1,6 +1,6 @@
 import React from "react";
 import LoginForm from "./LoginForm";
-import logo from './zinkworks-ping-pong-logo.png';
+import logo from './Images/zinkworks-ping-pong-logo.png';
 import './App.css';
 import SignupForm from "./SignupForm";
 

@@ -1,13 +1,15 @@
 import Header from "./Header";
 import Footer from "./Footer";
+
 const BookingPage = () => {
     return (
-        <div className="booking">
+        <div>
             <Header/>
-            <h1> Booking Service</h1>
+            <div className="booking">
+                <h1> Booking Service</h1>
+            </div>
             <Footer/>
-        </div>
-
+         </div>
     );
 
 }
