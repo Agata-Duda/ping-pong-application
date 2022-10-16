@@ -101,18 +101,21 @@ code {
 .Footer{
   color: #f2f2f2;
   background-image: linear-gradient(
-    to right, 
+    to right,
     #ff0041,
-    #FD3A2D, 
+    #FD3A2D,
     #FE612C,
     #FF872C,
-    #FFA12C 
+    #FFA12C
    );
    margin-top: 22vw;
    width: 100%;
    justify-items: center;
    align-items: center;
    display: flex;
+   position: fixed;
+   left: 0;
+   bottom: 0;
 }
 
 .FooterImg{
@@ -221,7 +224,7 @@ a{
   text-align: center;
 }
 .UserDetailsContainer4{
-  
+
   display: flex;
 }
 .UserDetailsContainer1{
