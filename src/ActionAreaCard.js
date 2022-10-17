@@ -1,14 +1,14 @@
-import * as React from 'react';
-import Card from '@mui/material/Card';
-import CardContent from '@mui/material/CardContent';
-import CardMedia from '@mui/material/CardMedia';
-import Typography from '@mui/material/Typography';
-import { CardActionArea } from '@mui/material';
+import * as React from "react"
+import Card from "@mui/material/Card"
+import CardContent from "@mui/material/CardContent"
+import CardMedia from "@mui/material/CardMedia"
+import Typography from "@mui/material/Typography"
+import { CardActionArea } from "@mui/material"
 import bookingImg from "./bookingCardImage.png"
 
-export default function ActionAreaCard() {
+export default function ActionAreaCard () {
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ "maxWidth": 345 }}>
       <CardActionArea>
         <CardMedia
           component="img"
@@ -26,5 +26,5 @@ export default function ActionAreaCard() {
         </CardContent>
       </CardActionArea>
     </Card>
-  );
+  )
 }

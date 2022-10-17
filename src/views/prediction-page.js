@@ -1,12 +1,13 @@
-import { PageTemplate } from "../templates/PageTemplate";
+import { PageTemplate } from "../templates/PageTemplate"
+import React from "react"
 
 const PredictionPage = () => (
-  
-        <PageTemplate>
-          <div>
-              <h1> Prediction Service</h1>
-          </div>
-        </PageTemplate>
-     );
 
-export default PredictionPage;
+  <PageTemplate>
+    <div>
+      <h1> Prediction Service</h1>
+    </div>
+  </PageTemplate>
+)
+
+export default PredictionPage
