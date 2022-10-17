@@ -1,6 +1,5 @@
 import { Header } from "../components/shared/Header"
 import { Footer } from "../components/shared/Footer"
-// import { NavBar } from "../components/shared/NavBar"
 import { Box } from "@mui/material"
 import React from "react"
 import PropTypes from "prop-types"
