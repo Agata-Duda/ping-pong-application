@@ -10,7 +10,7 @@ export const NavBar = () => {
     return (
         <nav className="navbar">
            <div className="user">
-                <Link to="/UserAccount" id="IconLink">
+                <Link to="/user-details-page" id="IconLink">
                     <AssignmentIndOutlinedIcon alt="UserAccount-Icon" id="UserAccount-Icon"/>
                 </Link>
                <p className="username"> {username} </p>
@@ -19,7 +19,7 @@ export const NavBar = () => {
                 <Link to = {routes.home} className="homeLink"> Home </Link>
                 <Link to ={routes.bookingPage} className="bookingLink"> Booking </Link>
                 <Link to ={routes.predictionPage} className="predictionLink"> Predictions </Link>
-                <Link to ={routes.scoreBoard} className="scoreBoardLink"> Score Board </Link>
+                <Link to ={routes.scoreBoardPage} className="scoreBoardLink"> Score Board </Link>
             </div>
         </nav>
     )

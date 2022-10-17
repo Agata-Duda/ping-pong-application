@@ -2,12 +2,12 @@
 
 export const routes = {
     loginpage: "/",
-    home: "/Home",
+    home: "/home",
     login: "/login",
     register: "/register",
-    userAccountPage: "/UserAccountPage",
-    bookingPage: "/BookingPage",
-    predictionPage: "/PredictionPage",
-    scoreBoard: "/ScoreBoard",
+    userDetailsPage: "/user-details-page",
+    bookingPage: "/booking-page",
+    predictionPage: "/prediction-page",
+    scoreBoardPage: "/scoreboard-page",
     test: '/test'
 }

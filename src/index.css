@@ -16,7 +16,7 @@ code {
   display: flex;
   align-items: center;
   max-width:100%;
-  height: 1.1cm;
+  height: 1.4cm;
   justify-items: center;
   border-bottom: 1px solid #f2f2f2;
   background-color: #ff0041;
@@ -171,9 +171,7 @@ code {
   text-decoration: none;
 }
 
-.BookingCard,
-.PredictionCard,
-.ScoreBoardCard{
+.card{
   box-shadow: 1px 1px 5px 1px #00193A;
   padding: 10px;
   margin-left: 30px;
@@ -182,9 +180,7 @@ code {
   width: 250px;
   margin-right: 40px;
 }
-.BookingCard:hover,
-.PredictionCard:hover,
-.ScoreBoardCard:hover{
+.Card:hover{
   box-shadow: 2px 2px 5px 3px #00193A;
 }
 .BookingCardImg{

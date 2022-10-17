@@ -1,11 +1,11 @@
 import './App.css';
 import {BrowserRouter as Router,Route, Switch} from"react-router-dom";
-import Home from './views/Home';
-import loginpage from './views/loginpage';
-import UserAccount from './views/UserAccountPage';
-import BookingPage from "./views/BookingPage";
-import PredictionPage from "./views/PredictionPage";
-import ScoreBoard from "./views/ScoreBoard";
+import Home from './views/home';
+import loginpage from './views/login-page';
+import UserAccount from './views/user-details-page';
+import BookingPage from "./views/booking-page";
+import PredictionPage from "./views/prediction-page";
+import ScoreBoard from "./views/scoreboard-page";
 import {routes} from './components/util/util';
 import {TestView} from './views/TestView';
 
@@ -21,10 +21,10 @@ function App() {
         {/*it is better to use small letters in url*/}
         <Route exact path ={routes.loginpage} component={loginpage}/>
         <Route path = {routes.home} component={Home}/>
-        <Route path = {routes.UserAccount} component={UserAccount}/>
+        <Route path = {routes.userDetailsPage} component={UserAccount}/>
         <Route path = {routes.bookingPage} component={BookingPage}/>
         <Route path = {routes.predictionPage} component={PredictionPage}/>
-        <Route path = {routes.scoreBoard} component={ScoreBoard}/>
+        <Route path = {routes.scoreBoardPage} component={ScoreBoard}/>
         <Route path = {routes.test} component={TestView}/>
       </Switch>
     </Router>

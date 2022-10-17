@@ -26,7 +26,7 @@ export const TestView = () => {
                    image={ScoreBoardCardImage}
                    title="Score boards"
                    description="Score Board of Tournaments"
-                   path={routes.scoreBoard}
+                   path={routes.scoreBoardPage}
                />
            </Stack>
         </PageTemplate>

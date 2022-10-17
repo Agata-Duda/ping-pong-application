@@ -7,7 +7,10 @@ import {Link} from 'react-router-dom';
 const styles = {
     card: {
         maxWidth: 400,
-        margin: '20px',
+        margin: '40px',
+        '&:hover': {
+            transform: 'translateY(-5px)',
+          },
     },
     content: {
         display: 'flex',
