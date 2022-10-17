@@ -8,23 +8,25 @@ const LoginForm = () => {
     const onSubmit = data => console.log(data);
     console.log(watch("login"));
 
-    return ( 
+    return (
         <Collapsible id ="LogInCollapse" trigger={<b> Log In</b>} triggerWhenOpen={<b> Log In</b>}>
             <div id="formLogin" className="Loginform">
                 <form onSubmit={handleSubmit(onSubmit)}>
-                    <input id="loginUsername" defaultValue={"Username"} {...register("Username",{ required: true})} />
+                    {/*use placeholders in input instead of default values */}
+                    {/* with default values you have to delete it, then type login / password*/}
+                    <input id="loginUsername" placeholder="Username" {...register("Username",{ required: true})} />
                     {errors.loginRequired && <span> Username is required</span>}
                     <br/>
-                    <input id="loginPassword" defaultValue={"Password"} {...register("Password", { required: true})} />
+                    <input id="loginPassword" placeholder="Password" {...register("Password", { required: true})} />
                     {errors.loginRequired && <span> Password is required</span>}
                     <br/>
                     <div id="submitDiv">
                         <input id="submitButtonLogin" type="submit" value="Log In"/>
                     </div>
-                </form> 
+                </form>
             </div>
-        </Collapsible>   
+        </Collapsible>
      );
 }
- 
+
 export default LoginForm;
