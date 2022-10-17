@@ -9,13 +9,13 @@ const Home = () => (
     <PageTemplate>
         <div className="CardHolder">
             <div className="BookingCard">
-                <Link to="./BookingPage">
+                <Link to="/BookingPage">
                     <img src={bookingImg} className="BookingCardImg" alt="Time and Date"/>
                     <p> <b> Booking Service </b> <br/> Book a 15 minute Ping Pong Slot </p>           
                 </Link>
             </div>
             <div className="PredictionCard">
-                <Link to="./PredictionPage">
+                <Link to="/PredictionPage">
                     <img src={predictionImg} className="BookingCardImg" alt="Prediction "/>
                     <p> <b> Prediction Service </b> <br/> Who will win the match?</p>            
                 </Link>

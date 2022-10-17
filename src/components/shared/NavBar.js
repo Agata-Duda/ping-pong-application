@@ -18,8 +18,8 @@ export const NavBar = () => {
             <div className="tabs">
                 <Link to = {routes.home} className="homeLink"> Home </Link>
                 <Link to ={routes.bookingPage} className="bookingLink"> Booking </Link>
-                <Link to ="/PredictionPage" className="predictionLink"> Predictions </Link>
-                <Link to ="/ScoreBoard" className="scoreBoardLink"> Score Board </Link>
+                <Link to ={routes.predictionPage} className="predictionLink"> Predictions </Link>
+                <Link to ={routes.scoreBoard} className="scoreBoardLink"> Score Board </Link>
             </div>
         </nav>
     )

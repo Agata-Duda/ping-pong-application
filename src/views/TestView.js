@@ -20,7 +20,7 @@ export const TestView = () => {
                    image={predictionCardImage}
                    title="Prediction service"
                    description="Who will win the match?"
-                   path={routes.bookingPage}
+                   path={routes.predictionPage}
                />
                <OptionCard
                    image={ScoreBoardCardImage}

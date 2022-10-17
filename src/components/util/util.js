@@ -5,9 +5,9 @@ export const routes = {
     home: "/Home",
     login: "/login",
     register: "/register",
-    userAccountPage: "/userAccountPage",
+    userAccountPage: "/UserAccountPage",
     bookingPage: "/BookingPage",
-    predictionPage: "/predictionPage",
-    scoreBoard: "/scoreBoard",
+    predictionPage: "/PredictionPage",
+    scoreBoard: "/ScoreBoard",
     test: '/test'
 }
