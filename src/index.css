@@ -12,7 +12,7 @@ code {
     monospace;
 }
 
-.navbar {
+/* .navbar {
   display: flex;
   align-items: center;
   max-width:100%;
@@ -22,7 +22,7 @@ code {
   background-color: #ff0041;
   color: #00193A;
   padding-left: 0cm;
-}
+} */
 
 .header-logo{
   padding-top: 0cm;
@@ -250,6 +250,9 @@ a{
   width: 160px;
   margin-right: 10px;
 }
+/* 
+Commented because Button was overriding navbar button styles
+
 Button{
   height: .7cm;
   width: 3.5cm;
@@ -266,4 +269,4 @@ Button{
 Button:hover{
   box-shadow: 1px 1px 5px 1px #00193A;
 
-}
+} */
