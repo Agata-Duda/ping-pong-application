@@ -10,9 +10,11 @@ const styles = {
   "card": {
     "maxWidth": 400,
     "margin": "40px",
+    // "box-shadow": "1px 1px 1px 1.5px #00193A",
+    "border-radius": "20px",
     "&:hover": {
       "transform": "translateY(-5px)",
-      "color": "#FF0041"
+      "box-shadow": "1px 1px 7px 1px  #00193A"
     }
   },
   "content": {
