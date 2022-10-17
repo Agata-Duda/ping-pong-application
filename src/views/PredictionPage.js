@@ -1,15 +1,12 @@
-import Header from "../Header";
-import Footer from "../Footer";
+import { PageTemplate } from "../templates/PageTemplate";
 
 const PredictionPage = () => (
-
-        <div>
-            <Header/>
-            <div>
-                <h1> Prediction Service</h1>
-            </div>
-          <Footer/>
-        </div>
+  
+        <PageTemplate>
+          <div>
+              <h1> Prediction Service</h1>
+          </div>
+        </PageTemplate>
      );
 
 export default PredictionPage;

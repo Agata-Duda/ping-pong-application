@@ -1,15 +1,13 @@
-import Header from "../Header";
-import Footer from "../Footer";
+import { PageTemplate } from "../templates/PageTemplate";
 
 const BookingPage = () => {
     return (
-        <div>
-            <Header/>
+        <PageTemplate>
             <div className="booking">
                 <h1> Booking Service</h1>
             </div>
-            <Footer/>
-         </div>
+        </PageTemplate>
+         
     );
 
 }

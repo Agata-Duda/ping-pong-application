@@ -1,6 +1,7 @@
 import {AppBar, Box} from '@mui/material';
 import logo from '../../Images/zinkworks-ping-pong-logo.png';
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const styles = {
     header: {
@@ -22,7 +23,7 @@ const styles = {
 export const Header = () => {
     return (
         <AppBar position="fixed" sx={styles.header}>
-            <Box component="img" src={logo} sx={styles.logo} alt="logo" />
+          <Link to="/Home"> <Box component="img" src={logo} sx={styles.logo} alt="logo" /></Link>  
         </AppBar>
     )
 }

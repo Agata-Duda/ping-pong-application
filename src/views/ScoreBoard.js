@@ -1,13 +1,11 @@
-import Header from "../Header";
-import Footer from "../Footer";
+import { PageTemplate } from "../templates/PageTemplate";
 
 const ScoreBoard = () => (
-        <div>
-            <Header/>
+       <PageTemplate>
             <div>
                 <h1> Leaderboard Table</h1>
             </div>
-            <Footer/>
-        </div>
+       </PageTemplate>
       );
+
 export default ScoreBoard;

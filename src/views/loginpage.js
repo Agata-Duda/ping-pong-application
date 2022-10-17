@@ -4,7 +4,7 @@ import logo from '../Images/zinkworks-ping-pong-logo.png';
 import '../App.css';
 import SignupForm from "../components/auth/SignupForm";
 
-const LandingPage = () => (
+const loginpage = () => (
         <div className="App">
           <header className="App-header">
             <img src={logo} className="App-logo" alt="logo" />
@@ -14,4 +14,4 @@ const LandingPage = () => (
         </div>
     );
 
-export default LandingPage;
+export default loginpage;

@@ -1,5 +1,6 @@
 import {Header} from '../components/shared/Header';
 import {Footer} from '../components/shared/Footer';
+import {NavBar} from '../components/shared/NavBar';
 import {Box} from '@mui/material';
 
 const styles = {
@@ -11,6 +12,7 @@ const styles = {
 export const PageTemplate = ({children}) => (
     <Box sx={styles.box}>
         <Header/>
+        <NavBar/>
         {children}
         <Footer/>
     </Box>

@@ -1,12 +1,12 @@
 // use one util file for all util functions at the beginning. then you can separate to more specialized files
 
 export const routes = {
-    landingPage: "/",
+    loginpage: "/",
     home: "/Home",
     login: "/login",
     register: "/register",
-    userAccount: "/userAccount",
-    bookingPage: "/bookingPage",
+    userAccountPage: "/userAccountPage",
+    bookingPage: "/BookingPage",
     predictionPage: "/predictionPage",
     scoreBoard: "/scoreBoard",
     test: '/test'

@@ -1,11 +1,10 @@
 import AccountCircleOutlinedIcon from '@mui/icons-material/AccountCircleOutlined';
-import Header from './Header';
-import Footer from './Footer';
+import { PageTemplate } from '../templates/PageTemplate';
 
-const UserAccount = () => (
-    <div>
-        <Header/>
-        <div className="userAccount">
+const UserAccount = () => {
+    return (
+        <PageTemplate>
+            <div className="userAccount">
             <div className="UserDetailsContainer">
                 <h4> User Details</h4>
                     <div className="UserDetailsContainer4">
@@ -23,7 +22,6 @@ const UserAccount = () => (
                             <p> Account Last Updated On: </p> 
                             <p> Account Type: User - No Privilages </p>   
                         </div>
-              
                     </div>
             </div>
             <div className="UserGamesContainer">
@@ -36,10 +34,9 @@ const UserAccount = () => (
                 <button> Change Password </button>
                 <button> Update Details </button>
                 <button> Delete Account </button>
-            </div>
-            
+            </div> 
         </div> 
-        <Footer/>
-    </div>
-);
+        </PageTemplate>
+    )
+}
 export default UserAccount;

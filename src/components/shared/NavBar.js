@@ -1,9 +1,10 @@
 import AssignmentIndOutlinedIcon from '@mui/icons-material/AssignmentIndOutlined';
 import React, { useContext } from "react"
-import { AppContext } from "./context/appContext";
+import { AppContext } from "../../context/appContext";
 import { Link } from "react-router-dom";
+import {routes} from '../../components/util/util';
 
-const NavBar = () => {
+export const NavBar = () => {
     const { username } = useContext(AppContext);
 
     return (
@@ -15,12 +16,12 @@ const NavBar = () => {
                <p className="username"> {username} </p>
            </div>
             <div className="tabs">
-                <Link to ="/Home" className="homeLink"> Home </Link>
-                <Link to ="/BookingPage" className="bookingLink"> Booking </Link>
+                <Link to = {routes.home} className="homeLink"> Home </Link>
+                <Link to ={routes.bookingPage} className="bookingLink"> Booking </Link>
                 <Link to ="/PredictionPage" className="predictionLink"> Predictions </Link>
                 <Link to ="/ScoreBoard" className="scoreBoardLink"> Score Board </Link>
             </div>
         </nav>
     )
 }
-export default NavBar
+

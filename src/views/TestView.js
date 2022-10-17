@@ -12,7 +12,7 @@ export const TestView = () => {
            <Stack direction="row" m={3}>
                <OptionCard
                    image={bookingCardImage}
-                   title="Booking service"
+                   title="Booking"
                    description="Book a 15 minute Ping Pong Slot"
                    path={routes.bookingPage}
                />

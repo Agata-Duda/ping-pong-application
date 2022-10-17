@@ -4,7 +4,7 @@ export const AppContext = React.createContext();
 
 const AppProvider = ({ children }) => {
     const context = {
-        username : " Username "
+        username : " JohnDoe123 "
     };
 
     return (
