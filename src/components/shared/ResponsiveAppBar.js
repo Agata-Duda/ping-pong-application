@@ -15,6 +15,13 @@ import MenuItem from "@mui/material/MenuItem"
 import { AppContext } from "../../context/appContext"
 import { routes } from "../util/util"
 
+const styles = {
+  "navbar": {
+    "background-color": "#ff0041"
+  }
+
+}
+
 const pages = ["Home", "Booking", "Scoreboard", "Prediction Service"]
 const settings = ["Account", "Logout"]
 
@@ -39,7 +46,7 @@ const ResponsiveAppBar = () => {
   }
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" sx={styles.navbar}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           <Typography

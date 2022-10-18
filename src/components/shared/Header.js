@@ -22,7 +22,7 @@ const styles = {
 
 export const Header = () => {
   return (
-    <AppBar position="fixed" sx={styles.header}>
+    <AppBar position="absolute" sx={styles.header}>
       <Link to="/Home"> <Box component="img" src={logo} sx={styles.logo} alt="logo" /></Link>
     </AppBar>
   )

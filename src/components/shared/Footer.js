@@ -5,8 +5,8 @@ import Typography from "@mui/material/Typography"
 
 const styles = {
   "footer": {
-    "color": "black",
-    "backgroundColor": "red",
+    "color": "white",
+    "background-image": "linear-gradient(to right, #ff0041 ,#FD3A2D, #FE612C, #FF872C, #FFA12C ); ",
     "marginTop": "22vw",
     "width": "100%",
     "justifyItems": "center",
@@ -22,23 +22,30 @@ const styles = {
   },
   "img": {
     "display": "inline-block",
-    "paddingLeft": "500px",
-    "paddingRight": "0cm",
+    "paddingLeft": "50%",
     "height": "45px"
   },
   "trading": {
     "paddingBottom": "10px",
     "paddingTop": "0px",
-    "fontSize": "12px"
+    "fontSize": "10px"
+  },
+  "contactUsHeading": {
+    "font-weight": "bold",
+    "fontSize": "16px"
+  },
+  "contactUsDetails": {
+    "fontSize": "14px"
   }
+
 }
 
 export const Footer = () => {
   return (
     <Box sx={styles.footer}>
       <Box sx={styles.contact}>
-        <Typography> Contact Us </Typography>
-        <Typography>
+        <Typography sx={styles.contactUsHeading}> Contact Us </Typography>
+        <Typography sx={styles.contactUsDetails}>
                     Phone: 083123456
           <br/>
                     Email: <a href="https://zinkworks.com/" > PingPongAdmin@Zinkworks.com </a>
