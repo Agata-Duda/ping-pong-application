@@ -1,14 +1,17 @@
 import { PageTemplate } from "../templates/PageTemplate"
-import React from "react"
-import DateTimeValidation from "../components/booking/dateTimePicker"
+import StaticDatePickerLandscape from "../components/booking/datePicker"
+import StaticTimePickerLandscape from "../components/booking/timePicker"
+import * as React from "react"
 
 const BookingPage = () => {
   return (
     <PageTemplate>
-      <div className="booking">
-        <h1> Booking Service</h1>
-        <DateTimeValidation/>
-      </div>
+      <h1> Ping Pong Table Booking </h1>
+        <div className="dateTime">
+          <StaticDatePickerLandscape/>
+          <StaticTimePickerLandscape/>
+          <h1> heading </h1>
+        </div>
     </PageTemplate>
 
   )
