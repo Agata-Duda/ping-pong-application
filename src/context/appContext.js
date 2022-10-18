@@ -14,5 +14,5 @@ const AppProvider = ({ children }) => {
 }
 export default AppProvider
 AppProvider.propTypes = {
-  "children": PropTypes.element
+  children: PropTypes.element
 }

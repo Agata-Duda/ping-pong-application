@@ -44,9 +44,9 @@ export const OptionCard = ({ image, title, description, path }) => (
   </Card>
 )
 OptionCard.propTypes = {
-  "image": PropTypes.string.isRequired,
-  "title": PropTypes.string.isRequired,
-  "description": PropTypes.string.isRequired,
-  "path": PropTypes.string.isRequired
+  image: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  description: PropTypes.string.isRequired,
+  path: PropTypes.string.isRequired
 
 }

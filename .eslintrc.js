@@ -21,7 +21,6 @@ module.exports = {
     "indent": ["warn", 2],
     "linebreak-style": 0,
     "quotes": ["error", "double"],
-    "quote-props": ["warn", "always"],
     "max-lines": ["warn", { "max": 200, "skipBlankLines": true }],
     "max-len": ["error", { "code": 500 }]
   }
