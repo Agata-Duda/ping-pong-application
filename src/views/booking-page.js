@@ -8,9 +8,8 @@ const BookingPage = () => {
     <PageTemplate>
       <h1> Ping Pong Table Booking </h1>
       <div className="dateTime">
-        <StaticDatePickerLandscape/>
-        <StaticTimePickerLandscape/>
-        <h1> heading </h1>
+        <StaticDatePickerLandscape />
+        <StaticTimePickerLandscape />
       </div>
     </PageTemplate>
 

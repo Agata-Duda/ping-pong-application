@@ -110,5 +110,6 @@ Button:hover{
 } */
 .dateTime{
   margin-left: 200px;
-  margin-right:200px
+  margin-right:200px;
+  padding-bottom: 220px;
 }

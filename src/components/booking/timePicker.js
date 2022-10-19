@@ -18,7 +18,11 @@ export default function StaticTimePickerLandscape () {
         onChange={(newValue) => {
           setValue(newValue)
         }}
-        onAccept={console.log(value)}
+        componentsProps={{
+          actionBar: {
+            actions: ["clear"]
+          }
+        }}
         minutesStep={5}
         minTime={dayjs("2018-01-01T07:00")}
         maxTime={dayjs("2018-01-01T18:45")}

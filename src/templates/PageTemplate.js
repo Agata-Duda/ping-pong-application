@@ -20,5 +20,5 @@ export const PageTemplate = ({ children }) => (
   </Box>
 )
 PageTemplate.propTypes = {
-  children: PropTypes.element.isRequired
+  children: PropTypes.array
 }

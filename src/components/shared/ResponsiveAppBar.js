@@ -14,6 +14,7 @@ import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
 import { AppContext } from "../../context/appContext"
 import { routes } from "../util/util"
+import { Link } from "react-router-dom"
 
 const styles = {
   "navbar": {
@@ -21,8 +22,26 @@ const styles = {
   }
 
 }
-
-const pages = ["Home", "Booking", "Scoreboard", "Prediction Service"]
+// ["Home", "Booking", "Scoreboard", "Prediction Service"]
+const pages =
+[
+  {
+    title: "Home",
+    path: routes.home
+  },
+  {
+    title: "Booking",
+    path: routes.bookingPage
+  },
+  {
+    title: "Scoreboard",
+    path: routes.scoreBoardPage
+  },
+  {
+    title: "Prediction Service",
+    path: routes.predictionPage
+  }
+]
 const settings = ["Account", "Logout"]
 
 const ResponsiveAppBar = () => {
@@ -97,8 +116,8 @@ const ResponsiveAppBar = () => {
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page.title} onClick={handleCloseNavMenu}>
+                  <Typography textAlign="center">{page.title}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -123,13 +142,15 @@ const ResponsiveAppBar = () => {
             { username }
           </Typography>
           <Box sx={{ "flexGrow": 1, "display": { "xs": "none", "md": "flex" } }}>
-            {pages.map((page) => (
+            {pages.map(({ title, path }) => (
               <Button
-                key={page}
+                key={`${title}-${path}`}
+                component={Link}
+                to={path}
                 onClick={handleCloseNavMenu}
                 sx={{ "my": 2, "color": "white", "display": "block" }}
               >
-                {page}
+                {title}
               </Button>
             ))}
           </Box>

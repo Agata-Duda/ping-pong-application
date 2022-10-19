@@ -4,6 +4,7 @@ import TextField from "@mui/material/TextField"
 import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker"
+import Button from "@mui/material/Button"
 
 const isWeekend = (date) => {
   const day = date.day()
@@ -23,8 +24,21 @@ export default function StaticDatePickerLandscape () {
         onChange={(newValue) => {
           setValue(newValue)
         }}
+        componentsProps={{
+          actionBar: {
+            actions: ["clear"]
+          }
+        }}
         renderInput={(params) => <TextField {...params} />}
       />
+      <Button varient="contained"
+        onClick={() => {
+          if (value === null) {
+            console.log("no date selected")
+          } else {
+            console.log("Booking on ", value, "Successful")
+          }
+        }}> Book Slot </Button>
     </LocalizationProvider>
   )
 }
