@@ -23,11 +23,11 @@ export default function StaticTimePickerLandscape () {
         minTime={dayjs("2018-01-01T07:00")}
         maxTime={dayjs("2018-01-01T18:45")}
         shouldDisableTime={(timeValue, clockType) => {
-            if (clockType === "minutes" && slots15Minutes.includes(timeValue)) {
-              return true
-            }
-            return false
-          }}
+          if (clockType === "minutes" && slots15Minutes.includes(timeValue)) {
+            return true
+          }
+          return false
+        }}
         renderInput={(params) => <TextField {...params} />}
       />
     </LocalizationProvider>

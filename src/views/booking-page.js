@@ -7,11 +7,11 @@ const BookingPage = () => {
   return (
     <PageTemplate>
       <h1> Ping Pong Table Booking </h1>
-        <div className="dateTime">
-          <StaticDatePickerLandscape/>
-          <StaticTimePickerLandscape/>
-          <h1> heading </h1>
-        </div>
+      <div className="dateTime">
+        <StaticDatePickerLandscape/>
+        <StaticTimePickerLandscape/>
+        <h1> heading </h1>
+      </div>
     </PageTemplate>
 
   )
