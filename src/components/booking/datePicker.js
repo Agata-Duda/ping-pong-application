@@ -5,6 +5,7 @@ import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 import { LocalizationProvider } from "@mui/x-date-pickers/LocalizationProvider"
 import { StaticDatePicker } from "@mui/x-date-pickers/StaticDatePicker"
 import Button from "@mui/material/Button"
+import toast from "react-hot-toast"
 
 const isWeekend = (date) => {
   const day = date.day()
@@ -34,6 +35,7 @@ export default function StaticDatePickerLandscape () {
       <Button varient="contained"
         onClick={() => {
           if (value === null) {
+            toast.error("No Date Selected!")
             console.log("no date selected")
           } else {
             console.log("Booking on ", value, "Successful")
