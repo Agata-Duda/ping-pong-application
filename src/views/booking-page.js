@@ -1,15 +1,14 @@
 import { PageTemplate } from "../templates/PageTemplate"
-import StaticDatePickerLandscape from "../components/booking/datePicker"
-import StaticTimePickerLandscape from "../components/booking/timePicker"
 import * as React from "react"
+import StaticDateTimePickerDemo from "../components/booking/dateTimePicker"
 
 const BookingPage = () => {
   return (
     <PageTemplate>
-      <h1> Ping Pong Table Booking </h1>
       <div className="dateTime">
-        <StaticDatePickerLandscape />
-        <StaticTimePickerLandscape />
+        <h1> Ping Pong Table Booking </h1>
+
+        <StaticDateTimePickerDemo/>
       </div>
     </PageTemplate>
 

@@ -11,7 +11,12 @@ const styles = {
     "alignItems": "center",
     "justifyContent": "left",
     "fontSize": "calc(10px + 2vmin)",
-    "color": "white"
+    "color": "white",
+    "position": "absolute",
+    "top": "0",
+    "left": "0",
+    "right": "0",
+    "width": "100%"
   },
   "logo": {
     "maxHeight": "128px",
@@ -22,7 +27,7 @@ const styles = {
 
 export const Header = () => {
   return (
-    <AppBar position="absolute" sx={styles.header}>
+    <AppBar position="fixed" sx={styles.header}>
       <Link to="/Home"> <Box component="img" src={logo} sx={styles.logo} alt="logo" /></Link>
     </AppBar>
   )
