@@ -22,7 +22,6 @@ const styles = {
   }
 
 }
-// ["Home", "Booking", "Scoreboard", "Prediction Service"]
 const pages =
 [
   {
@@ -30,16 +29,20 @@ const pages =
     path: routes.home
   },
   {
-    title: "Booking",
-    path: routes.bookingPage
+    title: "Reservations",
+    path: routes.reservationsPage
   },
   {
-    title: "Scoreboard",
-    path: routes.scoreBoardPage
+    title: "Leaderboard",
+    path: routes.leaderboardPage
   },
   {
-    title: "Prediction Service",
+    title: "Prediction",
     path: routes.predictionPage
+  },
+  {
+    title: "Match",
+    path: routes.matchPage
   }
 ]
 const settings = ["Account", "Logout"]

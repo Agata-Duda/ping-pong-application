@@ -1,5 +1,5 @@
 import { PageTemplate } from "../templates/PageTemplate"
-import { OptionCard } from "../components/home/OptionCard"
+import { OptionCardLarge } from "../components/home/OptionCardLarge"
 import { Stack } from "@mui/material"
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png"
 import bookingCardImage from "../Images/bookingCardImage.png"
@@ -11,19 +11,19 @@ export const TestView = () => {
   return (
     <PageTemplate>
       <Stack direction="row" m={3}>
-        <OptionCard
+        <OptionCardLarge
           image={bookingCardImage}
           title="Booking"
           description="Book a 15 minute Ping Pong Slot"
           path={routes.bookingPage}
         />
-        <OptionCard
+        <OptionCardLarge
           image={predictionCardImage}
           title="Prediction service"
           description="Who will win the match?"
           path={routes.predictionPage}
         />
-        <OptionCard
+        <OptionCardLarge
           image={ScoreBoardCardImage}
           title="Score boards"
           description="Score Board of Tournaments"

@@ -25,7 +25,7 @@ const styles = {
   }
 }
 
-export const OptionCard = ({ image, title, path }) => (
+export const OptionCardLarge = ({ image, title, path }) => (
   <Card component={Link} to={path} sx={styles.card}>
     <CardMedia
       component="img"
@@ -41,7 +41,7 @@ export const OptionCard = ({ image, title, path }) => (
     </CardContent>
   </Card>
 )
-OptionCard.propTypes = {
+OptionCardLarge.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired

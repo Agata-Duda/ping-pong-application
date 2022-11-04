@@ -2,14 +2,13 @@ import axios from "axios"
 // const BASE_URL = "http://localhost:8000"
 
 export const routes = {
-  "loginpage": "/login",
+  "loginpage": "/login-page",
   "home": "/",
-  "login": "/loginp",
   "register": "/registerp",
   "userDetailsPage": "/user-details-page",
-  "bookingPage": "/booking-page",
+  "reservationsPage": "/reservation-page",
   "predictionPage": "/prediction-page",
-  "scoreBoardPage": "/scoreboard-page",
+  "leaderboardPage": "/leaderboard-page",
   "test": "/test"
 }
 

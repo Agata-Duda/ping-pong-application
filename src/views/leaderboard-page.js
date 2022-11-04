@@ -1,7 +1,7 @@
 import { PageTemplate } from "../templates/PageTemplate"
 import React from "react"
 
-const ScoreBoard = () => (
+const LeaderboardPage = () => (
   <PageTemplate>
     <div>
       <h1> Leaderboard Table</h1>
@@ -9,4 +9,4 @@ const ScoreBoard = () => (
   </PageTemplate>
 )
 
-export default ScoreBoard
+export default LeaderboardPage

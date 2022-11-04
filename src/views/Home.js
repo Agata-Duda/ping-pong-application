@@ -1,6 +1,6 @@
 import React from "react"
 import { routes } from "../components/util/util"
-import { OptionCard } from "../components/home/OptionCard"
+import { OptionCardLarge } from "../components/home/OptionCardLarge"
 import { PageTemplate } from "../templates/PageTemplate"
 import { Stack } from "@mui/material"
 import { OptionCardSmall } from "../components/home/OptionCardSmall"
@@ -10,7 +10,7 @@ const Home = () => (
   <PageTemplate>
     <div className="OptionCardsDiv">
       <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
-        <OptionCard
+        <OptionCardLarge
           // image={bookingCardImage}
           title="Make a Reservation"
           path={routes.bookingPage} />
@@ -26,7 +26,7 @@ const Home = () => (
           path={routes.predictionPage} />
       </Stack>
       <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
-        <OptionCard
+        <OptionCardLarge
           // image={}
           title="Tournament Leaderboards"
           path={routes.scoreBoardPage} />
