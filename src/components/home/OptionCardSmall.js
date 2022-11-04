@@ -8,13 +8,12 @@ import PropTypes from "prop-types"
 
 const styles = {
   "card": {
-    "float": "left",
-    "margin-left": "5px",
-    "margin-right": "5px",
+    "margin-left": "10px",
+    "margin-right": "10px",
     "border-radius": "20px",
     "&:hover": {
-      "transform": "translateY(-5px)",
-      "box-shadow": "1px 1px 7px 1px  #00193A"
+      "transform": "translateY(-2px)",
+      "box-shadow": "1px 1px 3px 1px  #00193A"
     }
   },
   "content": {
@@ -25,23 +24,23 @@ const styles = {
   }
 }
 
-export const OptionCard = ({ image, title, path }) => (
+export const OptionCardSmall = ({ image, title, path }) => (
   <Card component={Link} to={path} sx={styles.card}>
     <CardMedia
       component="img"
       height="105"
-      width="535"
+      width="255"
       image={image}
       alt="option description"
     />
     <CardContent sx={styles.content}>
-      <Typography variant="h5" component="div">
+      <Typography variant="h5" component="div" >
         {title}
       </Typography>
     </CardContent>
   </Card>
 )
-OptionCard.propTypes = {
+OptionCardSmall.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired

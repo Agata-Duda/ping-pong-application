@@ -109,7 +109,19 @@ Button:hover{
 
 } */
 .dateTime{
-  margin-left: 400px;
-  margin-right:400px;
+
   padding-bottom: 220px;
+}
+
+.OpponentCardDiv{
+  display: inline;
+  float: right;
+  margin-right: 70px;
+}
+.OptionCardsDiv{
+  float: left;
+  margin-left: 70px;
+}
+h3{
+  text-align: match-parent;
 }

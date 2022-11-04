@@ -1,17 +1,14 @@
 import { PageTemplate } from "../templates/PageTemplate"
 import * as React from "react"
-import StaticDateTimePickerDemo from "../components/booking/dateTimePicker"
+import CalendarBooking from "../components/booking/calendar"
 
-const BookingPage = () => {
-  return (
+const BookingPage = () => (
     <PageTemplate>
       <div className="dateTime">
         <h1> Ping Pong Table Booking </h1>
-
-        <StaticDateTimePickerDemo/>
+        <CalendarBooking/>
       </div>
     </PageTemplate>
 
   )
-}
 export default BookingPage

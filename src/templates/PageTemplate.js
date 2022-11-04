@@ -1,5 +1,4 @@
 import { Header } from "../components/shared/Header"
-import { Footer } from "../components/shared/Footer"
 import { Box } from "@mui/material"
 import React from "react"
 import PropTypes from "prop-types"
@@ -16,7 +15,6 @@ export const PageTemplate = ({ children }) => (
     <Header/>
     <ResponsiveAppBar/>
     {children}
-    <Footer/>
   </Box>
 )
 PageTemplate.propTypes = {

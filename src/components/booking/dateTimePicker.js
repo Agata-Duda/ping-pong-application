@@ -7,6 +7,7 @@ import { StaticDateTimePicker } from "@mui/x-date-pickers/StaticDateTimePicker"
 import Button from "@mui/material/Button"
 import toast from "react-hot-toast"
 import { postNewBooking } from "../util/util"
+import { v4 } from "uuid"
 
 const isWeekend = (date) => {
   const day = date.day()
@@ -48,14 +49,16 @@ export default function StaticDateTimePickerDemo () {
           if (value !== null) {
             console.log("Booking on ", value, "Successful")
             toast.success("Booking Successful", value)
-            const jsonValue = dayjs(value.$d).format("YYYY-MM-DDTHH:mm:ss")
-            postNewBooking(jsonValue)
+            const eventStart = dayjs(value.$d).format("YYYY-MM-DDTHH:mm:ss")
+            if (eventStart in db) {
+              const id = v4()
+              postNewBooking(eventStart, id)
+            }
           } else {
             toast.error("No Time or Date Selected!")
             console.log("no time or date selected")
           }
         }}> Book Slot </Button>
-
     </LocalizationProvider>
   )
 }
