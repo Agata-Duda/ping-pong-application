@@ -26,14 +26,14 @@ const CalendarBooking = () => (
     <Calendar onSelectEvent={(e) => {
       console.log(e)
     }}
-    onSelecting={() => confirm("confirm")}
+    selectable
     localizer={localizer}
     events={bookings}
     titleAccessor="id"
     startAccessor= "eventStart"
     endAccessor= "eventEnd"
     timeslots={1}
-    step={15}
+    step={5}
     style={{ height: 500 }}
     />
     <p> Calendar where user can drag to create a slot</p>

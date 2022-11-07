@@ -9,6 +9,7 @@ export const routes = {
   "reservationsPage": "/reservation-page",
   "predictionPage": "/prediction-page",
   "leaderboardPage": "/leaderboard-page",
+  "matchPage": "/match-page",
   "test": "/test"
 }
 

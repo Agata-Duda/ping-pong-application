@@ -22,7 +22,7 @@ function App () {
         <Route path = {routes.userDetailsPage} component={UserAccount}/>
         <Route path = {routes.reservationsPage} component={ReservationsPage}/>
         <Route path = {routes.predictionPage} component={PredictionPage}/>
-        <Route path = {routes.scoreBoardPage} component={LeaderboardPage}/>
+        <Route path = {routes.leaderboardPage} component={LeaderboardPage}/>
         <Route path = {routes.matchPage} component={Match}/>
         <Route path = {routes.test} component={TestView}/>
       </Switch>

@@ -5,7 +5,6 @@ import CalendarBooking from "../components/booking/calendar"
 const ReservationsPage = () => (
     <PageTemplate>
       <div className="dateTime">
-        <h1> Ping Pong Table Booking </h1>
         <CalendarBooking/>
       </div>
     </PageTemplate>
