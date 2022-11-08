@@ -2,8 +2,8 @@
   "bookings": [
     {
       "id": "80a3f4d8-e566-4a20-a8b0-059af3e39ebe",
-      "eventStart": "2022-11-08T11:04:20",
-      "eventEnd": "2022-11-08T11:04:30",
+      "eventStart": "2022-11-08T11:04:20.115Z",
+      "eventEnd": "2022-11-08T11:04:30.115Z",
       "playerOne": "Joe Blogs",
       "playerTwo": "Joan Blogs",
       "sets": 3,
@@ -13,8 +13,19 @@
     },
     {
       "id": "80a3f4d8-e566-4a20-a8b0-059aertetbe",
-      "eventStart": "2022-11-08T11:06:20",
-      "eventEnd": "2022-11-08T11:07:30",
+      "eventStart": "2022-11-08T11:06:20.115Z",
+      "eventEnd": "2022-11-08T11:07:30.115Z",
+      "playerOne": "Joe Blogs",
+      "playerTwo": "Joan Blogs",
+      "sets": 3,
+      "tournament": "Winter 2022 Tournament",
+      "playerOneScore": 2,
+      "playerTwoScore": 4
+    },
+    {
+      "id": "80a3f4d8-e566-4a20-a8b0-059aert100etbe",
+      "eventStart": "2022-11-08T11:08:20.115Z",
+      "eventEnd": "2022-11-08T11:09:30.115Z",
       "playerOne": "Joe Blogs",
       "playerTwo": "Joan Blogs",
       "sets": 3,
