@@ -1,5 +1,5 @@
 import axios from "axios"
-// const BASE_URL = "http://localhost:8000"
+ const BASE_URL = "http://localhost:8000"
 
 export const routes = {
   "loginpage": "/login-page",
@@ -13,10 +13,15 @@ export const routes = {
   "test": "/test"
 }
 
-export const postNewBooking = async (eventStart, id) => {
-  await axios.post("http://localhost:8000/bookings", { eventStart, id })
+export const postNewBooking = async (id, eventStart, eventEnd, playerOne, playerTwo, sets, tournament, playeOneScore, playerTwoScore) => {
+  await axios.post("http://localhost:8000/bookings", { id, eventStart, eventEnd, playerOne, playerTwo, sets, tournament, playeOneScore, playerTwoScore })
 }
 
-export const getAllBookings = async (bookings) => {
-  await axios.get("http://localhost:8000/bookings", bookings)
+export const getAllBookings = async () => {
+   await axios.get("http://localhost:8000/bookings")
+}
+
+export const getBookingById = async (id) => {
+  const { data } = await axios.get(`${BASE_URL}/bookings/${id}`)
+  return data
 }
