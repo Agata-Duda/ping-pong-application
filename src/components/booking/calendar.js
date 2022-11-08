@@ -6,18 +6,18 @@ const localizer = momentLocalizer(moment)
 
 const bookings = [
   {
-    eventStart: new Date("2022-10-24T03:30:00"),
-    eventEnd: new Date("2022-10-24T04:00:00"),
-    userId: "User one",
-    title: "title",
-    bookingid: "asdfghjkl"
+    start: new Date("2022-11-08T06:30:00"),
+    end: new Date("2022-11-08T07:00:00"),
+    title: "titrwwwwwwsrle",
+    userId: "User threwwwe",
+    bookingid: "asdfgdfrwwwwwwwwwwwwwrrrrhjkl"
   },
   {
     start: new Date("2022-10-24T04:30:00"),
     end: new Date("2022-10-24T05:00:00"),
-    title: "title",
-    userId: "User two",
-    bookingid: "asdfghjkl"
+    title: "titrrle",
+    userId: "User three",
+    bookingid: "asdfgdfrrrrrhjkl"
   }
 ]
 
@@ -29,9 +29,9 @@ const CalendarBooking = () => (
     selectable
     localizer={localizer}
     events={bookings}
-    titleAccessor="id"
-    startAccessor= "eventStart"
-    endAccessor= "eventEnd"
+    titleAccessor="bookingid"
+    startAccessor= "start"
+    endAccessor= "end"
     timeslots={1}
     step={5}
     style={{ height: 500 }}
