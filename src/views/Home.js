@@ -31,9 +31,9 @@ const Home = () => (
           title="Tournament Leaderboards"
           path={routes.scoreBoardPage} />
       </Stack>
-      </div>
-      <div className="OpponentCardDiv">
-        <h3 style={ { textAlign: "center" } }> Your Next Match </h3>
+    </div>
+    <div className="OpponentCardDiv">
+      <h3 style={ { textAlign: "center" } }> Your Next Match </h3>
       <OpponentCard
         player1Avatar="Avatar1"
         player2Avatar="Avatar2"
@@ -41,15 +41,15 @@ const Home = () => (
         player2Username="John Joe"
         matchDate="Tuesday 1st October, 2022"
         matchStartTime="12:15"/>
-        <h3 style={ { textAlign: "center" } }> Upcoming Matches </h3>
-        <OpponentCard
+      <h3 style={ { textAlign: "center" } }> Upcoming Matches </h3>
+      <OpponentCard
         player1Avatar="Avatar1"
         player2Avatar="Avatar2"
         player1Username="Joan Joe"
         player2Username="John Joe"
         matchDate="Tuesday 1st October, 2022"
         matchStartTime="12:15"/>
-        <OpponentCard
+      <OpponentCard
         player1Avatar="Avatar1"
         player2Avatar="Avatar2"
         player1Username="Joan Joe"

@@ -17,7 +17,7 @@ module.exports = {
     "react", "import"
   ],
   "rules": {
-    "react/prop-types": 1,
+    "react/prop-types": 0,
     "indent": ["warn", 2],
     "linebreak-style": 0,
     "quotes": ["error", "double"],
