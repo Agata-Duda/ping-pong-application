@@ -1,3 +1,4 @@
+import { postDateTime } from "../util/util"
 import React, { useState, useEffect } from "react"
 import { Calendar, momentLocalizer } from "react-big-calendar"
 import moment from "moment"
@@ -7,9 +8,10 @@ import VerticalLinearStepper from "./Stepper"
 import Drawer from "@mui/material/Drawer"
 const localizer = momentLocalizer(moment)
 
-const CalendarBooking = () => {
+const CalendarBooking = (props) => {
   const [bookings, setBookings] = useState()
   const [open, setOpen] = useState(false)
+  const [timeDate, setTimeDate] = useState()
 
   const openDrawer = () => {
     setOpen(true)
@@ -33,7 +35,8 @@ const CalendarBooking = () => {
     }
     fetchBookings()
   }, [])
-  console.log("bookings: ", bookings)
+  // console.log("bookings: ", bookings)
+  console.log("time date: ", timeDate)
 
   return (
     <div>
@@ -42,8 +45,15 @@ const CalendarBooking = () => {
       }}
       selectable={true}
       onSelectSlot={(slot) => {
+        postDateTime(slot.id, slot.start, slot.end)
+        setTimeDate(slot.start, slot.end)
+        console.log("something", slot.start, slot.end)
+        // console.log("time date ", timeDate)
         openDrawer()
-        console.log("slot select: ", slot)
+        const data = () => {
+          return slot
+        }
+        console.log("slot select: ", data())
       }
       }
       localizer={localizer}
@@ -55,10 +65,14 @@ const CalendarBooking = () => {
       step={5}
       style={{ height: 500 }}
       />
-      <Drawer open={open} anchor={"right"} varient={"temporary"} onClose={handleAwayClick}>
+      <Drawer open={open} anchor={"right"} varient={"temporary"} onClose={handleAwayClick}
+        PaperProps={{
+          sx: {
+            width: 500
+          }
+        }}>
         <h2> Create A Reservation </h2>
-        <VerticalLinearStepper>
-        </VerticalLinearStepper>
+        <VerticalLinearStepper timeDate={timeDate} />
       </Drawer>
     </div>
   )
