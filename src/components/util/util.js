@@ -28,5 +28,3 @@ export const getBookingById = async (id) => {
   const { data } = await axios.get(`${BASE_URL}/bookings/${id}`)
   return data
 }
-
-export const getPlayers = async (player)
