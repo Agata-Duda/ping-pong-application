@@ -1,4 +1,3 @@
-import { postDateTime } from "../util/util"
 import React, { useState, useEffect } from "react"
 import { Calendar, momentLocalizer } from "react-big-calendar"
 import moment from "moment"
@@ -11,15 +10,13 @@ const localizer = momentLocalizer(moment)
 const CalendarBooking = (props) => {
   const [bookings, setBookings] = useState()
   const [open, setOpen] = useState(false)
-  const [timeDate, setTimeDate] = useState()
+  const [timeDate, setTimeDate] = useState([])
 
   const openDrawer = () => {
     setOpen(true)
-    console.log("hi Drawer")
   }
   const handleAwayClick = () => {
     setOpen(false)
-    console.log("bye Drawer")
   }
 
   useEffect(() => {
@@ -35,8 +32,6 @@ const CalendarBooking = (props) => {
     }
     fetchBookings()
   }, [])
-  // console.log("bookings: ", bookings)
-  console.log("time date: ", timeDate)
 
   return (
     <div>
@@ -45,9 +40,7 @@ const CalendarBooking = (props) => {
       }}
       selectable={true}
       onSelectSlot={(slot) => {
-        postDateTime(slot.id, slot.start, slot.end)
-        setTimeDate(slot.start, slot.end)
-        console.log("something", slot.start, slot.end)
+        setTimeDate(slot)
         // console.log("time date ", timeDate)
         openDrawer()
         const data = () => {
