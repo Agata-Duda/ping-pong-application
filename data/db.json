@@ -1,32 +1,5 @@
 {
   "bookings": [
-    {
-      "id": 1,
-      "playerOne": "Joan Doe",
-      "playerTwo": "Joan Doe",
-      "tournament": "Winter 2022",
-      "sets": "1"
-    },
-    {
-      "id": 2,
-      "playerOne": "Joan Doe",
-      "playerTwo": "Joan Doe",
-      "tournament": "Winter 2022",
-      "sets": "1"
-    },
-    {
-      "id": 3
-    },
-    {
-      "id": 4
-    },
-    {
-      "id": {
-        "playerOne": "Joan Doe",
-        "playerTwo": "Joan Doe",
-        "tournament": "Winter 2022",
-        "sets": "1"
-      }
-    }
+
   ]
 }
