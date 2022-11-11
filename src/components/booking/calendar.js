@@ -3,11 +3,11 @@ import { Calendar, momentLocalizer } from "react-big-calendar"
 import moment from "moment"
 import "react-big-calendar/lib/css/react-big-calendar.css"
 import axios from "axios"
-import VerticalLinearStepper from "./Stepper"
+import Form from "./StepperNew"
 import Drawer from "@mui/material/Drawer"
 const localizer = momentLocalizer(moment)
 
-const CalendarBooking = (props) => {
+const CalendarBooking = () => {
   const [bookings, setBookings] = useState()
   const [open, setOpen] = useState(false)
   const [timeDate, setTimeDate] = useState([])
@@ -41,12 +41,7 @@ const CalendarBooking = (props) => {
       selectable={true}
       onSelectSlot={(slot) => {
         setTimeDate(slot)
-        // console.log("time date ", timeDate)
         openDrawer()
-        const data = () => {
-          return slot
-        }
-        console.log("slot select: ", data())
       }
       }
       localizer={localizer}
@@ -65,7 +60,7 @@ const CalendarBooking = (props) => {
           }
         }}>
         <h2> Create A Reservation </h2>
-        <VerticalLinearStepper timeDate={timeDate} />
+        <Form timeDate={timeDate} />
       </Drawer>
     </div>
   )

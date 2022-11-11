@@ -20,7 +20,7 @@ module.exports = {
     "react/prop-types": 0,
     "indent": ["warn", 2],
     "linebreak-style": 0,
-    "quotes": ["error", "double"],
+    "quotes": ["warn", "double"],
     "quote-props": ["warn", "consistent"],
     "max-lines": ["warn", { "max": 200, "skipBlankLines": true }],
     "max-len": ["error", { "code": 500 }]
