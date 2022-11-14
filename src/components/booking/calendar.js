@@ -5,6 +5,7 @@ import "react-big-calendar/lib/css/react-big-calendar.css"
 import axios from "axios"
 import Form from "./StepperNew"
 import Drawer from "@mui/material/Drawer"
+import { BASE_URL } from "../util/util"
 const localizer = momentLocalizer(moment)
 
 const CalendarBooking = () => {
@@ -27,7 +28,7 @@ const CalendarBooking = () => {
 
   useEffect(() => {
     const fetchBookings = async () => {
-      const res = await axios("http://localhost:8000/bookings")
+      const res = await axios(`${BASE_URL}/bookings`)
       setBookings(res.data)
       const mappedArray = res.data.map(d => ({
         ...d,

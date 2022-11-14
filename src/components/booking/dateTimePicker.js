@@ -36,6 +36,9 @@ export default function StaticDateTimePickerDemo () {
         minutesStep={5}
         minTime={dayjs("2018-01-01T07:00")}
         maxTime={dayjs("2018-01-01T18:45")}
+        // TODO You can try here:
+        // shouldDisableTime={(timeValue, clockType) => clockType === "minutes" && slots15Minutes.includes(timeValue))
+        // without return statement. Above is implicit return, and if both condition are ok, true will be returned
         shouldDisableTime={(timeValue, clockType) => {
           if (clockType === "minutes" && slots15Minutes.includes(timeValue)) {
             return true
@@ -50,6 +53,7 @@ export default function StaticDateTimePickerDemo () {
             console.log("Booking on ", value, "Successful")
             toast.success("Booking Successful", value)
             const eventStart = dayjs(value.$d).format("YYYY-MM-DDTHH:mm:ss")
+            //  TODO is db defined here? I don't see it
             if (eventStart in db) {
               const id = v4()
               postNewBooking(eventStart, id)

@@ -6,6 +6,7 @@ import Typography from "@mui/material/Typography"
 import { CardActionArea } from "@mui/material"
 import bookingImg from "./bookingCardImage.png"
 
+// TODO - please remove unused components
 export default function ActionAreaCard () {
   return (
     <Card sx={{ "maxWidth": 345 }}>

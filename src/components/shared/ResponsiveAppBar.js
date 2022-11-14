@@ -20,8 +20,8 @@ const styles = {
   "navbar": {
     "background-color": "#ff0041"
   }
-
 }
+
 const pages =
 [
   {

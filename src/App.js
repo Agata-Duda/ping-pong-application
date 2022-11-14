@@ -1,3 +1,4 @@
+// TODO - you don't need App.css, please delete it
 import "./App.css"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Home from "./views/Home"
@@ -11,6 +12,18 @@ import { routes } from "./components/util/util"
 import { TestView } from "./views/TestView"
 import React from "react"
 import { Toaster } from "react-hot-toast"
+
+// TODO General comment: you can use React-Query to fetch data from the backend
+// TODO General comment: Usused libraries, list below. Consider removing them
+// * @mui/base
+// * @mui/styled-engine-sc
+// * react-app-provider
+// * react-context-hook
+// * react-datepicker
+// * react-select
+// * styled-components
+// TODO General comment: Folders like: .idea or vscode should be added to .gitignore. Cannot be in the repo
+// TODO General comment: is better to use file.eslintrc instead of .eslintrc.js
 
 function App () {
   return (

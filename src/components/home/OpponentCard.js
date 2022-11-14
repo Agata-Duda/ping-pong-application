@@ -7,7 +7,7 @@ import PropTypes from "prop-types"
 import { Stack } from "@mui/system"
 
 const style = {
-  "Opponentcard": {
+  "opponentCard": {
     "width": "430px",
     "margin-right": "10px",
     "margin-bottom": "10px",
@@ -29,7 +29,7 @@ const style = {
 }
 
 export const OpponentCard = ({ player1Avatar, player2Avatar, player1Username, player2Username, matchDate, matchStartTime }) => (
-  <Card sx={style.Opponentcard}>
+  <Card sx={style.opponentCard}>
     <CardContent>
     <Stack justifyContent="center" alignItems="center" direction="row" >
     <Typography variant="subtitle1">
