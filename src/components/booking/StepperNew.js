@@ -10,30 +10,13 @@ import * as React from "react"
 // import AsyncSelect from "react-select/async"
 // import Select from "react-select"
 import { useForm } from "react-hook-form"
-import { postNewBooking } from "../util/util"
-
-// const GameTypeOptions = [
-//   { value: "League", label: "League" },
-//   { value: "Knockout", label: "Knockout" },
-//   { value: "Group Stage", label: "Group Stage" },
-//   { value: "Practice", label: "Practice" }
-// ]
-// const SetNoOptions = [
-//   { value: "1", label: "1" },
-//   { value: "3", label: "3" },
-//   { value: "5", label: "5" }
-// ]
-// const PlayerOptions = [
-//   { value: "Joan Doe ", label: "Joan Doe" },
-//   { value: "Alan Doe", label: "Alan Doe" },
-//   { value: "Joseph Doe", label: "Joseph Doe" },
-//   { value: "Mike Doe", label: "Mike Doe" }
-// ]
+import { postBooking } from "../util/util"
 
 export default function Form ({ timeDate }) {
   const { register, handleSubmit, reset } = useForm()
-  const onSubmitReservation = (bookings) => {
-    postNewBooking(bookings)
+
+  const onSubmitReservation = (booking) => {
+    postBooking({ ...booking, eventStart: timeDate.start, eventEnd: timeDate.end })
     reset()
   }
   return (
@@ -46,23 +29,24 @@ export default function Form ({ timeDate }) {
       <select {...register("playerOne")}>
         <option value="Joan Doe"> Joan Doe </option>
         <option value="Jose Doe"> Jose Doe </option>
-      </select>
+      </select> <br/>
       <label> Select Player Two </label>
       <select {...register("playerTwo")}>
         <option value="Joan Doe"> Joan Doe </option>
         <option value="Jose Doe"> Jose Doe </option>
-      </select>
+      </select> <br/>
       <label> Select Game Type </label>
       <select {...register("tournament")}>
         <option value="Winter 2022">Winter 2022 </option>
         <option value="Practice"> Practice </option>
-      </select>
+      </select> <br/>
       <label> Select Set Number </label>
       <select {...register("sets")}>
         <option value="1"> 1 </option>
         <option value="3"> 3 </option>
         <option value="5"> 5 </option>
       </select>
+      <br/>
       <button> Save </button>
     </form>
   )

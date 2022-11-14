@@ -15,8 +15,14 @@ const CalendarBooking = () => {
   const openDrawer = () => {
     setOpen(true)
   }
+  const closeDrawer = () => {
+    setOpen(false)
+  }
+  console.log(closeDrawer)
   const handleAwayClick = () => {
     setOpen(false)
+  }
+  const handleSelectEvent = () => {
   }
 
   useEffect(() => {
@@ -35,23 +41,21 @@ const CalendarBooking = () => {
 
   return (
     <div>
-      <Calendar onSelectEvent={(e) => {
-        console.log(e)
-      }}
-      selectable={true}
-      onSelectSlot={(slot) => {
-        setTimeDate(slot)
-        openDrawer()
-      }
-      }
-      localizer={localizer}
-      events={bookings}
-      titleAccessor="id"
-      startAccessor="eventStart"
-      endAccessor="eventEnd"
-      timeslots={1}
-      step={5}
-      style={{ height: 500 }}
+      <Calendar onSelectEvent={handleSelectEvent}
+        selectable={true}
+        onSelectSlot={(slot) => {
+          setTimeDate(slot)
+          openDrawer()
+        }
+        }
+        localizer={localizer}
+        events={bookings}
+        titleAccessor="id"
+        startAccessor="eventStart"
+        endAccessor="eventEnd"
+        timeslots={1}
+        step={5}
+        style={{ height: 500 }}
       />
       <Drawer open={open} anchor={"right"} varient={"temporary"} onClose={handleAwayClick}
         PaperProps={{

@@ -16,8 +16,9 @@ export const routes = {
 export const postNewBooking = async (id, eventStart, eventEnd, playerOne, playerTwo, sets, tournament) => {
   await axios.post("http://localhost:8000/bookings", { id, eventStart, eventEnd, playerOne, playerTwo, tournament, sets })
 }
+
 export const postBooking = async (booking) => {
-  await axios.post("http://localhost:8000/bookings", {booking})
+  await axios.post("http://localhost:8000/bookings", booking)
 }
 
 export const postDateTime = async (id, eventStart, eventEnd) => {
