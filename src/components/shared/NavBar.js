@@ -3,7 +3,8 @@ import React, { useContext } from "react"
 import { AppContext } from "../../context/appContext"
 import { Link } from "react-router-dom"
 import { routes } from "../../components/util/util"
-
+// TODO NavBar.js is unused
+// TODO please add property Active class to links: https://v5.reactrouter.com/web/api/NavLink
 export const NavBar = () => {
   const { username } = useContext(AppContext)
 
