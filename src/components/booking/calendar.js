@@ -6,7 +6,7 @@ import axios from "axios";
 import Form from "./StepperNew";
 import Drawer from "@mui/material/Drawer";
 import { BASE_URL, GetAllReservations_URL } from "../util/util";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
+import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 const localizer = momentLocalizer(moment);
 
 const CalendarBooking = () => {
@@ -36,8 +36,8 @@ const CalendarBooking = () => {
 
       const mappedArray = bookings.map((d) => ({
         ...d,
-        event_start: d.event_start,
-        event_finish: d.event_finish,
+        event_start: new Date(d.event_start).toLocaleString,
+        event_end: new Date(d.event_end).toLocaleString,
       }));
       setBookings(mappedArray);
       // console.log(mappedArray);
