@@ -36,8 +36,8 @@ const CalendarBooking = () => {
 
       const mappedArray = bookings.map((d) => ({
         ...d,
-        event_start: new Date(d.event_start).toLocaleString,
-        event_end: new Date(d.event_end).toLocaleString,
+        event_start: d.event_start,
+        event_end: d.event_end,
       }));
       setBookings(mappedArray);
       // console.log(mappedArray);
