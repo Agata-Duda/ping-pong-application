@@ -1,8 +1,10 @@
 import axios from "axios"
-export const BASE_URL = "http://localhost:8000"
-// TODO - util folder  is great idea - now is ok, but later please create files in utils, like api.js, routes.js, etc.
 
-// TODO - no need quotes here
+// export const Reservation_URL = "http://localhost:8120/reservations"
+export const GetAllReservations_URL = "http://localhost:8120/reservations/"
+export const Reservation_URL = "http://localhost:8120/reservations"
+export const BASE_URL = "http://localhost:8000"
+
 export const routes = {
   loginpage: "/login-page",
   home: "/",
@@ -15,23 +17,26 @@ export const routes = {
   test: "/test"
 }
 
-// TODO - BASE_URL ise defined, please use it
-export const postNewBooking = async (id, eventStart, eventEnd, playerOne, playerTwo, sets, tournament) => {
-  await axios.post(`${BASE_URL}/bookings`, { id, eventStart, eventEnd, playerOne, playerTwo, tournament, sets })
+export const postNewBooking = async (eventStart, eventEnd, playerOne, playerTwo, sets, tournament) => {
+  await axios.post(`${Reservation_URL}`, { eventStart, eventEnd, playerOne, playerTwo, tournament, sets })
 }
 
 export const postBooking = async (booking) => {
-  await axios.post(`${BASE_URL}/bookings`, booking)
+   await axios.post(`${Reservation_URL}`, booking)
+  //await axios.post(`${BASE_URL}/bookings`, booking)
 }
 
 export const postDateTime = async (id, eventStart, eventEnd) => {
-  await axios.post(`${BASE_URL}/bookings`, { id, eventStart, eventEnd })
+  await axios.post(`${Reservation_URL}`, { id, eventStart, eventEnd })
 }
-export const getAllBookings = async () => {
-  await axios.get(`${BASE_URL}/bookings`)
+export const getAllReservations = async () => {
+  await axios.get(`${GetAllReservations_URL}`)
+}
+export const getUserIDAndName = async () => {
+  await axios.get(`${Reservation_URL}`)
 }
 
 export const getBookingById = async (id) => {
-  const { data } = await axios.get(`${BASE_URL}/bookings/${id}`)
+  const { data } = await axios.get(`${Reservation_URL}/${id}`)
   return data
 }

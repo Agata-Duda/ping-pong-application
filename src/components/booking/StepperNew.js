@@ -10,41 +10,60 @@ import * as React from "react"
 // import AsyncSelect from "react-select/async"
 // import Select from "react-select"
 import { useForm } from "react-hook-form"
+import { v4 } from "uuid"
 import { postBooking } from "../util/util"
 
 export default function Form ({ timeDate }) {
   const { register, handleSubmit, reset } = useForm()
+  const id = v4()
 
   const onSubmitReservation = (booking) => {
-    postBooking({ ...booking, eventStart: timeDate.start, eventEnd: timeDate.end })
+    postBooking(
+      {
+      booking_id: id,
+      player_1: booking.player_1,
+      player_2: booking.player_2,
+      sets: parseInt(booking.sets),
+      //get tournamnet id and use tournament name not game_type
+     //game_type: booking.game_type,
+      event_start: timeDate.start,
+      event_finish: timeDate.end, 
+      player_1_score: null, 
+      player_2_score: null, 
+      tournament_id: "4464b9e1-b5a0-40fb-a5c0-552ef07fca07" })
     reset()
+    console.log(booking)
   }
   return (
     <form onSubmit={handleSubmit(onSubmitReservation)}>
       <label> Start Time : </label>
-      <label {...register("eventStart")}> {new Date(timeDate.start).toISOString()}</label> <br/>
+      <label {...register("event_start")}> {new Date(timeDate.start).toString()}</label> <br/>
       <label> End Time : </label>
-      <label {...register("eventEnd")}> {new Date(timeDate.end).toISOString()}</label> <br/>
+      <label {...register("event_finish")}> {new Date(timeDate.end).toString()}</label> <br/>
       <label> Select Player One </label>
-      <select {...register("playerOne")}>
-        <option value="Joan Doe"> Joan Doe </option>
-        <option value="Jose Doe"> Jose Doe </option>
+      <select {...register("player_1")}>
+        {/* //get users */}
+        <option value="2a40e112-3da2-11ed-b878-0242ac120002"> Joan Doe </option>
+        <option value="2a40e2b6-3da2-11ed-b878-0242ac120002"> Jose Doe </option>
       </select> <br/>
       <label> Select Player Two </label>
-      <select {...register("playerTwo")}>
-        <option value="Joan Doe"> Joan Doe </option>
-        <option value="Jose Doe"> Jose Doe </option>
+      <select {...register("player_2")}>
+        {/* //get users  */}
+      <option value="2a40e112-3da2-11ed-b878-0242ac120002"> Joan Doe </option>
+        <option value="2a40e2b6-3da2-11ed-b878-0242ac120002"> Jose Doe </option>
       </select> <br/>
       <label> Select Game Type </label>
-      <select {...register("tournament")}>
-        <option value="Winter 2022">Winter 2022 </option>
+      <select {...register("game_type")}>
+        <option value="Knock Out">Knock Out </option>
         <option value="Practice"> Practice </option>
+        <option value="League"> League </option>
+        <option value="Group Stage"> Group Stages </option>
       </select> <br/>
       <label> Select Set Number </label>
       <select {...register("sets")}>
-        <option value="1"> 1 </option>
-        <option value="3"> 3 </option>
-        <option value="5"> 5 </option>
+        <option type="number" value={parseInt("1")} > 1 </option>
+        <option type= "number" value="3"> 3 </option>
+        <option type="number" value="5"> 5 </option>
       </select>
       <br/>
       <button> Save </button>

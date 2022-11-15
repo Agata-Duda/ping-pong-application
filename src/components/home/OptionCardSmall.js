@@ -6,9 +6,8 @@ import { Link } from "react-router-dom"
 import React from "react"
 import PropTypes from "prop-types"
 
-// TODO - no need quotes here for the keys
 const styles = {
-  "card": {
+  card : {
     "margin-left": "10px",
     "margin-right": "10px",
     "border-radius": "20px",
@@ -17,7 +16,7 @@ const styles = {
       "box-shadow": "1px 1px 3px 1px  #00193A"
     }
   },
-  "content": {
+  content : {
     "display": "flex",
     "flexDirection": "column",
     "alignItems": "center",

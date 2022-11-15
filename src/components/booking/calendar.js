@@ -5,7 +5,8 @@ import "react-big-calendar/lib/css/react-big-calendar.css"
 import axios from "axios"
 import Form from "./StepperNew"
 import Drawer from "@mui/material/Drawer"
-import { BASE_URL } from "../util/util"
+import { GetAllReservations_URL } from "../util/util"
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs"
 const localizer = momentLocalizer(moment)
 
 const CalendarBooking = () => {
@@ -28,12 +29,12 @@ const CalendarBooking = () => {
 
   useEffect(() => {
     const fetchBookings = async () => {
-      const res = await axios(`${BASE_URL}/bookings`)
+      const res = await axios(`${GetAllReservations_URL}`)
       setBookings(res.data)
       const mappedArray = res.data.map(d => ({
         ...d,
-        eventStart: new Date(d.eventStart),
-        eventEnd: new Date(d.eventEnd)
+        event_start: new Date(d.event_start),
+        event_end: new Date(d.event_end)
       }))
       setBookings(mappedArray)
     }
@@ -51,9 +52,9 @@ const CalendarBooking = () => {
         }
         localizer={localizer}
         events={bookings}
-        titleAccessor="id"
-        startAccessor="eventStart"
-        endAccessor="eventEnd"
+        titleAccessor="booking_id"
+        startAccessor="event_start"
+        endAccessor="event_end"
         timeslots={1}
         step={5}
         style={{ height: 500 }}

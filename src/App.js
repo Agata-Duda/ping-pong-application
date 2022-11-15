@@ -23,7 +23,7 @@ import { Toaster } from "react-hot-toast"
 // * react-select
 // * styled-components
 // TODO General comment: Folders like: .idea or vscode should be added to .gitignore. Cannot be in the repo
-// TODO General comment: is better to use file.eslintrc instead of .eslintrc.js
+
 
 function App () {
   return (
