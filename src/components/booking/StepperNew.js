@@ -14,24 +14,23 @@ import { v4 } from "uuid"
 import { postBooking } from "../util/util"
 
 export default function Form ({ timeDate }) {
+
   const { register, handleSubmit, reset } = useForm()
   const id = v4()
-
   const onSubmitReservation = (booking) => {
+    
     postBooking(
       {
       booking_id: id,
       player_1: booking.player_1,
       player_2: booking.player_2,
       sets: parseInt(booking.sets),
-      //get tournamnet id and use tournament name not game_type
       event_start: timeDate.start,
       event_finish: timeDate.end, 
       player_1_score: null, 
       player_2_score: null, 
       tournament_id: "4464b9e1-b5a0-40fb-a5c0-552ef07fca07" })
     reset()
-    console.log(booking)
   }
   return (
     <form onSubmit={handleSubmit(onSubmitReservation)}>

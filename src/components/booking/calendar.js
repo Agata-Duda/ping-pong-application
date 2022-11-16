@@ -5,27 +5,26 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from "axios";
 import Form from "./StepperNew";
 import Drawer from "@mui/material/Drawer";
+
 import { GetAllReservations_URL } from "../util/util";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
-// const reservationsList = {}
-
-
 const CalendarBooking = () => {
 
   const [bookings, setBookings] = useState();
-  const [open, setOpen] = useState(false);
+  const [open, setOpen] = useState();
   const [timeDate, setTimeDate] = useState([]);
 
   const openDrawer = () => {
     setOpen(true);
   };
-  const closeDrawer = () => {
+  const closeDrawer =() => {
     setOpen(false);
   };
   console.log(closeDrawer);
+
   const handleAwayClick = () => {
     setOpen(false);
   };
@@ -71,6 +70,7 @@ const CalendarBooking = () => {
       />
       <Drawer
         open={open}
+        closable={true}
         anchor={"right"}
         varient={"temporary"}
         onClose={handleAwayClick}
@@ -81,7 +81,8 @@ const CalendarBooking = () => {
         }}
       >
         <h2> Create A Reservation </h2>
-        <Form timeDate={timeDate} />
+        <Form timeDate={timeDate} closeDrawer={closeDrawer} />
+        <button onClick={closeDrawer}> Close </button>
       </Drawer>
     </div>
   );
