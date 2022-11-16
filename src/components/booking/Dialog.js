@@ -20,9 +20,6 @@ export default function AlertDialog () {
 
   return (
     <div>
-      <Button variant="outlined" onClick={handleClickOpen}>
-        Open alert dialog
-      </Button>
       <Dialog
         open={open}
         onClose={handleClose}
@@ -30,16 +27,18 @@ export default function AlertDialog () {
         aria-describedby="alert-dialog-description"
       >
         <DialogTitle id="alert-dialog-title">
-          {"Edit Reservation"}
+         
+         Confirm text title of pop up box
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-description">
-
+//update or delete res
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleClose}>Disagree</Button>
-          <Button onClick={handleClose} autoFocus>
+          //update and delete
+          <Button onClick={handleDelete}>Disagree</Button>
+          <Button onClick={handleUpdate} autoFocus>
             Agree
           </Button>
         </DialogActions>
