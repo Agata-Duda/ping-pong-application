@@ -13,7 +13,7 @@ const Home = () => (
         <OptionCardLarge
           // image={bookingCardImage}
           title="Make a Reservation"
-          path={routes.bookingPage} />
+          path={routes.reservationsPage} />
       </Stack>
       <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
         <OptionCardSmall
