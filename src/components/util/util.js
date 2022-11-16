@@ -1,9 +1,10 @@
 import axios from "axios";
 
-// export const Reservation_URL = "http://localhost:8120/reservations"
+// export const Reservation_URL = "http://localhost:8120/reservations";
 export const GetAllReservations_URL = "http://localhost:8120/reservations";
 export const Reservation_URL = "http://localhost:8120/reservations";
 export const BASE_URL = "http://localhost:8000/bookings";
+export const GET_ALL_USERS = "http://localhost:8110/users";
 
 export const routes = {
   loginpage: "/login-page",
@@ -34,6 +35,9 @@ export const postNewBooking = async (
     sets,
   });
 };
+export const getAllUsers = async () => {
+  await axios.get(`${GET_ALL_USERS}`)
+}
 
 export const postBooking = async (booking) => {
   //await axios.post(`${BASE_URL}`, booking)
@@ -43,10 +47,12 @@ export const postBooking = async (booking) => {
 export const postDateTime = async (id, eventStart, eventEnd) => {
   await axios.post(`${Reservation_URL}`, { id, eventStart, eventEnd });
 };
+
 export const getAllReservations = async () => {
   await axios.get(`${GetAllReservations_URL}`);
   //await axios.post(`${BASE_URL}`);
 };
+
 export const getUserIDAndName = async () => {
   await axios.get(`${Reservation_URL}`);
 };
