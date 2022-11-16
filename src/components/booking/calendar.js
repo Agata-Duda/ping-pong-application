@@ -5,11 +5,16 @@ import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from "axios";
 import Form from "./StepperNew";
 import Drawer from "@mui/material/Drawer";
-import { BASE_URL, GetAllReservations_URL } from "../util/util";
-import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+import { GetAllReservations_URL } from "../util/util";
+// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
+moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
+// const reservationsList = {}
+
+
 const CalendarBooking = () => {
+
   const [bookings, setBookings] = useState();
   const [open, setOpen] = useState(false);
   const [timeDate, setTimeDate] = useState([]);
@@ -28,21 +33,22 @@ const CalendarBooking = () => {
 
   useEffect(() => {
     const fetchBookings = async () => {
-      await axios(`${GetAllReservations_URL}`).then((res) =>
-        setBookings(res.data.response)
+       await axios(`${GetAllReservations_URL}`).then((res) =>{
+       console.log(res.data);
+        // setBookings(res.data.response)
+        const mappedArray = res.data.response?.map((d) => {
+          console.log(d)
+       return({   ...d,
+          event_start: new Date(d.event_start.concat(".000Z")),
+          event_finish: new Date(d.event_finish.concat(".000Z"))})
+        });
+        setBookings(mappedArray);
+
+      }
       );
-
-      console.log(bookings);
-
-      const mappedArray = bookings.map((d) => ({
-        ...d,
-        event_start: new Date(d.event_start).toLocaleString,
-        event_end: new Date(d.event_end).toLocaleString,
-      }));
-      setBookings(mappedArray);
-      // console.log(mappedArray);
     };
     fetchBookings();
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (

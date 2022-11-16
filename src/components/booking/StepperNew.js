@@ -25,7 +25,6 @@ export default function Form ({ timeDate }) {
       player_2: booking.player_2,
       sets: parseInt(booking.sets),
       //get tournamnet id and use tournament name not game_type
-     //game_type: booking.game_type,
       event_start: timeDate.start,
       event_finish: timeDate.end, 
       player_1_score: null, 
