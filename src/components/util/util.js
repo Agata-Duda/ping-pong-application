@@ -55,3 +55,12 @@ export const getBookingById = async (id) => {
   const { data } = await axios.get(`${Reservation_URL}/${id}`);
   return data;
 };
+
+// NEEDS TO BE ADDRESSED WHEN user wants to update booking time/players
+export const updateReservationById = async (id) => {
+  await axios.put(`${Reservation_URL}/"${id}/gameComplete/{False}`); // If True it updates the scores for the users in the user service
+};
+
+export const deleteReservationById = async (id) => {
+  await axios.delete(`${Reservation_URL}/"${id}`);
+};
