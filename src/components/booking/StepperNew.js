@@ -9,6 +9,8 @@ import axios from "axios"
 export default function Form ({ timeDate }) {
   const [ userNames, setUserName ] = useState([]);
   const { register, handleSubmit, reset } = useForm()
+  const [ selectedPlayerOne, setSelectedPlayerOne ] = useState(null)
+  const [ selectedPlayerTwo, setSelectedPlayerTwo ] = useState(null)
   const id = v4()
 
   useEffect(() => {
@@ -34,8 +36,8 @@ export default function Form ({ timeDate }) {
     postBooking(
       {
       booking_id: id,
-      player_1: booking.player_1,
-      player_2: booking.player_2,
+      player_1: selectedPlayerOne.value,
+      player_2: selectedPlayerTwo.value,
       sets: parseInt(booking.sets),
       event_start: timeDate.start,
       event_finish: timeDate.end, 
@@ -52,10 +54,10 @@ export default function Form ({ timeDate }) {
       <label> End Time : </label>
       <label {...register("event_finish")}> {new Date(timeDate.end).toString()}</label> <br/>
       <label> Select Player One </label>
-      <Select {...register("player_1")} options={userNames} placeholder="select player one" />
+      <Select {...register("player_1")} options={userNames} onChange={setSelectedPlayerOne} defaultValue={selectedPlayerOne} placeholder="select player one" />
        <br/>
       <label> Select Player Two </label>
-      <Select {...register("player_2")} options={userNames} placeholder="select player two" />
+      <Select {...register("player_2")} options={userNames} onChange={setSelectedPlayerTwo} defaultValue={selectedPlayerTwo} placeholder="select player two" />
         <br/>
       <label> Select Game Type </label>
       <select {...register("game_type")}>
