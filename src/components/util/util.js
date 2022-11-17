@@ -5,6 +5,7 @@ export const GetAllReservations_URL = "http://localhost:8120/reservations";
 export const Reservation_URL = "http://localhost:8120/reservations";
 export const BASE_URL = "http://localhost:8000/bookings";
 export const GET_ALL_USERS = "http://localhost:8110/users";
+export const Tournament_URL = "http://localhost:8130/tournament";
 
 export const routes = {
   loginpage: "/login-page",
@@ -70,3 +71,7 @@ export const updateReservationById = async (id) => {
 export const deleteReservationById = async (id) => {
   await axios.delete(`${Reservation_URL}/"${id}`);
 };
+
+export const postTournament = async (tournament) => {
+  await axios.post(`${Tournament_URL}/`, tournament)
+}
