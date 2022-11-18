@@ -2,7 +2,7 @@ import React from "react"
 import PropTypes from "prop-types"
 
 export const AppContext = React.createContext()
-
+//PJ working on login auth in another branch - using app context to display username of user logged in 
 const AppProvider = ({ children }) => {
   const context = {
     "username": " JohnDoe123 "

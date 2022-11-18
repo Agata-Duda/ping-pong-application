@@ -3,11 +3,9 @@ import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import axios from "axios";
-import Form from "./StepperNew";
+import Form from "./Form";
 import Drawer from "@mui/material/Drawer";
-
 import { GetAllReservations_URL } from "../util/util";
-// import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
