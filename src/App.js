@@ -1,5 +1,4 @@
 // TODO from me - App.css and index.css needs to be within one file and one file to be used throughout whole app
-import "./App.css"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Home from "./views/Home"
 import loginpage from "./views/login-page"
