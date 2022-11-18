@@ -1,4 +1,4 @@
-// TODO - you don't need App.css, please delete it
+// TODO from me - App.css and index.css needs to be within one file and one file to be used throughout whole app
 import "./App.css"
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
 import Home from "./views/Home"
@@ -20,10 +20,7 @@ import { Toaster } from "react-hot-toast"
 // * react-app-provider
 // * react-context-hook
 // * react-datepicker
-// * react-select
 // * styled-components
-// TODO General comment: Folders like: .idea or vscode should be added to .gitignore. Cannot be in the repo
-
 
 function App () {
   return (
