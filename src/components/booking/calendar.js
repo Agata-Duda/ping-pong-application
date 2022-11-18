@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
@@ -11,8 +11,10 @@ import DialogActions from "@mui/material/DialogActions"
 import DialogContent from "@mui/material/DialogContent"
 import DialogContentText from "@mui/material/DialogContentText"
 import DialogTitle from "@mui/material/DialogTitle"
+import { Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
-import { GetAllReservations_URL } from "../util/util";
+import { deleteReservationById, GetAllReservations_URL, routes } from "../util/util";
 // import { AdapterDayjs } from "@mui/x-date-pickers/AdapterDayjs";
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
@@ -23,21 +25,50 @@ const CalendarBooking = () => {
   const [open, setOpen] = useState();
   const [timeDate, setTimeDate] = useState([]);
   const [openDialog, setOpenDialog] = useState(false)
+  // const [openUpdateDialog, setOpenUpdateDialog] = useState(false)
+  const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
+  const [eventId, setId] = useParams()
 
-  const handleClickOpenDialog = () => {
+  const handleClickOpenDialog = useCallback((calEvent) => {
     setOpenDialog(true)
+    // Logic to retrieve Bookig ID from the calendar event/clicked upon
+    //setId(calEvent.booking_id)
+    loophole(calEvent.booking_id)
+    console.log(eventId)
+    //handleDelete(calEvent.booking_id)
   }
+  )
 
   const handleCloseDialog = () => {
     setOpenDialog(false)
   }
 
-  const handleUpdate = () => {
-    
+  const handleConfirmation  = () => {
+    setOpenDeleteDialog(true)
+  }
+  const handleCloseDeleteDialog = () => {
+    setOpenDeleteDialog(false)
+    setOpenDialog(true)
   }
 
-  const handleDelete = () => {
-    
+  // const handleCloseUpdateDialog = () => {
+  //   setOpenUpdateDialog(false)
+  // }
+
+  // const handleUpdateBooking = () => {
+  //   setOpenUpdateDialog(true)
+  // }
+
+  const loophole = (id) => {
+    setId(id.booking_id)
+    console.log(id)
+  }
+
+  const handleDelete = (id) => {
+    //Delete booking logic
+    console.log(id)
+    deleteReservationById(id)
+
   }
 
   const openDrawer = () => {
@@ -112,22 +143,42 @@ const CalendarBooking = () => {
         aria-labelledby="alert-dialog-title"
         aria-describedby="alert-dialog-description"
       >
-        <DialogTitle id="alert-dialog-title">
-        {"Do you wish to update or delete your reservation @ {}?"}
+        <DialogTitle id="event-dialog-title">
+        {"Do you wish to update, delete or alter your reservation @{}?"}
         {/* Confirm text title of pop up box */}
         </DialogTitle>
         <DialogContent>
-          <DialogContentText id="alert-dialog-description">
-          You have selected an existing reservation. Do you wish to update or delete it? If not please press cancel to exit this menu.
-            {/* //update or delete res */}
+          <DialogContentText id="event-dialog-description">
+          You have selected an existing reservation. Do you wish to update, delete or alter it? If not please press cancel to exit this menu.
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          {/* //update and delete */}
-          <Button onClick={handleUpdate}>Update</Button>
-          <Button onClick={handleDelete}>Delete</Button>
+          <Button onClick={openDrawer}>Update</Button>{/* Update drawer */}
+          <Button onClick={handleConfirmation}>Delete</Button>
+          <Link to={routes.matchPage}> <Button>Alter</Button> </Link>
           <Button onClick={handleCloseDialog} autoFocus>Cancel</Button>
         </DialogActions>
+      </Dialog>
+      
+      <Dialog
+        open={openDeleteDialog}
+        onClose={handleCloseDeleteDialog}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description"
+      >
+        <DialogTitle id="delete-confirmation-dialog-title">
+        {"Are you sure about deleting your reservation?"}
+        </DialogTitle>
+        <DialogContent>
+          <DialogContentText id="delete-confirmation-dialog-description">
+          Please confirm if you wish to progress with removal of your reservation.
+          </DialogContentText>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleDelete}>Delete</Button> {/* REMOVES RESERVATION WITHOUT BEING CALLED! */}
+          <Button onClick={handleCloseDeleteDialog} autoFocus>Cancel</Button>
+        </DialogActions>
+
       </Dialog>
     </div>
   );

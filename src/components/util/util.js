@@ -64,9 +64,14 @@ export const getBookingById = async (id) => {
 
 // NEEDS TO BE ADDRESSED WHEN user wants to update booking time/players
 export const updateReservationById = async (id) => {
-  await axios.put(`${Reservation_URL}/"${id}/gameComplete/{False}`); // If True it updates the scores for the users in the user service
+  await axios.put(`${Reservation_URL}/${id}/gameComplete/{False}`);
+};
+
+// Updates the scores for the users in the user service
+export const updateMatchScore = async (id) => {
+  await axios.put(`${Reservation_URL}/${id}/gameComplete/{True}`); 
 };
 
 export const deleteReservationById = async (id) => {
-  await axios.delete(`${Reservation_URL}/"${id}`);
+  await axios.delete(`${Reservation_URL}/${id}`);
 };
