@@ -1,4 +1,6 @@
 import React from "react"
+import { useContext } from "react"
+import { AppContext } from "../context/appContext"
 
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
 
@@ -6,6 +8,8 @@ import { PageTemplate } from "../templates/PageTemplate"
 
 
 const UserAccount = () => {
+  const [user] = useContext(AppContext);
+
   return (
     <PageTemplate>
       {/* TODO mui Box */}
@@ -15,7 +19,7 @@ const UserAccount = () => {
           <div className="UserDetailsContainer4">
             <AccountCircleOutlinedIcon id="UserIconUserPage"/>
             <div className="UserDetailsContainer1">
-              <p> User ID: 12345678 </p>
+              <p> User ID: 12345 </p>
               <p> User Name: John-Doe123 </p>
               <p> First Name: John </p>
               <p> Last Name: Doe </p>
