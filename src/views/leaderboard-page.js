@@ -1,10 +1,11 @@
 import { PageTemplate } from "../templates/PageTemplate"
 import React from "react"
+import CreateTournamentForm from "../components/leaderboard/TournamentForm"
 
 const LeaderboardPage = () => (
   <PageTemplate>
     <div>
-      <h1> Leaderboard Table</h1>
+      <CreateTournamentForm/>
     </div>
   </PageTemplate>
 )
