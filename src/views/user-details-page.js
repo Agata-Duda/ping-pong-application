@@ -1,17 +1,25 @@
-import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
-import { PageTemplate } from "../templates/PageTemplate"
 import React from "react"
+import { useContext } from "react"
+import { AppContext } from "../context/appContext"
+
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
+
+import { PageTemplate } from "../templates/PageTemplate"
+
 
 const UserAccount = () => {
+  const [user] = useContext(AppContext);
+
   return (
     <PageTemplate>
+      {/* TODO mui Box */}
       <div className="userAccount">
         <div className="UserDetailsContainer">
           <h4> User Details</h4>
           <div className="UserDetailsContainer4">
             <AccountCircleOutlinedIcon id="UserIconUserPage"/>
             <div className="UserDetailsContainer1">
-              <p> User ID: 12345678 </p>
+              <p> User ID: 12345 </p>
               <p> User Name: John-Doe123 </p>
               <p> First Name: John </p>
               <p> Last Name: Doe </p>
@@ -32,6 +40,7 @@ const UserAccount = () => {
           <p> Total Games: </p>
         </div>
         <div className="UserUpdateButtonsContainer">
+          {/* TODO mui buttons */}
           <button> Change Password </button>
           <button> Update Details </button>
           <button> Delete Account </button>

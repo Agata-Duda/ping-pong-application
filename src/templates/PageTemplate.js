@@ -1,9 +1,10 @@
-import { Header } from "../components/shared/Header"
-import { Box } from "@mui/material"
-import React from "react"
 import PropTypes from "prop-types"
-import ResponsiveAppBar from "../components/shared/ResponsiveAppBar"
+import React from "react"
+import { Box } from "@mui/material"
 
+import { Header } from "../components/shared/Header"
+import ResponsiveAppBar from "../components/shared/ResponsiveAppBar"
+// style like this
 const styles = {
   "box": {
     "marginTop": "158px"
@@ -17,6 +18,7 @@ export const PageTemplate = ({ children }) => (
     {children}
   </Box>
 )
+
 PageTemplate.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 }

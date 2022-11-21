@@ -1,14 +1,18 @@
 import axios from "axios";
 
-// export const Reservation_URL = "http://localhost:8120/reservations";
 export const GetAllReservations_URL = "http://localhost:8120/reservations";
 export const Reservation_URL = "http://localhost:8120/reservations";
 export const BASE_URL = "http://localhost:8000/bookings";
 export const GET_ALL_USERS = "http://localhost:8110/users";
 export const Tournament_URL = "http://localhost:8130/tournament";
+export const GetUserByUsername_URL = "http://localhost:8110/users/filter/";
+export const GetAllJobTitles_URL = "http://localhost:8110/users/jobTitles/";
+export const GET_ALL_TOURNAMENTS_URL = "http://localhost:8130/tournament/"
+
+// TODO: util is bigger - you can separete it to more files: routes, api methods, etc.
 
 export const routes = {
-  loginpage: "/login-page",
+  loginPage: "/login-page",
   home: "/",
   register: "/registerp",
   userDetailsPage: "/user-details-page",
@@ -42,11 +46,7 @@ export const getAllUsers = async () => {
 
 export const postBooking = async (booking) => {
   //await axios.post(`${BASE_URL}`, booking)
-  await axios.post(`${Reservation_URL}`, booking);
-};
-
-export const postDateTime = async (id, eventStart, eventEnd) => {
-  await axios.post(`${Reservation_URL}`, { id, eventStart, eventEnd });
+  return await axios.post(`${Reservation_URL}`, booking);
 };
 
 export const getAllReservations = async () => {
@@ -75,3 +75,8 @@ export const deleteReservationById = async (id) => {
 export const postTournament = async (tournament) => {
   await axios.post(`${Tournament_URL}/`, tournament)
 }
+
+export const getAllTournaments = async () => {
+  await axios.get(`${GET_ALL_TOURNAMENTS_URL}`);
+}
+
