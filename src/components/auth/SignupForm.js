@@ -1,10 +1,10 @@
-import React from "react"
+import React, { useEffect, useState } from "react"
 import Collapsible from "react-collapsible"
 import { useForm } from "react-hook-form"
-import { useEffect, useState } from "react"
 import { GetAllJobTitles_URL, getAllUsers, GET_ALL_USERS } from "../util/util"
 import axios from "axios"
 import Select from "react-select"
+//TO-DO: add form error handling 
 
 const SignupForm = () => {
   const { register, handleSubmit, watch, "formState": { errors } } = useForm()
@@ -12,14 +12,13 @@ const SignupForm = () => {
   const [selectedJobTitle, setSelectedJobTitle] = useState(null);
   const [signUpError, setSignUpError] = useState(true);
 
-
   useEffect(() => {
     const fetchJobTitles = async () => {
       await axios.get(`${GetAllJobTitles_URL}`).then((response) => {
         const mappedJobTitles = response.data.response?.map((d) => {
           return({
             label: d.title,
-            value: d.job_id})
+            value: d.job_id })
           });
         setJobTitles(mappedJobTitles);
       }
@@ -83,7 +82,8 @@ const SignupForm = () => {
           </div>
         </form>
       </div>
-      {!signUpError && <div>Successfully Signed Up</div>}
+      //toast here instead of div
+      {!signUpError && <div>Successfully Signed Up</div> }
     </Collapsible>
   )
 }
