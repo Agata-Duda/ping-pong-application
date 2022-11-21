@@ -1,15 +1,13 @@
 // TODO import React from 'react';
 // TODO imports order
-import * as React from "react"
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 import Select from "react-select"
 import { useForm } from "react-hook-form"
 import { v4 } from "uuid"
 import { GET_ALL_TOURNAMENTS_URL, GET_ALL_USERS, postBooking } from "../util/util"
-import { useState, useEffect } from "react"
-import axios from "axios"
-// import toast from "react-hot-toast"
-// TODO: Form, or AddBookingForm?
-export default function Form ({ timeDate, closeDrawer }) {
+//Add toast to on submit form and add validation to form from example at end of file 
+export default function CreateReservationForm ({ timeDate, closeDrawer }) {
   const [ userNames, setUserName ] = useState([]);
   const [ tournaments, setTournaments ] = useState([]);
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -17,9 +15,6 @@ export default function Form ({ timeDate, closeDrawer }) {
   const [ selectedPlayerTwo, setSelectedPlayerTwo ] = useState(null)
   const [ selectedTournament, setSelectedTournament ] = useState(null)
   const [ selectedSets, setSelectedSets ] = useState(null)
-  // TODO Why id here? use only when you call function postBookings
-  const id = v4()
-
   const setsOptions = [
     { value: "1", label: "1"},
     { value: "3", label: "3"},
@@ -58,8 +53,7 @@ export default function Form ({ timeDate, closeDrawer }) {
 
   const onSubmitReservation = () => {
       postBooking({
-        // booking_id:  v4()
-        booking_id: id,
+        booking_id:  v4(),
         player_1: selectedPlayerOne.value,
         player_2: selectedPlayerTwo.value,
         sets: parseInt(selectedSets.value),

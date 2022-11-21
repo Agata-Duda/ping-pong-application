@@ -1,6 +1,6 @@
+import React from "react"
+
 import { PageTemplate } from "../templates/PageTemplate"
-// TODO wrong import, use import React from "react"
-import * as React from "react"
 import { OpponentCard } from "../components/home/OpponentCard"
 
 const MatchPage = () => (

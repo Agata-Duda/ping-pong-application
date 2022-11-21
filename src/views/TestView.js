@@ -6,10 +6,7 @@ import bookingCardImage from "../Images/bookingCardImage.png"
 import predictionCardImage from "../Images/predictionCardImage.png"
 import { routes } from "../components/util/util"
 import React from "react"
-
-// TODO use implicit return here
-export const TestView = () => {
-  return (
+export const TestView = () => (
     <PageTemplate>
       <Stack direction="row" m={3}>
         <OptionCardLarge
@@ -34,4 +31,3 @@ export const TestView = () => {
       </Stack>
     </PageTemplate>
   )
-}

@@ -1,6 +1,5 @@
 import axios from "axios";
 
-// export const Reservation_URL = "http://localhost:8120/reservations";
 export const GetAllReservations_URL = "http://localhost:8120/reservations";
 export const Reservation_URL = "http://localhost:8120/reservations";
 export const BASE_URL = "http://localhost:8000/bookings";
