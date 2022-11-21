@@ -18,5 +18,5 @@ export const PageTemplate = ({ children }) => (
   </Box>
 )
 PageTemplate.propTypes = {
-  children: PropTypes.array
+  children: PropTypes.object
 }

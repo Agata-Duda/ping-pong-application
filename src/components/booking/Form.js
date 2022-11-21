@@ -5,11 +5,12 @@ import { v4 } from "uuid"
 import { GET_ALL_TOURNAMENTS_URL, GET_ALL_USERS, postBooking } from "../util/util"
 import { useState, useEffect } from "react"
 import axios from "axios"
+// import toast from "react-hot-toast"
 
 export default function Form ({ timeDate, closeDrawer }) {
   const [ userNames, setUserName ] = useState([]);
   const [ tournaments, setTournaments ] = useState([]);
-  const { register, handleSubmit,                 reset } = useForm()
+  const { register, handleSubmit, formState: { errors } } = useForm()
   const [ selectedPlayerOne, setSelectedPlayerOne ] = useState(null)
   const [ selectedPlayerTwo, setSelectedPlayerTwo ] = useState(null)
   const [ selectedTournament, setSelectedTournament ] = useState(null)
@@ -34,7 +35,6 @@ export default function Form ({ timeDate, closeDrawer }) {
       }
       );
     };
-    
     fetchUsers()
   }, []);
 
@@ -50,47 +50,57 @@ export default function Form ({ timeDate, closeDrawer }) {
       }
       );
     };
-    
     fetchUsers()
   }, []);
 
   const onSubmitReservation = () => {
-    postBooking(
-      {
-      booking_id: id,
-      player_1: selectedPlayerOne.value,
-      player_2: selectedPlayerTwo.value,
-      sets: parseInt(selectedSets.value),
-      event_start: timeDate.start,
-      event_finish: timeDate.end, 
-      player_1_score: null, 
-      player_2_score: null, 
-      tournament_id: selectedTournament.value})
-    }
-  
-    const onError = (errors, e) => console.log(errors, e);
+      postBooking({ 
+        booking_id: id,
+        player_1: selectedPlayerOne.value,
+        player_2: selectedPlayerTwo.value,
+        sets: parseInt(selectedSets.value),
+        event_start: timeDate.start,
+        event_finish: timeDate.end, 
+        player_1_score: null, 
+        player_2_score: null, 
+        tournament_id: selectedTournament.value
+      })
+        closeDrawer()
+      }
+
   return (
     <>    
-    <form onSubmit={handleSubmit(onSubmitReservation, onError)} >
+    <form onSubmit={handleSubmit(onSubmitReservation)}>
       <label> Start Time : </label>
       <label {...register("event_start")}> {new Date(timeDate.start).toString()}</label> <br/>
       <label> End Time : </label>
       <label {...register("event_finish")}> {new Date(timeDate.end).toString()}</label> <br/>
+
       <label> Select Player One </label>
-      <Select {...register("player_1")} options={userNames} onChange={setSelectedPlayerOne} defaultValue={selectedPlayerOne} placeholder="Select Player one" />
+      <Select {...register("player_1", {required : true})}
+      aria-invalid={errors.player_1 ? "true" : "false"} options={userNames} onChange={setSelectedPlayerOne} defaultValue={selectedPlayerOne} placeholder="Select Player one" /> 
+      {errors.player_1?.type === 'required' && <p role="alert">Player One is required</p>}
        <br/>
+
       <label> Select Player Two </label>
-      <Select {...register("player_2")} options={userNames} onChange={setSelectedPlayerTwo} defaultValue={selectedPlayerTwo} placeholder="Select Player Two" />
+      <Select {...register("player_2", {required : true})} options={userNames} onChange={setSelectedPlayerTwo} defaultValue={selectedPlayerTwo} placeholder="Select Player Two" 
+      aria-invalid={errors.player_2 ? "true" : "false"} />
+      {errors.player_1?.type === 'required' && <p role="alert">Player Two is required</p>}
         <br/>
+
       <label> Select Tournament </label>
-      <Select {...register("tournament_name")} options={tournaments} onChange={setSelectedTournament} defaultValue={selectedTournament} placeholder="Select Tournament"/>
+      <Select {...register("tournament_name",{required : true})} options={tournaments} onChange={setSelectedTournament} defaultValue={selectedTournament} placeholder="Select Tournament"
+      aria-invalid={errors.tournament_name ? "true" : "false"} />
+      {errors.tournament_name?.type === 'required' && <p role="alert">Tournament name is required</p>}
       <br/>
+      
       <label> Select Set Number </label>
-      <Select {...register("sets")} options={setsOptions} onChange={setSelectedSets} defaultValue={selectedTournament} placeholder="Select Sets"/>
+      <Select {...register("sets", {required : true})} options={setsOptions} onChange={setSelectedSets} defaultValue={selectedTournament} placeholder="Select Sets"
+      aria-invalid={errors.sets ? "true" : "false"} />
+      {errors.sets?.type === 'required' && <p role="alert">Sets is required</p>}
       <br/>
-      <button type="submit"> Submit</button>
-    </form>  
-    <button onClick={closeDrawer}> Close </button>
+      <button type="submit"> Submit </button>
+    </form>
     </>
   )
 }
