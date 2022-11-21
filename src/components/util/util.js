@@ -1,15 +1,16 @@
 import axios from "axios";
 
-// export const Reservation_URL = "http://localhost:8120/reservations";
 export const GetAllReservations_URL = "http://localhost:8120/reservations";
 export const Reservation_URL = "http://localhost:8120/reservations";
 export const BASE_URL = "http://localhost:8000/bookings";
 export const GET_ALL_USERS = "http://localhost:8110/users";
+export const GetUserByUsername_URL = "http://localhost:8110/users/filter/";
+export const GetAllJobTitles_URL = "http://localhost:8110/users/jobTitles/";
 export const GET_ALL_TOURNAMENTS_URL = "http://localhost:8130/tournament/"
 
 export const routes = {
-  loginpage: "/login-page",
-  home: "/",
+  loginpage: "/",
+  home: "/home",
   register: "/registerp",
   userDetailsPage: "/user-details-page",
   reservationsPage: "/reservation-page",

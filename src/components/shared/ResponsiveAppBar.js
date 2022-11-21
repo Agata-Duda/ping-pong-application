@@ -48,7 +48,7 @@ const pages =
 const settings = ["Account", "Logout"]
 
 const ResponsiveAppBar = () => {
-  const { username } = useContext(AppContext)
+  const [ user, setUser ] = useContext(AppContext)
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
@@ -66,6 +66,8 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null)
   }
+
+  console.log(user);
 
   return (
     <AppBar position="static" sx={styles.navbar}>
@@ -86,7 +88,7 @@ const ResponsiveAppBar = () => {
               "textDecoration": "none"
             }}
           >
-            { username }
+            { user.userName }
           </Typography>
 
           <Box sx={{ "flexGrow": 1, "display": { "xs": "flex", "md": "none" } }}>
@@ -142,7 +144,7 @@ const ResponsiveAppBar = () => {
               "textDecoration": "none"
             }}
           >
-            { username }
+            { user.userName }
           </Typography>
           <Box sx={{ "flexGrow": 1, "display": { "xs": "none", "md": "flex" } }}>
             {pages.map(({ title, path }) => (
