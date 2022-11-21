@@ -1,10 +1,9 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import Collapsible from "react-collapsible";
 import { useForm } from "react-hook-form";
 import { AppContext } from "../../context/appContext";
-import { useContext, useState } from "react";
 import axios from "axios";
-import { GetUserByUsername_URL } from "../util/util";
+import { GetUserByUsername_URL, routes } from "../util/util";
 import { Redirect } from "react-router-dom";
 
 const LoginForm = () => {
@@ -27,27 +26,21 @@ const LoginForm = () => {
   };
 
   const onSubmit = (data) => {
-
     GetUser(data.Username);
   };
 
   useEffect (
     () => {
-
       console.log(user);
       if (watch().Username !== user.userName) {
         setLoginError(true);
       }
-
       else if(watch().Password !== user.password) {
-
           setLoginError(true);
         }
-
       else {
         setLoginError(false);
       }
-  
       console.log(loginError);
     },[watch()]
   )
@@ -79,7 +72,7 @@ const LoginForm = () => {
           </div>
         </form>
       </div>
-      {!loginError && <Redirect to={"/home"} />}
+      {!loginError && <Redirect to={routes.home} />}
     </Collapsible>
   );
 };
