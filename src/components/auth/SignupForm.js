@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react"
 import Collapsible from "react-collapsible"
 import { useForm } from "react-hook-form"
-import { GetAllJobTitles_URL, getAllUsers, GET_ALL_USERS } from "../util/util"
 import axios from "axios"
 import Select from "react-select"
+
+import { GetAllJobTitles_URL, getAllUsers, GET_ALL_USERS } from "../util/util"
+
+// TODO: mui, and no console.log
 //TO-DO: add form error handling 
 
 const SignupForm = () => {

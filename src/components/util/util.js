@@ -7,10 +7,10 @@ export const GET_ALL_USERS = "http://localhost:8110/users";
 export const GetUserByUsername_URL = "http://localhost:8110/users/filter/";
 export const GetAllJobTitles_URL = "http://localhost:8110/users/jobTitles/";
 export const GET_ALL_TOURNAMENTS_URL = "http://localhost:8130/tournament/"
-
+// TODO: util is bigger - you can separete it to more files: routes, api methods, etc.
 export const routes = {
-  loginpage: "/",
-  home: "/home",
+  loginPage: "/login-page",
+  home: "/",
   register: "/registerp",
   userDetailsPage: "/user-details-page",
   reservationsPage: "/reservation-page",

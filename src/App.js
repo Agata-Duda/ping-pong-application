@@ -1,7 +1,15 @@
 // TODO from me - App.css and index.css needs to be within one file and one file to be used throughout whole app
+
+// TODO If you need css files, try to keep it close to components. But - you have MUI in project, try to use mui props.
+
+// TODO next tip: Try to use order for imports: as first external libraries, one line break then your own files. It's easier to read.
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
+import React, { useState} from "react"
+import { Toaster } from "react-hot-toast"
+
 import Home from "./views/Home"
-import loginpage from "./views/login-page"
+// TODO My recommendation: Names for file should be LoginPage.js, not login-page.js.
+import LoginPage from './views/login-page';
 import UserAccount from "./views/user-details-page"
 import ReservationsPage from "./views/reservation-page"
 import PredictionPage from "./views/prediction-page"
@@ -9,10 +17,8 @@ import LeaderboardPage from "./views/leaderboard-page"
 import Match from "./views/match-page"
 import { routes } from "./components/util/util"
 import { TestView } from "./views/TestView"
-import React from "react"
-import { Toaster } from "react-hot-toast"
 import { AppContext } from "./context/appContext"
-import { useState } from "react"
+
 
 // TODO General comment: you can use React-Query to fetch data from the backend
 // TODO General comment: Usused libraries, list below. Consider removing them

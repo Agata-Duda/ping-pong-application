@@ -1,13 +1,13 @@
-import * as React from "react"
+// TODO import React from 'react';
+// TODO imports order
+import React, { useState, useEffect } from "react"
+import axios from "axios"
 import Select from "react-select"
 import { useForm } from "react-hook-form"
 import { v4 } from "uuid"
 import { GET_ALL_TOURNAMENTS_URL, GET_ALL_USERS, postBooking } from "../util/util"
-import { useState, useEffect } from "react"
-import axios from "axios"
-// import toast from "react-hot-toast"
-
-export default function Form ({ timeDate, closeDrawer }) {
+//Add toast to on submit form and add validation to form from example at end of file 
+export default function CreateReservationForm ({ timeDate, closeDrawer }) {
   const [ userNames, setUserName ] = useState([]);
   const [ tournaments, setTournaments ] = useState([]);
   const { register, handleSubmit, formState: { errors } } = useForm()
@@ -15,8 +15,6 @@ export default function Form ({ timeDate, closeDrawer }) {
   const [ selectedPlayerTwo, setSelectedPlayerTwo ] = useState(null)
   const [ selectedTournament, setSelectedTournament ] = useState(null)
   const [ selectedSets, setSelectedSets ] = useState(null)
-  const id = v4()
-
   const setsOptions = [
     { value: "1", label: "1"},
     { value: "3", label: "3"},
@@ -54,22 +52,23 @@ export default function Form ({ timeDate, closeDrawer }) {
   }, []);
 
   const onSubmitReservation = () => {
-      postBooking({ 
-        booking_id: id,
+      postBooking({
+        booking_id:  v4(),
         player_1: selectedPlayerOne.value,
         player_2: selectedPlayerTwo.value,
         sets: parseInt(selectedSets.value),
         event_start: timeDate.start,
-        event_finish: timeDate.end, 
-        player_1_score: null, 
-        player_2_score: null, 
+        event_finish: timeDate.end,
+        player_1_score: null,
+        player_2_score: null,
         tournament_id: selectedTournament.value
       })
         closeDrawer()
+      //TODO: add toast
       }
 
   return (
-    <>    
+    <>
     <form onSubmit={handleSubmit(onSubmitReservation)}>
       <label> Start Time : </label>
       <label {...register("event_start")}> {new Date(timeDate.start).toString()}</label> <br/>
@@ -78,22 +77,23 @@ export default function Form ({ timeDate, closeDrawer }) {
 
       <label> Select Player One </label>
       <Select {...register("player_1", {required : true})}
-      aria-invalid={errors.player_1 ? "true" : "false"} options={userNames} onChange={setSelectedPlayerOne} defaultValue={selectedPlayerOne} placeholder="Select Player one" /> 
+      aria-invalid={errors.player_1 ? "true" : "false"} options={userNames} onChange={setSelectedPlayerOne} defaultValue={selectedPlayerOne} placeholder="Select Player one" />
       {errors.player_1?.type === 'required' && <p role="alert">Player One is required</p>}
        <br/>
 
       <label> Select Player Two </label>
-      <Select {...register("player_2", {required : true})} options={userNames} onChange={setSelectedPlayerTwo} defaultValue={selectedPlayerTwo} placeholder="Select Player Two" 
+      <Select {...register("player_2", {required : true})} options={userNames} onChange={setSelectedPlayerTwo} defaultValue={selectedPlayerTwo} placeholder="Select Player Two"
       aria-invalid={errors.player_2 ? "true" : "false"} />
       {errors.player_1?.type === 'required' && <p role="alert">Player Two is required</p>}
         <br/>
 
       <label> Select Tournament </label>
+      {/* TODO Tip: at the end of this file you can find useful validation, you can use it*/}
       <Select {...register("tournament_name",{required : true})} options={tournaments} onChange={setSelectedTournament} defaultValue={selectedTournament} placeholder="Select Tournament"
       aria-invalid={errors.tournament_name ? "true" : "false"} />
       {errors.tournament_name?.type === 'required' && <p role="alert">Tournament name is required</p>}
       <br/>
-      
+
       <label> Select Set Number </label>
       <Select {...register("sets", {required : true})} options={setsOptions} onChange={setSelectedSets} defaultValue={selectedTournament} placeholder="Select Sets"
       aria-invalid={errors.sets ? "true" : "false"} />
@@ -104,3 +104,17 @@ export default function Form ({ timeDate, closeDrawer }) {
     </>
   )
 }
+
+
+//TODO Validation:
+// {...register("tournament_name", {
+//   required: "Tournament name is required",
+//   minLength: {
+//     value: 5,
+//     message: "Comment must be at least 5 characters",
+//   },
+//   maxLength: {
+//     value: 50,
+//     message: "Comment must be under 50 characters",
+//   },
+// })}

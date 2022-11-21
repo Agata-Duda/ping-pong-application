@@ -88,7 +88,7 @@ a{
   width: 160px;
   margin-right: 10px;
 }
-/* 
+/*
 Commented because Button was overriding navbar button styles
 
 Button{
@@ -109,7 +109,7 @@ Button:hover{
 
 } */
 .dateTime{
-
+  /* TODO very big padding*/
   padding-bottom: 220px;
 }
 

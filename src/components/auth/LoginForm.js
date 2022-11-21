@@ -1,10 +1,13 @@
-import React, { useEffect, useContext, useState } from "react";
-import Collapsible from "react-collapsible";
-import { useForm } from "react-hook-form";
-import { AppContext } from "../../context/appContext";
-import axios from "axios";
-import { GetUserByUsername_URL, routes } from "../util/util";
+import React, { useEffect, useContext, useState }  from "react"
+import Collapsible from "react-collapsible"
+import { useForm } from "react-hook-form"
 import { Redirect } from "react-router-dom";
+import axios from "axios";
+
+// TODO: mui, and no console.log
+import { AppContext } from "../../context/appContext";
+import { GetUserByUsername_URL, routes } from "../util/util";
+
 
 const LoginForm = () => {
   const {

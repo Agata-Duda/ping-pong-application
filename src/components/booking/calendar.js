@@ -28,6 +28,12 @@ const CalendarBooking = () => {
   const handleSelectEvent = () => {
 
   };
+  //TODO I know, work in progress, but for handle errors try to use one approach:
+    // 1. use try catch block if you are using async await
+    // 2. use .then() and .catch() if you are using promises
+  //   3. use .catch() if you are using callbacks
+  //   consider react-query
+
 
   useEffect(() => {
     const fetchBookings = async () => {
@@ -76,6 +82,7 @@ const CalendarBooking = () => {
           },
         }}
       >
+        {/*  TODO mui*/}
         <h2> Create A Reservation </h2>
         <Form timeDate={timeDate} closeDrawer={closeDrawer} />
       </Drawer>

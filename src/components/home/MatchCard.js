@@ -6,6 +6,7 @@ import { Link } from "react-router-dom"
 import React from "react"
 import PropTypes from "prop-types"
 
+// TODO Try to use objects here
 const styles = {
   "card": {
     "float": "left",
@@ -24,7 +25,7 @@ const styles = {
     "background": "#F2E0E0"
   }
 }
-
+// TODO very good component, good name, good props, good styles. Good job!
 export const OptionCardLarge = ({ image, title, path }) => (
   <Card component={Link} to={path} sx={styles.card}>
     <CardMedia
@@ -45,5 +46,4 @@ OptionCardLarge.propTypes = {
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired
-
 }

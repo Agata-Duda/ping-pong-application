@@ -1,20 +1,24 @@
+ /*TODO useless class*/
 .App {
   text-align: center;
   background-color: #00193A;
 }
 
 
+ /*TODO useless class*/
 
 .App-logo {
   height: 50vmin;
   pointer-events: none;
 }
+ /*TODO useless class*/
 
 @media (prefers-reduced-motion: no-preference) {
   /* .App-logo {
     animation: App-logo-spin infinite 20s linear;
   } */
 }
+ /*TODO useless class*/
 
 .App-header {
   background-color: #00193A;
@@ -74,7 +78,7 @@
   height: .7cm;
   text-align: center;
   margin-top: .4cm;
-  
+
 }
 
 .App-link {
