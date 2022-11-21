@@ -5,7 +5,7 @@ import CreateTournamentForm from "../components/leaderboard/TournamentForm"
 const LeaderboardPage = () => (
   <PageTemplate>
     <div>
-      <CreateTournamentForm></CreateTournamentForm>
+      <CreateTournamentForm/>
     </div>
   </PageTemplate>
 )

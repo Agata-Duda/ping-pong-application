@@ -1,20 +1,20 @@
 import React from "react"
-import { v4 } from "uuid"
 import Collapsible from "react-collapsible"
-import { postTournament } from "../util/util"
 import { useForm } from "react-hook-form"
+import { v4 } from "uuid"
 
-const CreateTournamentForm = () =>{
+import { postTournament } from "../util/util"
+
+//reordered imports 
+const CreateTournamentForm = () => {
     const { register, handleSubmit, reset} = useForm()
     const current = new Date()
     console.log(current)
-    const id = v4()
-
 
     const onSubmitTournament = (tournament) => {
         postTournament(
             {
-                tournamentId: id,
+                tournamentId: v4(),
                 tournamentName: tournament.tournament_name,
                 tournamentType: tournament.tournamentType,
                 createdOn: current,
@@ -24,6 +24,9 @@ const CreateTournamentForm = () =>{
         reset()
     }
     return(
+        //TODO: mui box here instead of div 
+        //TODO: change style later 
+        //do we need ids on inputs and divs? 
          <Collapsible trigger={<b>Create Tournament</b>} triggerWhenOpen={<b>Create</b>}>
             <div id="formCreateTournament" className="TournamentForm">
                 <form onSubmit={handleSubmit(onSubmitTournament)}>
@@ -31,6 +34,7 @@ const CreateTournamentForm = () =>{
                 <br/>
                 <label> Select Tournament Type </label>
                 <select {...register("tournamentType")}>
+                    //use react select here 
                     <option value="Knock Out"> Knock Out</option>
                     <option value="Practice"> Practice </option>
                     <option value="League"> League</option>
@@ -47,5 +51,4 @@ const CreateTournamentForm = () =>{
          </Collapsible>
     )
 }
-
 export default CreateTournamentForm
