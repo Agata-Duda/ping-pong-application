@@ -6,9 +6,9 @@ export const Reservation_URL = "http://localhost:8120/reservations";
 export const BASE_URL = "http://localhost:8000/bookings";
 export const GET_ALL_USERS = "http://localhost:8110/users";
 export const GET_ALL_TOURNAMENTS_URL = "http://localhost:8130/tournament/"
-
+// TODO: util is bigger - you can separete it to more files: routes, api methods, etc.
 export const routes = {
-  loginpage: "/login-page",
+  loginPage: "/login-page",
   home: "/",
   register: "/registerp",
   userDetailsPage: "/user-details-page",

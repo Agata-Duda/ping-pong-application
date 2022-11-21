@@ -1,3 +1,4 @@
+// TODO import React from 'react';
 import * as React from "react"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
@@ -14,7 +15,8 @@ const bull = (
     •
   </Box>
 )
-
+// TODO Very good descriptive names for coponent, only mui elements, great!
+// TODO use implicit return
 export default function ReservationDetailsCard () {
   return (
     <Card sx={{ minWidth: 275 }}>

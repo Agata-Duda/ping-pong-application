@@ -7,6 +7,7 @@ import predictionCardImage from "../Images/predictionCardImage.png"
 import { routes } from "../components/util/util"
 import React from "react"
 
+// TODO use implicit return here
 export const TestView = () => {
   return (
     <PageTemplate>
@@ -15,6 +16,7 @@ export const TestView = () => {
           image={bookingCardImage}
           title="Booking"
           description="Book a 15 minute Ping Pong Slot"
+           // TODO check urls
           path={routes.bookingPage}
         />
         <OptionCardLarge

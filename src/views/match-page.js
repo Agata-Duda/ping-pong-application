@@ -1,9 +1,11 @@
 import { PageTemplate } from "../templates/PageTemplate"
+// TODO wrong import, use import React from "react"
 import * as React from "react"
 import { OpponentCard } from "../components/home/OpponentCard"
 
 const MatchPage = () => (
     <PageTemplate>
+   {/*  TODO try to use one style - below is inline CSS*/}
    <h3 style={ { textAlign: "center" } }> Live Match </h3>
     <OpponentCard
         player1Avatar="Avatar1"

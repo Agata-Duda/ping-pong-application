@@ -4,6 +4,7 @@ import CalendarBooking from "../components/booking/calendar"
 
 const ReservationsPage = () => (
   <PageTemplate>
+    {/* TODO BOX */}
     <div className="dateTime">
       <CalendarBooking/>
     </div>

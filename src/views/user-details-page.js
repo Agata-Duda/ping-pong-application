@@ -5,6 +5,7 @@ import React from "react"
 const UserAccount = () => {
   return (
     <PageTemplate>
+      {/* TODO mui Box */}
       <div className="userAccount">
         <div className="UserDetailsContainer">
           <h4> User Details</h4>
@@ -32,6 +33,7 @@ const UserAccount = () => {
           <p> Total Games: </p>
         </div>
         <div className="UserUpdateButtonsContainer">
+          {/* TODO mui buttons */}
           <button> Change Password </button>
           <button> Update Details </button>
           <button> Delete Account </button>
