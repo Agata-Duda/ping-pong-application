@@ -29,7 +29,6 @@ const LoginForm = () => {
   const onSubmit = (data) => {
 
     GetUser(data.Username);
-    
   };
 
   useEffect (
