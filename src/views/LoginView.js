@@ -5,8 +5,7 @@ import logo from "../Images/zinkworks-ping-pong-logo.png"
 import "../App.css"
 import SignupForm from "../components/auth/SignupForm"
 
-// TODO use one style for all pages. Components with capital letter
-const LoginPage = () => (
+const LoginView = () => (
   //   TODO use mui element
   <div className="App">
     <header className="App-header">
@@ -17,4 +16,4 @@ const LoginPage = () => (
   </div>
 )
 
-export default LoginPage
+export default LoginView

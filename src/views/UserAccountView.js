@@ -1,13 +1,11 @@
-import React from "react"
-import { useContext } from "react"
-import { AppContext } from "../context/appContext"
+import React, { useContext } from "react"
 
 import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
 
 import { PageTemplate } from "../templates/PageTemplate"
+import { AppContext } from "../context/appContext"
 
-
-const UserAccountPage = () => {
+const UserAccountView = () => {
   const [user] = useContext(AppContext);
 
   return (
@@ -49,4 +47,4 @@ const UserAccountPage = () => {
     </PageTemplate>
   )
 }
-export default UserAccountPage
+export default UserAccountView

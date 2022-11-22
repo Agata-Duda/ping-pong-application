@@ -1,5 +1,6 @@
-import * as React from "react"
-import { useContext } from "react"
+import React, { useContext } from "react"
+import { Link } from "react-router-dom"
+
 import AppBar from "@mui/material/AppBar"
 import Box from "@mui/material/Box"
 import Toolbar from "@mui/material/Toolbar"
@@ -12,9 +13,10 @@ import Avatar from "@mui/material/Avatar"
 import Button from "@mui/material/Button"
 import Tooltip from "@mui/material/Tooltip"
 import MenuItem from "@mui/material/MenuItem"
+
 import { AppContext } from "../../context/appContext"
-import { routes } from "../util/util"
-import { Link } from "react-router-dom"
+import { routes } from "../util/routes"
+
 
 const styles = {
   "navbar": {
@@ -30,19 +32,19 @@ const pages =
   },
   {
     title: "Reservations",
-    path: routes.reservationsPage
+    path: routes.reservationsView
   },
   {
     title: "Leaderboard",
-    path: routes.leaderboardPage
+    path: routes.leaderboardView
   },
   {
     title: "Prediction",
-    path: routes.predictionPage
+    path: routes.predictionView
   },
   {
     title: "Match",
-    path: routes.matchPage
+    path: routes.matchView
   }
 ]
 const settings = ["Account", "Logout"]

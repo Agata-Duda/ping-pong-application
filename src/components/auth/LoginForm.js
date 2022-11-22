@@ -5,7 +5,7 @@ import { Redirect } from "react-router-dom";
 import axios from "axios";
 
 import { AppContext } from "../../context/appContext";
-import { GetUserByUsername_URL } from "../util/util";
+import { GetUserByUsername_URL } from "../util/ApiMethods";
 
 const LoginForm = () => {
   const {

@@ -3,7 +3,7 @@ import React from "react"
 import { PageTemplate } from "../templates/PageTemplate"
 import { OpponentCard } from "../components/home/OpponentCard"
 
-const MatchPage = () => (
+const MatchView = () => (
     <PageTemplate>
    {/*  TODO try to use one style - below is inline CSS*/}
    <h3 style={ { textAlign: "center" } }> Live Match </h3>
@@ -16,4 +16,4 @@ const MatchPage = () => (
         matchStartTime="12:15"/>
     </PageTemplate>
   )
-export default MatchPage
+export default MatchView

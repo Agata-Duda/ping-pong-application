@@ -1,12 +1,11 @@
-import React from 'react';
-
+import * as React from "react"
 import Box from "@mui/material/Box"
 import Card from "@mui/material/Card"
 import CardActions from "@mui/material/CardActions"
 import CardContent from "@mui/material/CardContent"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
-
+//file will be in use to display reservations on the 
 const bull = (
   <Box
     component="span"
@@ -15,9 +14,9 @@ const bull = (
     •
   </Box>
 )
-// TODO Very good descriptive names for coponent, only mui elements, great!
-// TODO use implicit return
- const ReservationDetailsCard = () => (
+
+export default function ReservationDetailsCard () {
+  return (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>
         <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -40,4 +39,4 @@ const bull = (
       </CardActions>
     </Card>
   )
-export default ReservationDetailsCard;
+}

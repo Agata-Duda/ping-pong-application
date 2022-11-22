@@ -1,7 +1,8 @@
 import React from "react"
+
 import { Stack } from "@mui/material"
 
-import { routes } from "../components/util/util"
+import { routes } from "../components/util/routes"
 import { OptionCardLarge } from "../components/home/OptionCardLarge"
 import { PageTemplate } from "../templates/PageTemplate"
 import { OptionCardSmall } from "../components/home/OptionCardSmall"

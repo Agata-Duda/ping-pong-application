@@ -3,7 +3,7 @@ import Collapsible from "react-collapsible"
 import { useForm } from "react-hook-form"
 import { v4 } from "uuid"
 
-import { postTournament } from "../util/util"
+import { postTournament } from "../util/ApiMethods"
 
 //reordered imports 
 const CreateTournamentForm = () => {

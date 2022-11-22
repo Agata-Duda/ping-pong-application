@@ -1,15 +1,18 @@
 import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
-import moment from "moment";
 import "react-big-calendar/lib/css/react-big-calendar.css";
+import moment from "moment";
 import axios from "axios";
-import Form from "./Form";
+
 import Drawer from "@mui/material/Drawer";
-import { GetAllReservations_URL } from "../util/util";
+
+import Form from "./CreateReservationForm";
+import { GetAllReservations_URL } from "../util/ApiMethods";
+
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
-const CalendarBooking = () => {
+const ReservationCalendar = () => {
 
   const [bookings, setBookings] = useState();
   const [open, setOpen] = useState();
@@ -49,7 +52,6 @@ const CalendarBooking = () => {
       );
     };
     fetchBookings();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
@@ -89,4 +91,4 @@ const CalendarBooking = () => {
     </div>
   );
 };
-export default CalendarBooking;
+export default ReservationCalendar;

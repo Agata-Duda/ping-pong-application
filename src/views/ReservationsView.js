@@ -1,15 +1,15 @@
 import React from "react"
 
 import { PageTemplate } from "../templates/PageTemplate"
-import CalendarBooking from "../components/booking/calendar"
+import ReservationCalendar from "../components/reservation/ReservationCalendar"
 
-const ReservationsPage = () => (
+const ReservationsView = () => (
   <PageTemplate>
     {/* TODO BOX */}
     <div className="dateTime">
-      <CalendarBooking/>
+      <ReservationCalendar/>
     </div>
   </PageTemplate>
 
 )
-export default ReservationsPage
+export default ReservationsView

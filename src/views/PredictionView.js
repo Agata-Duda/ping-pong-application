@@ -1,7 +1,9 @@
-import { PageTemplate } from "../templates/PageTemplate"
 import React from "react"
+
+import { PageTemplate } from "../templates/PageTemplate"
+
 // TODO mui
-const PredictionPage = () => (
+const PredictionView = () => (
   <PageTemplate>
     <div>
       <h1> Prediction Service</h1>
@@ -9,4 +11,4 @@ const PredictionPage = () => (
   </PageTemplate>
 )
 
-export default PredictionPage
+export default PredictionView

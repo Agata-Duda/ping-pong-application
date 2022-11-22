@@ -1,12 +1,12 @@
 import React from "react"
 
 import { PageTemplate } from "../templates/PageTemplate"
-import CreateTournamentForm from "../components/leaderboard/TournamentForm"
+import CreateTournamentForm from "../components/leaderboard/CreateTournamentForm"
 
-const LeaderboardPage = () => (
+const LeaderboardView = () => (
   <PageTemplate>
       <CreateTournamentForm/>
   </PageTemplate>
 )
 
-export default LeaderboardPage
+export default LeaderboardView

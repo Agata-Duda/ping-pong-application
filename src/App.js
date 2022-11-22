@@ -9,13 +9,13 @@ import { Toaster } from "react-hot-toast"
 
 import Home from "./views/Home"
 // TODO My recommendation: Names for file should be LoginPage.js, not login-page.js.
-import LoginPage from './views/login-page';
-import UserAccount from "./views/user-details-page"
-import ReservationsPage from "./views/reservation-page"
-import PredictionPage from "./views/prediction-page"
-import LeaderboardPage from "./views/leaderboard-page"
-import Match from "./views/match-page"
-import { routes } from "./components/util/util"
+import LoginView from "./views/LoginView"
+import UserAccountView from "./views/UserAccountView"
+import ReservationsView from "./views/ReservationsView"
+import PredictionView from "./views/PredictionView"
+import LeaderboardView from "./views/LeaderboardView"
+import MatchView from "./views/MatchView"
+import { routes } from "./components/util/routes"
 import { TestView } from "./views/TestView"
 import { AppContext } from "./context/appContext"
 
@@ -34,13 +34,13 @@ function App () {
       <Router>
         <div><Toaster/></div>
         <Switch>
-          <Route exact path ={routes.loginpage} component={loginpage}/>
-          <Route path = {routes.home} component={Home}/>
-          <Route path = {routes.userDetailsPage} component={UserAccount}/>
-          <Route path = {routes.reservationsPage} component={ReservationsPage}/>
-          <Route path = {routes.predictionPage} component={PredictionPage}/>
-          <Route path = {routes.leaderboardPage} component={LeaderboardPage}/>
-          <Route path = {routes.matchPage} component={Match}/>
+          <Route path ={routes.loginView} component={LoginView}/>
+          <Route exact path = {routes.home} component={Home}/>
+          <Route path = {routes.userAccountView} component={UserAccountView}/>
+          <Route path = {routes.reservationsView} component={ReservationsView}/>
+          <Route path = {routes.predictionView} component={PredictionView}/>
+          <Route path = {routes.leaderboardView} component={LeaderboardView}/>
+          <Route path = {routes.matchView} component={MatchView}/>
           <Route path = {routes.test} component={TestView}/>
         </Switch>
       </Router>    

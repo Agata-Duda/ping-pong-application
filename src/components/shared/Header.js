@@ -1,7 +1,10 @@
-import { AppBar, Box } from "@mui/material"
-import logo from "../../Images/zinkworks-ping-pong-logo.png"
 import React from "react"
 import { Link } from "react-router-dom"
+
+import { AppBar, Box } from "@mui/material"
+
+import logo from "../../Images/zinkworks-ping-pong-logo.png"
+
 
 const styles = {
   "header": {
