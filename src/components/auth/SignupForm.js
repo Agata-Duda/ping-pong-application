@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react"
 import Collapsible from "react-collapsible"
-import { useForm } from "react-hook-form"
+import { Controller, useForm } from "react-hook-form"
 import axios from "axios"
 import Select from "react-select"
+import toast from "react-hot-toast"
 
 import { GetAllJobTitles_URL, GET_ALL_USERS } from "../util/ApiMethods"
 
@@ -10,7 +11,7 @@ import { GetAllJobTitles_URL, GET_ALL_USERS } from "../util/ApiMethods"
 //TO-DO: add form error handling 
 
 const SignupForm = () => {
-  const { register, handleSubmit, "formState": { errors } } = useForm()
+  const { control, register, handleSubmit, "formState": { errors } } = useForm()
   const [jobTitles, setJobTitles] = useState(null);
   const [selectedJobTitle, setSelectedJobTitle] = useState(null);
   const [signUpError, setSignUpError] = useState(true);
@@ -69,13 +70,22 @@ const SignupForm = () => {
           <input type = "email" placeholder= "Email" {...register("Email", { "required": true })} />
           {errors.loginRequired && <span> Password is required</span>}
           <br/>
-          <Select
-            {...register("jobTitle")}
+          <Controller
+            control={control}
+            name="SelectJobTitle"
+            render={({ field }) => 
+            <Select
+            {...field}
             options = {jobTitles} 
             onChange = {setSelectedJobTitle} 
             defaultValue = {selectedJobTitle}
             placeholder = "Select Job Title"
+            required
+            error={!!errors.SelectJobTitle}
+            helperText={errors.SelectJobTitle && `${errors.SelectJobTitle.message}`}
           />
+        }
+        />
           <input type = "password" placeholder= "Password" {...register("Password", { "required": true })} />
           <br/>
           <input type = "password" placeholder= "Re-enter Password" {...register("PasswordMatch", { "required": true })} />

@@ -6,6 +6,7 @@ import axios from "axios";
 
 import { AppContext } from "../../context/appContext";
 import { GetUserByUsername_URL } from "../util/ApiMethods";
+import { routes } from "../util/routes";
 
 const LoginForm = () => {
   const {
@@ -23,7 +24,7 @@ const LoginForm = () => {
       .then((response) => {
         setUser(response.data.response[0]);
       })
-      .catch((error) => toast.error("error connecting to user service"), error);
+      .catch((error) => toast.error("error connecting to user service", error));
   };
 
   const onSubmit = (data) => {
@@ -69,7 +70,7 @@ const LoginForm = () => {
           </div>
         </form>
       </div>
-      {!loginError && <Redirect to={"/home"} />}
+      {!loginError && <Redirect path={routes.home} />}
     </Collapsible>
   );
 };
