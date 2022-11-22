@@ -7,7 +7,7 @@ import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined
 import { PageTemplate } from "../templates/PageTemplate"
 
 
-const UserAccount = () => {
+const UserAccountPage = () => {
   const [user] = useContext(AppContext);
 
   return (
@@ -49,4 +49,4 @@ const UserAccount = () => {
     </PageTemplate>
   )
 }
-export default UserAccount
+export default UserAccountPage

@@ -1,12 +1,11 @@
-// TODO import React from 'react';
-// TODO imports order
 import React, { useState, useEffect } from "react"
 import axios from "axios"
 import Select from "react-select"
 import { useForm } from "react-hook-form"
 import { v4 } from "uuid"
+
 import { GET_ALL_TOURNAMENTS_URL, GET_ALL_USERS, postBooking } from "../util/util"
-//Add toast to on submit form and add validation to form from example at end of file 
+//ME: Add toast to on submit form and add validation to form from example at end of file 
 export default function CreateReservationForm ({ timeDate, closeDrawer }) {
   const [ userNames, setUserName ] = useState([]);
   const [ tournaments, setTournaments ] = useState([]);

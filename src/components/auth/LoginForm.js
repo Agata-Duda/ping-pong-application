@@ -1,13 +1,11 @@
-import React, { useEffect, useContext, useState }  from "react"
-import Collapsible from "react-collapsible"
-import { useForm } from "react-hook-form"
+import React, { useEffect, useContext, useState } from "react";
+import Collapsible from "react-collapsible";
+import { useForm } from "react-hook-form";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
 
-// TODO: mui, and no console.log
 import { AppContext } from "../../context/appContext";
-import { GetUserByUsername_URL, routes } from "../util/util";
-
+import { GetUserByUsername_URL } from "../util/util";
 
 const LoginForm = () => {
   const {
@@ -17,7 +15,7 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm();
   const [ user, setUser ] = useContext(AppContext);
-  const [loginError, setLoginError] = useState(true);
+  const [ loginError, setLoginError ] = useState(true);
 
   const GetUser = (user) => {
     axios
@@ -25,16 +23,16 @@ const LoginForm = () => {
       .then((response) => {
         setUser(response.data.response[0]);
       })
-      .catch((error) => console.log(error));
+      .catch((error) => toast.error("error connecting to user service"), error);
   };
 
   const onSubmit = (data) => {
     GetUser(data.Username);
   };
 
+
   useEffect (
     () => {
-      console.log(user);
       if (watch().Username !== user.userName) {
         setLoginError(true);
       }
@@ -44,7 +42,6 @@ const LoginForm = () => {
       else {
         setLoginError(false);
       }
-      console.log(loginError);
     },[watch()]
   )
 
@@ -63,10 +60,7 @@ const LoginForm = () => {
           />
           {errors.loginRequired && <span> Username is required</span>}
           <br />
-          <input
-            id="loginPassword"
-            placeholder="Password"
-            {...register("Password", { required: true })}
+          <input placeholder="Password" {...register("Password", { required: true })}
           />
           {errors.loginRequired && <span> Password is required</span>}
           <br />
@@ -75,7 +69,7 @@ const LoginForm = () => {
           </div>
         </form>
       </div>
-      {!loginError && <Redirect to={routes.home} />}
+      {!loginError && <Redirect to={"/home"} />}
     </Collapsible>
   );
 };

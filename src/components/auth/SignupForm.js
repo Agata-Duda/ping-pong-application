@@ -4,13 +4,13 @@ import { useForm } from "react-hook-form"
 import axios from "axios"
 import Select from "react-select"
 
-import { GetAllJobTitles_URL, getAllUsers, GET_ALL_USERS } from "../util/util"
+import { GetAllJobTitles_URL, GET_ALL_USERS } from "../util/util"
 
-// TODO: mui, and no console.log
+// TODO: mui
 //TO-DO: add form error handling 
 
 const SignupForm = () => {
-  const { register, handleSubmit, watch, "formState": { errors } } = useForm()
+  const { register, handleSubmit, "formState": { errors } } = useForm()
   const [jobTitles, setJobTitles] = useState(null);
   const [selectedJobTitle, setSelectedJobTitle] = useState(null);
   const [signUpError, setSignUpError] = useState(true);
@@ -48,25 +48,25 @@ const SignupForm = () => {
     .then(setSignUpError(false))
     .catch((error) => {
       if(error.request)
-        console.log(error.request);
+        toast.error("Something went wrong");
       else if(error.response)
-        console.log(error.response);
+      toast.success("Sign-up Successful");
         setSignUpError(true);
     });
   })
 
   return (
     <Collapsible trigger={<b>Sign up</b>} triggerWhenOpen={<b>Sign up</b>}>
-      <div id="formSignup" className="SignupForm">
+      <div className="SignupForm">
         <form onSubmit={handleSubmit(onSubmit)}>
-          <input id="SignupName" placeholder= "First Name" {...register("FirstName", { "required": true })} />
+          <input placeholder= "First Name" {...register("FirstName", { "required": true })} />
           <br/>
-          <input id="SignupLastname" placeholder= "Last Name" {...register("LastName", { "required": true })} />
+          <input placeholder= "Last Name" {...register("LastName", { "required": true })} />
           {errors.loginRequired && <span> Password is required</span>}
           <br/>
-          <input id="SignupUsername" placeholder= "Username" {...register("Username", { "required": true })} />
+          <input placeholder= "Username" {...register("Username", { "required": true })} />
           <br/>
-          <input id="SignupEmail" type = "email" placeholder= "Email" {...register("Email", { "required": true })} />
+          <input type = "email" placeholder= "Email" {...register("Email", { "required": true })} />
           {errors.loginRequired && <span> Password is required</span>}
           <br/>
           <Select
@@ -76,17 +76,16 @@ const SignupForm = () => {
             defaultValue = {selectedJobTitle}
             placeholder = "Select Job Title"
           />
-          <input id="SignupPassword" type = "password" placeholder= "Password" {...register("Password", { "required": true })} />
+          <input type = "password" placeholder= "Password" {...register("Password", { "required": true })} />
           <br/>
-          <input id="SignupPasswordMatch" type = "password" placeholder= "Re-enter Password" {...register("PasswordMatch", { "required": true })} />
+          <input type = "password" placeholder= "Re-enter Password" {...register("PasswordMatch", { "required": true })} />
           <br/>
           <div id="submitDiv">
-            <input id="submitButtonLogin" type="submit" value="Sign Up"/>
+            <input type="submit" value="Sign Up"/>
           </div>
         </form>
       </div>
-      //toast here instead of div
-      {!signUpError && <div>Successfully Signed Up</div> }
+      {!signUpError && toast.success("Signed Up Successfully!") }
     </Collapsible>
   )
 }

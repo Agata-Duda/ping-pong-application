@@ -1,11 +1,14 @@
+import React from "react"
+
+import { Stack } from "@mui/material"
+
 import { PageTemplate } from "../templates/PageTemplate"
 import { OptionCardLarge } from "../components/home/OptionCardLarge"
-import { Stack } from "@mui/material"
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png"
 import bookingCardImage from "../Images/bookingCardImage.png"
 import predictionCardImage from "../Images/predictionCardImage.png"
 import { routes } from "../components/util/util"
-import React from "react"
+
 export const TestView = () => (
     <PageTemplate>
       <Stack direction="row" m={3}>
