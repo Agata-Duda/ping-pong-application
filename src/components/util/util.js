@@ -72,6 +72,6 @@ export const updateMatchScore = async (id) => {
   await axios.put(`${Reservation_URL}/${id}/gameComplete/{True}`); 
 };
 
-export const deleteReservationById = async (id) => {
-  await axios.delete(`${Reservation_URL}/${id}`);
+export const deleteReservationById = async (eventid) => {
+  await axios.delete(`${Reservation_URL}/${eventid}`);
 };
