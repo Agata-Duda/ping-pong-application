@@ -39,7 +39,7 @@ export const postBooking = async (booking) => {
   };
 
   export const deleteReservationById = async (id) => {
-    await axios.delete(`${Reservation_URL}/"${id}`);
+    await axios.delete(`${Reservation_URL}/${id}`);
   };
 
 export const GET_ALL_USERS = "http://localhost:8110/users";
