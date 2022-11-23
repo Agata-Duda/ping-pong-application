@@ -1,6 +1,8 @@
 import React from "react"
 
 import { Stack } from "@mui/material"
+import { Box } from "@mui/material"
+import { Typography } from "@mui/material"
 
 import { routes } from "../components/util/routes"
 import { OptionCardLarge } from "../components/home/OptionCardLarge"
@@ -10,39 +12,32 @@ import { OpponentCard } from "../components/home/OpponentCard"
 
 const Home = () => (
   <PageTemplate>
-    {/*  TODO: Box instead of div, we have mui*/}
-    <div className="OptionCardsDiv">
+    <Box>
       <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
         <OptionCardLarge
           // image={bookingCardImage}
           title="Make a Reservation"
-          path={routes.reservationsPage} />
+          path={routes.reservationsView} />
       </Stack>
       <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
         <OptionCardSmall
           // image={Matchimage}
           title="Match"
-          path={routes.matchPage} />
+          path={routes.matchView} />
         <OptionCardSmall
           // image={PredictionsImage}
           title="Predictions"
-          path={routes.predictionPage} />
+          path={routes.predictionView} />
       </Stack>
       <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
         <OptionCardLarge
           // image={}
           title="Tournament Leaderboards"
-           // TODO this url not exists
-          path={routes.scoreBoardPage} />
+          path={routes.leaderboardView} />
       </Stack>
-    </div>
-      {/*  TODO: Box instead of div, we have mui*/}
-      <div className="OpponentCardDiv">
-          {/*  TODO: Typography instead of h3, we have mui*/}
-          {/*<Typography variant="h3">*/}
-          {/*     Your Next Match */}
-          {/*</Typography>*/}
-          <h3 style={ { textAlign: "center" } }> Your Next Match </h3>
+    </Box>
+    <Box>
+      <Typography varient="h2"> Your Next Match </Typography>
       <OpponentCard
         player1Avatar="Avatar1"
         player2Avatar="Avatar2"
@@ -50,7 +45,7 @@ const Home = () => (
         player2Username="John Joe"
         matchDate="Tuesday 1st October, 2022"
         matchStartTime="12:15"/>
-      <h3 style={ { textAlign: "center" } }> Upcoming Matches </h3>
+   <Typography varient="h1"> Upcoming Matches </Typography>
       <OpponentCard
         player1Avatar="Avatar1"
         player2Avatar="Avatar2"
@@ -65,7 +60,7 @@ const Home = () => (
         player2Username="John Joe"
         matchDate="Tuesday 1st October, 2022"
         matchStartTime="12:15"/>
-    </div>
+    </Box>
   </PageTemplate>
 )
 export default Home

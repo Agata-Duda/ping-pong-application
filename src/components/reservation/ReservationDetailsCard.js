@@ -16,7 +16,6 @@ const bull = (
   </Box>
 )
 // TODO Very good descriptive names for coponent, only mui elements, great!
-// TODO use implicit return
  const ReservationDetailsCard = () => (
     <Card sx={{ minWidth: 275 }}>
       <CardContent>

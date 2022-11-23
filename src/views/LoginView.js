@@ -4,16 +4,16 @@ import LoginForm from "../components/auth/LoginForm"
 import logo from "../Images/zinkworks-ping-pong-logo.png"
 import "../App.css"
 import SignupForm from "../components/auth/SignupForm"
+import { Box } from "@mui/material"
 
 const LoginView = () => (
-  //   TODO use mui element
-  <div className="App">
+  <Box>
     <header className="App-header">
       <img src={logo} className="App-logo" alt="logo" />
       <LoginForm/>
       <SignupForm/>
     </header>
-  </div>
+  </Box>
 )
 
 export default LoginView

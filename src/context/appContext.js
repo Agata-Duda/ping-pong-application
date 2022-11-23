@@ -3,10 +3,9 @@ import React,{ useState } from "react"
 import PropTypes from "prop-types"
 
 export const AppContext = React.createContext()
-//PJ working on login auth in another branch - using app context to display username of user logged in 
+
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState({});
-
 
   return (
     <AppContext.Provider value={[user, setUser]}>

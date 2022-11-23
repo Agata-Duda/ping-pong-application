@@ -3,9 +3,10 @@ import Collapsible from "react-collapsible"
 import { useForm } from "react-hook-form"
 import { v4 } from "uuid"
 
-import { postTournament } from "../util/ApiMethods"
+import { Box } from "@mui/material"
 
-//reordered imports 
+import { postTournament } from "../util/ApiMethods"
+ 
 const CreateTournamentForm = () => {
     const { register, handleSubmit, reset} = useForm()
     const current = new Date()
@@ -24,30 +25,26 @@ const CreateTournamentForm = () => {
         reset()
     }
     return(
-        //TODO: mui box here instead of div 
         //TODO: change style later 
-        //do we need ids on inputs and divs? 
          <Collapsible trigger={<b>Create Tournament</b>} triggerWhenOpen={<b>Create</b>}>
-            <div id="formCreateTournament" className="TournamentForm">
+            <Box>
                 <form onSubmit={handleSubmit(onSubmitTournament)}>
-                <input id="Tournamentname" defaultValue={"Tournament Name"} {...register("tournament_name", { "required": true })} />
-                <br/>
-                <label> Select Tournament Type </label>
-                <select {...register("tournamentType")}>
-                    //use react select here 
-                    <option value="Knock Out"> Knock Out</option>
-                    <option value="Practice"> Practice </option>
-                    <option value="League"> League</option>
-                    <option value="Group Stage"> Group Stage</option>
-                </select><br/>
-                <label>Select End Date</label>
-                <input type="datetime-local" {...register("ended_on", {"required": true})}/>
-                <br/>
-                <div id="submitDiv">
+                    <input defaultValue={"Tournament Name"} {...register("tournament_name", { "required": true })} />
+                    <br/>
+                    <label> Select Tournament Type </label>
+                    <select {...register("tournamentType")}>
+                        <option value="Knock Out"> Knock Out</option>
+                        <option value="Practice"> Practice </option>
+                        <option value="League"> League</option>
+                        <option value="Group Stage"> Group Stage</option>
+                    </select>
+                    <br/>
+                    <label>Select End Date</label>
+                    <input type="datetime-local" {...register("ended_on", {"required": true})}/>
+                    <br/>
                     <input id="submitCreateTournament" type="submit" value="Create a Tournament"/>
-                </div>
                 </form>
-            </div>
+            </Box>
          </Collapsible>
     )
 }

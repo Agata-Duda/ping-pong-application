@@ -5,6 +5,7 @@ import moment from "moment";
 import axios from "axios";
 
 import Drawer from "@mui/material/Drawer";
+import { Typography } from "@mui/material";
 
 import Form from "./CreateReservationForm";
 import { GetAllReservations_URL } from "../util/ApiMethods";
@@ -13,7 +14,6 @@ moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
 const ReservationCalendar = () => {
-
   const [bookings, setBookings] = useState();
   const [open, setOpen] = useState();
   const [timeDate, setTimeDate] = useState([]);
@@ -84,8 +84,7 @@ const ReservationCalendar = () => {
           },
         }}
       >
-        {/*  TODO mui*/}
-        <h2> Create A Reservation </h2>
+        <Typography> Create Reservation </Typography>
         <Form timeDate={timeDate} closeDrawer={closeDrawer} />
       </Drawer>
     </div>

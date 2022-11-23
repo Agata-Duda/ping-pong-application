@@ -14,7 +14,7 @@ export const TestView = () => (
       <Stack direction="row" m={3}>
         <OptionCardLarge
           image={bookingCardImage}
-          title="Booking"
+          title="reservation"
           description="Book a 15 minute Ping Pong Slot"
            // TODO check urls
           path={routes.bookingPage}

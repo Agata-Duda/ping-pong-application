@@ -2,13 +2,12 @@ import React, { useState, useEffect } from "react"
 import axios from "axios"
 import Select from "react-select"
 import { useForm, Controller } from "react-hook-form"
-import { v4 } from "uuid"
 import toast from "react-hot-toast"
+import { v4 } from "uuid"
 
 import { GET_ALL_TOURNAMENTS_URL, GET_ALL_USERS, postBooking } from "../util/ApiMethods"
 
 export default function CreateReservationForm ({ timeDate, closeDrawer }) {
-  
   const [ userNames, setUserName ] = useState([]);
   const [ tournaments, setTournaments ] = useState([]);
   const { control, handleSubmit, formState: { errors } } = useForm()
