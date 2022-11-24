@@ -17,6 +17,7 @@ import { Typography } from "@mui/material";
 
 import Form from "./CreateReservationForm";
 import { deleteReservationById, Reservation_URL } from "../util/ApiMethods";
+import { getDatePickerToolbarUtilityClass } from "@mui/x-date-pickers/DatePicker/datePickerToolbarClasses";
 
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
@@ -30,6 +31,7 @@ const ReservationCalendar = () => {
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const [eventid, setId] = useState()
   const [ playersEvent, setPlayersEvent ] = useState([])
+  const minDate = new Date()
 
   const handleSelected = (event) => {
     setSelected(event);
@@ -105,13 +107,14 @@ const ReservationCalendar = () => {
           setTimeDate(slot);
           openDrawer();
         }}
+        min={new Date(2022, 10, 24, 0,0,0,0)}
         localizer={localizer}
         events={bookings}
         titleAccessor="booking_id"
         startAccessor="event_start"
         endAccessor="event_finish"
         timeslots={1}
-        step={5}
+        step={10}
         style={{ height: 500 }}
       />
       <Drawer
@@ -126,7 +129,7 @@ const ReservationCalendar = () => {
           },
         }}
       >
-        <Typography> Create Reservation </Typography>
+        <Typography paddingTop={3} variant="h6" align="center" fontWeight={'bold'}> Create Reservation </Typography>
         <Form timeDate={timeDate} closeDrawer={closeDrawer} />
       </Drawer>
 
