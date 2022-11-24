@@ -1,24 +1,7 @@
- /*TODO useless class*/
 .App {
   text-align: center;
   background-color: #00193A;
 }
-
-
- /*TODO useless class*/
-
-.App-logo {
-  height: 50vmin;
-  pointer-events: none;
-}
- /*TODO useless class*/
-
-@media (prefers-reduced-motion: no-preference) {
-  /* .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  } */
-}
- /*TODO useless class*/
 
 .App-header {
   background-color: #00193A;
@@ -36,7 +19,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 0;
-  padding-left: 0cm;
+
   padding-right: 0cm;
   padding-bottom: 0cm;
   border-radius: 20px;
@@ -49,12 +32,9 @@
 
 #formSignup{
   background-color: #FF0041 ;
-  justify-content: center;
-  align-items: center;
   padding-top: .5;
+  justify-content: center;
   padding-bottom: .5cm;
-  padding-right: 0cm;
-  padding-left: 0cm;
   margin-bottom: .5cm;
   border-radius: 20px;
   width: 7cm;
@@ -81,15 +61,3 @@
 
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  /* from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  } */
-}

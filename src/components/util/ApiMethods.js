@@ -1,7 +1,7 @@
 import axios from "axios";
 
-export const GetAllReservations_URL = "http://localhost:8120/reservations";
-export const Reservation_URL = "http://localhost:8120/reservations";
+export const Reservation_URL = "http://localhost:8000/reservation-service";
+
 
 export const postNewBooking = async (
     eventStart,
@@ -26,7 +26,7 @@ export const postBooking = async (booking) => {
   };
 
   export const getAllReservations = async () => {
-    await axios.get(`${GetAllReservations_URL}`);
+    await axios.get(`${Reservation_URL}`);
   };
 
   export const getBookingById = async (id) => {
@@ -34,34 +34,33 @@ export const postBooking = async (booking) => {
     return data;
   };
 
-  export const updateReservationById = async (id) => {
-    await axios.put(`${Reservation_URL}/"${id}/gameComplete/{False}`); // If True it updates the scores for the users in the user service
-  };
+export const updateReservationById = async (id) => {
+  await axios.put(`${Reservation_URL}/${id}/gameComplete/{False}`);
+};
 
-  export const deleteReservationById = async (id) => {
-    await axios.delete(`${Reservation_URL}/${id}`);
-  };
+export const updateMatchScore = async (id) => {
+  await axios.put(`${Reservation_URL}/${id}/gameComplete/{True}`); 
+};
 
-export const GET_ALL_USERS = "http://localhost:8110/users";
-export const GetUserByUsername_URL = "http://localhost:8110/users/filter/";
-export const GetAllJobTitles_URL = "http://localhost:8110/users/jobTitles/";
+export const deleteReservationById = async (eventid) => {
+  await axios.delete(`${Reservation_URL}/${eventid}`);
+};
+
+export const GET_ALL_USERS = "http://localhost:8000/user-service";
+export const GetUserByUsername_URL = "http://localhost:8000/user-service/filter/";
+export const GetAllJobTitles_URL = "http://localhost:8000/user-service/jobTitles/";
 
 export const getAllUsers = async () => {
     await axios.get(`${GET_ALL_USERS}`)
   }
 
-export const getUserIDAndName = async () => {
-    await axios.get(`${Reservation_URL}`);
-  };
-
-export const Tournament_URL = "http://localhost:8130/tournament";
-export const GET_ALL_TOURNAMENTS_URL = "http://localhost:8130/tournament/"
+export const Tournament_URL = "http://localhost:8000/tournament-service";
 
 export const postTournament = async (tournament) => {
     await axios.post(`${Tournament_URL}/`, tournament)
   }
   
   export const getAllTournaments = async () => {
-    await axios.get(`${GET_ALL_TOURNAMENTS_URL}`);
+    await axios.get(`${Tournament_URL}`);
   }
   

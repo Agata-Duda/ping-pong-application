@@ -5,7 +5,8 @@ import { useForm, Controller } from "react-hook-form"
 import toast from "react-hot-toast"
 import { v4 } from "uuid"
 
-import { GET_ALL_TOURNAMENTS_URL, GET_ALL_USERS, postBooking } from "../util/ApiMethods"
+import { Tournament_URL, GET_ALL_USERS, postBooking } from "../util/ApiMethods"
+
 
 export default function CreateReservationForm ({ timeDate, closeDrawer }) {
   const [ userNames, setUserName ] = useState([]);
@@ -38,8 +39,8 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
   }, []);
 
   useEffect(() => {
-    const fetchUsers = async () => {
-      await axios.get(`${GET_ALL_TOURNAMENTS_URL}`).then((res) =>{
+    const fetchTournament = async () => {
+      await axios.get(`${Tournament_URL}`).then((res) =>{
       const mappedTournaments = res.data.response?.map((d) => {
         return({
           label: d.tournamentName,
@@ -49,7 +50,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
       }
       );
     };
-    fetchUsers()
+    fetchTournament()
   }, []);
 
   const onSubmitReservation = () => {
@@ -66,7 +67,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
       })
         closeDrawer()
       toast.success("Reservation Created Successfully!")
-      window.location.reload();
+
       }
 
   return (

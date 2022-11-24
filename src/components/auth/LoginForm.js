@@ -3,7 +3,7 @@ import Collapsible from "react-collapsible";
 import { useForm } from "react-hook-form";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-
+import { toast }  from "react-hot-toast";
 import { AppContext } from "../../context/appContext";
 import { GetUserByUsername_URL } from "../util/ApiMethods";
 import { routes } from "../util/routes";

@@ -7,9 +7,17 @@ import CardContent from "@mui/material/CardContent"
 import Button from "@mui/material/Button"
 import Typography from "@mui/material/Typography"
 
+const styles = {
+  box: {
+    display: 'flex',
+    minHeight: 'calc(100vh - 60px)',
+  }
+}
+
 const bull = (
   <Box
     component="span"
+    // sx={styles.box}
     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
   >
     •
