@@ -101,14 +101,13 @@ const ReservationCalendar = () => {
           event_finish: new Date(d.event_finish.concat(".000Z"))})
         });
         setBookings(mappedArray);
-
       }
       );
     };
-    fetchBookings();
-  }, []);
-
+    fetchBookings()
+  }, [bookings]);
   return (
+
     <Box m={3}>
       <Calendar
         onSelectEvent={handleSelected}
