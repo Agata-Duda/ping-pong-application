@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from "react";
-// import React, { useState } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
@@ -16,8 +15,8 @@ import { Box } from "@mui/material"
 import { Typography } from "@mui/material";
 
 import Form from "./CreateReservationForm";
+import UpdateForm from "./UpdateReservationForm";
 import { deleteReservationById, Reservation_URL } from "../util/ApiMethods";
-import { getDatePickerToolbarUtilityClass } from "@mui/x-date-pickers/DatePicker/datePickerToolbarClasses";
 
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
@@ -25,22 +24,25 @@ const localizer = momentLocalizer(moment);
 const ReservationCalendar = () => {
   const [bookings, setBookings] = useState();
   const [open, setOpen] = useState();
+  const [openUpdate, setOpenUpdate] = useState();
   const [timeDate, setTimeDate] = useState([]);
   const [openDialog, setOpenDialog] = useState(false)
   const [ selected, setSelected ] = useState();
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const [eventid, setId] = useState()
   const [ playersEvent, setPlayersEvent ] = useState([])
-  const minDate = new Date()
+  const [ updateEventStart, setUpdateEventStart] = useState()
+  const [updateEventEnd, setUpdateEventEnd ] = useState()
 
   const handleSelected = (event) => {
     setSelected(event);
     console.log(event)
     setPlayersEvent(event.player_1, event.player_2)
     setId(event.booking_id)
+    setUpdateEventStart(event.event_start)
+    setUpdateEventEnd(event.event_finish)
     OpenDialog()
   }
-
   const OpenDialog = () => {
     setOpenDialog(true)
   }
@@ -67,12 +69,21 @@ const ReservationCalendar = () => {
   const openDrawer = () => {
     setOpen(true);
   };
+
+  const openUpdateDrawer = () =>{
+    CloseDialog()
+    setOpenUpdate(true);
+  }
+  const closeUpdateDrawer = () =>{
+    setOpenUpdate(false);
+  }
   const closeDrawer =() => {
     setOpen(false);
   };
 
   const handleAwayClick = () => {
     setOpen(false);
+    setOpenUpdate(false);
   };
 
   //TODO I know, work in progress, but for handle errors try to use one approach:
@@ -98,7 +109,7 @@ const ReservationCalendar = () => {
   }, []);
 
   return (
-    <Box m={2}>
+    <Box m={3}>
       <Calendar
         onSelectEvent={handleSelected}
         selected={selected}
@@ -107,7 +118,6 @@ const ReservationCalendar = () => {
           setTimeDate(slot);
           openDrawer();
         }}
-        min={new Date(2022, 10, 24, 0,0,0,0)}
         localizer={localizer}
         events={bookings}
         titleAccessor="booking_id"
@@ -133,6 +143,22 @@ const ReservationCalendar = () => {
         <Form timeDate={timeDate} closeDrawer={closeDrawer} />
       </Drawer>
 
+      <Drawer
+        open={openUpdate}
+        closable="true"
+        anchor={"right"}
+        varient={"temporary"}
+        onClose={handleAwayClick}
+        PaperProps={{
+          sx: {
+            width: 500,
+          },
+        }}
+      >
+        <Typography paddingTop={3} variant="h6" align="center" fontWeight={'bold'}> Update Reservation </Typography>
+        <UpdateForm updateEventEnd={updateEventEnd} updateEventStart={updateEventStart} closeUpdateDrawer={closeUpdateDrawer} eventid={eventid}/>
+      </Drawer>
+
       <Dialog
         open={openDialog}
         onClose={CloseDialog}
@@ -149,7 +175,7 @@ const ReservationCalendar = () => {
           </DialogContentText>
         </DialogContent>
         <DialogActions>
-          <Button onClick={openDrawer}>Update</Button>{/* Update drawer */}
+          <Button onClick={openUpdateDrawer}>Update</Button>
           <Button onClick={handleConfirmationDelete}>Delete</Button>
           <Button onClick={CloseDialog} autoFocus>Cancel</Button>
         </DialogActions>
