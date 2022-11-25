@@ -75,6 +75,7 @@ const SignupForm = () => {
             name="SelectJobTitle"
             render={({ field }) => 
             <Select
+            
             {...field}
             options = {jobTitles} 
             onChange = {setSelectedJobTitle} 

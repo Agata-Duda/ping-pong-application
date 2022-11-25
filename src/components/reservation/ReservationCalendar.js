@@ -170,7 +170,7 @@ const ReservationCalendar = () => {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="event-dialog-description">
-          You have selected an existing reservation. Do you wish to update or delete? If not please press cancel to exit this menu.
+          You have selected an existing reservation with players {playersEvent[0]} and {playersEvent[1]}. Do you wish to update or delete? If not please press cancel to exit this menu.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

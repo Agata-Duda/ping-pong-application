@@ -54,6 +54,11 @@ export const getAllUsers = async () => {
     await axios.get(`${GET_ALL_USERS}`)
   }
 
+  //For getting users from event selected and displaying username in dialog 
+  export const getUserByID = async (userId) => {
+    await axios.get(`${GET_ALL_USERS}/${userId}`)
+  }
+
 export const Tournament_URL = "http://localhost:8000/tournament-service";
 
 export const postTournament = async (tournament) => {
