@@ -105,7 +105,7 @@ const ReservationCalendar = () => {
       );
     };
     fetchBookings()
-  }, [bookings]);
+  }, []);
   return (
 
     <Box m={3}>

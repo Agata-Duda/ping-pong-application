@@ -15,7 +15,7 @@ const LoginForm = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const [ user, setUser ] = useContext(AppContext);
+  const { user, setUser } = useContext(AppContext);
   const [ loginError, setLoginError ] = useState(true);
 
   const GetUser = (user) => {
@@ -45,7 +45,6 @@ const LoginForm = () => {
       }
     },[watch()]
   )
-
   return (
     <Collapsible
       id="LogInCollapse"

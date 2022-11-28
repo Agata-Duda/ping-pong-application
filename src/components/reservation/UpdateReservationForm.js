@@ -33,7 +33,7 @@ export default function UpdateReservationForm ({ eventid, closeUpdateDrawer, upd
   const [ selectedPlayerTwo, setSelectedPlayerTwo ] = useState(null)
   const [ selectedTournament, setSelectedTournament ] = useState(null)
   const [ selectedSets, setSelectedSets ] = useState(null)
-  const [ user, setUser ] = useContext(AppContext)
+  const { user, setUser } = useContext(AppContext)
 
   const setsOptions = [
     { value: "1", label: "1"},
