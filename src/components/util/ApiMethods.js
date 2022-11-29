@@ -54,6 +54,10 @@ export const getAllUsers = async () => {
     await axios.get(`${GET_ALL_USERS}`)
   }
 
+export const getUserNameByID = async (playerOne) => {
+  await axios.get(`${GET_ALL_USERS}/${playerOne}`)
+}
+
 export const Tournament_URL = "http://localhost:8000/tournament-service";
 
 export const postTournament = async (tournament) => {
@@ -63,4 +67,3 @@ export const postTournament = async (tournament) => {
   export const getAllTournaments = async () => {
     await axios.get(`${Tournament_URL}`);
   }
-  
