@@ -2,7 +2,6 @@ import React from "react"
 import { Link } from "react-router-dom"
 
 import PropTypes from "prop-types"
-import CardMedia from "@mui/material/CardMedia"
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
@@ -28,15 +27,8 @@ const styles = {
   }
 }
 // TODO very good component, good name, good props, good styles. Good job!
-export const OptionCardLarge = ({ image, title, path }) => (
+export const OptionCardLarge = ({ title, path }) => (
   <Card component={Link} to={path} sx={styles.card}>
-    <CardMedia
-      component="img"
-      height="105"
-      width="535"
-      image={image}
-      alt="option description"
-    />
     <CardContent sx={styles.content}>
       <Typography variant="h5" component="div">
         {title}
@@ -45,7 +37,6 @@ export const OptionCardLarge = ({ image, title, path }) => (
   </Card>
 )
 OptionCardLarge.propTypes = {
-  image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired
 }
