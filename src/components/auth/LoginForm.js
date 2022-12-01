@@ -1,4 +1,4 @@
-import React, { useEffect, useContext, useState } from "react";
+import React, { useEffect, useContext, useState, useRef } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
@@ -8,32 +8,8 @@ import { Box, Typography, TextField, Button, Stack} from "@mui/material";
 import { AppContext } from "../../context/appContext";
 import { GetUserByUsername_URL } from "../util/ApiMethods";
 import { routes } from "../util/routes";
-
-const styles = {
-  textFields: {
-    backgroundColor: 'white',
-    margin: '5px'
-  },
-  loginBox:{
-    align: 'center',
-    backgroundColor: '#FF0041',
-    justifyContent: 'center',
-    alignItems: 'center',
-    borderRadius: '20px',
-     width: '8cm',
-     height: '5cm'
-  },
-  buttonLogin:{
-    width: '5rem',
-    backgroundColor: 'white',
-    color: 'black',
-    '&:hover': {
-      backgroundColor: 'white',
-      borderColor: '#0062cc',
-      boxShadow: '1px 1px 3px 1px #00193A;',
-    },
-  }
-}
+import SignupModal from "./SignupModal";
+import { styles } from "../util/styles";
 
 const LoginForm = () => {
   const {
@@ -44,42 +20,73 @@ const LoginForm = () => {
   } = useForm();
   const [ user, setUser ] = useContext(AppContext);
   const [ loginError, setLoginError ] = useState(true);
-  const [ NameUser, setUsername ] = useState();
-  const [ Pass, setPass ] = useState();
+  const [ username, setUsername ] = useState();
+  const [ password, setPassword ] = useState();
+  const [signupModal, setSignupModalOpen] = useState(false);
 
-  const GetUser = (user) => {
+  const GetUser = () => {
     axios
-      .get(`${GetUserByUsername_URL}`.concat(user))
+      .get(`${GetUserByUsername_URL}`.concat(username))
       .then((response) => {
-        setUser(response.data.response[0]);
+        setUser(response.data.response[0])
       })
-      .catch((error) => toast.error("error connecting to user service", error));
+      .catch((error) => toast.error("Username does not exist"));
   };
+
+  const handleSignupButtonClick = (e) => {
+    e.preventDefault()
+    setSignupModalOpen(true)
+  }
 
   const onSubmit = (data) => {
-    GetUser(data.Username);
-    if(!loginError){
-      return <Redirect to={routes.home} />
-    }
-    else{
-      <Redirect to={routes.home}/>
-    }
+    GetUser()
   };
 
+  const handleUsernameChange = (event, errors) => {
+    setUsername(event.target.value)
+  }
+
+  const handlePasswordChange = (event, errors) => {
+    setPassword(event.target.value)
+  }
+
+  let initialRender = useRef(true)
 
   useEffect (
     () => {
-      if (watch().NameUser !== user.userName) {
-        setLoginError(true);
+
+      console.log(errors)
+
+      if (initialRender.current) {
+        initialRender.current = false;
       }
-      else if(watch().Pass !== user.password) {
+
+      else {
+        if (username !== user.userName) {
           setLoginError(true);
         }
-      else {
-        setLoginError(false);
+        else if(password !== user.password) {
+            setLoginError(true);
+          }
+        else {
+          setLoginError(false);
+        }
       }
-    },[watch()]
+
+      if (password !== user.Password)
+        toast.error("Incorrect password")
+
+      console.log(loginError)
+
+    },[user]
   )
+
+  if(!loginError) {
+    toast.remove()
+    return <Redirect to={routes.home} />
+  }
+
+
 
   return (
     <Stack spacing={1} align="center" direction="column" sx={styles.loginBox} >
@@ -93,8 +100,8 @@ const LoginForm = () => {
               {...field}
               placeholder = "Username"
               required
-              onChange={setUsername}
-              error={!!errors.loginRequired}
+              onChange={handleUsernameChange}
+              error={errors.loginRequired}
               helperText={errors.NameUser && `${errors.NameUser.message}`}
             />
           }
@@ -105,35 +112,24 @@ const LoginForm = () => {
               render={({ field }) => 
               <TextField variant="outlined" size="small" sx={styles.textFields}
               {...field}
-              onChange={setPass}
+              onChange={handlePasswordChange}
               placeholder = "Password"
               required
-              error={!!errors.loginRequired}
+              error={errors.loginRequired}
               helperText={errors.Username && `${errors.Username.message}`}
             />
           }
           />
           <br/>
-          <Box align="center">
-            <Button sx={styles.buttonLogin} type="submit"> Login </Button>
-          </Box>
-          {/* <input
-            id="loginUsername"
-            placeholder="Username"
-            {...register("Username", { required: true })}
-          />
-          {errors.loginRequired && <span> Username is required</span>}
-          <br />
-          <input placeholder="Password" {...register("Password", { required: true })}
-          />
-          {errors.loginRequired && <span> Password is required</span>}
-          <br />
-          <div id="submitDiv">
-            <input id="submitButtonLogin" type="submit" value="Log In" />
-          </div> */}
+            <Box align="center" sx={styles.loginButtons}>
+              <Button sx={styles.buttonLogin} type="submit"> Login </Button>
+              <Button sx={styles.buttonLogin} onClick={handleSignupButtonClick}> Sign Up </Button>
+            </Box>    
         </form>
-      {/* {!loginError && <Redirect path={routes.home} />} */}
+        <SignupModal open={signupModal} handleOpen={setSignupModalOpen}/>
       </Stack>
+
+      
   );
 };
 

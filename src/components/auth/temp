@@ -1,0 +1,40 @@
+useEffect(() => {
+    const fetchJobTitles = async () => {
+      await axios.get(`${GetAllJobTitles_URL}`).then((response) => {
+        const mappedJobTitles = response.data.response?.map((d) => {
+          return({
+            label: d.title,
+            value: d.job_id })
+          });
+        setJobTitles(mappedJobTitles);
+      }
+      );
+    };
+    fetchJobTitles();
+  }, []);
+
+
+  const onSubmit = ((data) => {
+
+    const payload = {
+        "userName": data.Username,
+        "password": data.PasswordMatch,
+        "firstName": data.FirstName,
+        "lastName": data.LastName,
+        "email": data.Email,
+        "jobTitle": selectedJobTitle.value,
+        "totalGames": 0,
+        "wins": 0,
+        "accountType": 1
+    };
+
+    axios.post(`${GET_ALL_USERS}`, payload)
+    .then(setSignUpError(false))
+    .catch((error) => {
+      if(error.request)
+        toast.error("Something went wrong");
+      else if(error.response)
+      toast.success("Sign-up Successful");
+        setSignUpError(true);
+    });
+  })
