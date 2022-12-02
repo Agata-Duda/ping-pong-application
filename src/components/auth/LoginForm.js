@@ -18,7 +18,7 @@ const LoginForm = () => {
     watch,
     formState: { errors },
   } = useForm();
-  const [ user, setUser ] = useContext(AppContext);
+  const { user, setUser } = useContext(AppContext);
   const [ loginError, setLoginError ] = useState(true);
   const [ username, setUsername ] = useState();
   const [ password, setPassword ] = useState();
@@ -85,7 +85,6 @@ const LoginForm = () => {
     toast.remove()
     return <Redirect to={routes.home} />
   }
-
 
 
   return (

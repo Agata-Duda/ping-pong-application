@@ -39,13 +39,6 @@ export const OpponentCard = ({ player1Avatar, player2Avatar, player1Username, pl
     </Stack>
     <Stack justifyContent="center" alignItems="center" direction="row">
     <Stack sx={style.playerStack1} justifyContent="left" alignItems="left" direction="column">
-        <CardMedia
-            component="img"
-            height="80"
-            width="80"
-            image={player1Avatar}
-            alt="player one"
-            />
         <Typography variant="subtitle1">
             {player1Username}
         </Typography>
@@ -59,13 +52,6 @@ export const OpponentCard = ({ player1Avatar, player2Avatar, player1Username, pl
             </Typography>
         </Stack>
         <Stack sx={style.playerStack2} justifyContent="right" alignItems="right" direction="column">
-            <CardMedia
-            component="img"
-            height="80"
-            width="80"
-            image={player2Avatar}
-            alt="player two"
-            />
             <Typography variant="subtitle1" component="div">
                 {player2Username}
             </Typography>
@@ -75,8 +61,6 @@ export const OpponentCard = ({ player1Avatar, player2Avatar, player1Username, pl
   </Card>
 )
 OpponentCard.propTypes = {
-  player1Avatar: PropTypes.string.isRequired,
-  player2Avatar: PropTypes.string.isRequired,
   player1Username: PropTypes.string.isRequired,
   player2Username: PropTypes.string.isRequired,
   matchDate: PropTypes.string.isRequired,

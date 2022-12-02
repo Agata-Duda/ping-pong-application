@@ -5,10 +5,10 @@ import { Box } from "@mui/material"
 
 import { Header } from "../components/shared/Header"
 import ResponsiveAppBar from "../components/shared/ResponsiveAppBar"
-// style like this
+
 const styles = {
-  "box": {
-    "marginTop": "158px"
+  box: {
+    marginTop : "158px"
   }
 }
 

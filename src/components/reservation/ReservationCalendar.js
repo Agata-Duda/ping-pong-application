@@ -13,10 +13,12 @@ import DialogContentText from "@mui/material/DialogContentText"
 import DialogTitle from "@mui/material/DialogTitle"
 import { Box } from "@mui/material"
 import { Typography } from "@mui/material";
+// import { useQuery } from "react-query";
 
 import Form from "./CreateReservationForm";
 import UpdateForm from "./UpdateReservationForm";
-import { deleteReservationById, Reservation_URL } from "../util/ApiMethods";
+import { deleteReservationById, Reservation_URL, GET_ALL_USERS } from "../util/ApiMethods";
+import toast from "react-hot-toast";
 
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
@@ -30,18 +32,41 @@ const ReservationCalendar = () => {
   const [ selected, setSelected ] = useState();
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const [eventid, setId] = useState()
-  const [ playersEvent, setPlayersEvent ] = useState([])
+  const [ playerOne, setPlayerOne ] = useState()
+  const [ playerTwo, setPlayerTwo ] = useState()
+  const [ playerOneUsername, setPlayerOneUsername ] = useState()
+  const [ playerTwoUsername, setPlayerTwoUsername ] = useState()
   const [ updateEventStart, setUpdateEventStart] = useState()
   const [updateEventEnd, setUpdateEventEnd ] = useState()
+  const [isLoading, setLoading] = useState(true)
 
   const handleSelected = (event) => {
     setSelected(event);
     console.log(event)
-    setPlayersEvent(event.player_1, event.player_2)
+    setPlayerOne(event.player_1)
+    setPlayerTwo(event.player_2)
     setId(event.booking_id)
     setUpdateEventStart(event.event_start)
     setUpdateEventEnd(event.event_finish)
     OpenDialog()
+    getPlayerOneUsername()
+
+  }
+
+    const getPlayerOneUsername = async () => {
+    try{
+      await axios.get(`${GET_ALL_USERS}/${playerOne}`).then((res) => {
+        setPlayerOneUsername(res?.data.response.userName) 
+        console.log(res?.data.response.userName)
+      })
+      await axios.get(`${GET_ALL_USERS}/${playerTwo}`).then((res) => { 
+        setPlayerTwoUsername(res?.data.response.userName) 
+        console.log(res?.data.response.userName)
+        setLoading(false)
+      })
+    }catch(error){
+      toast.error(error.response.data.error)
+    }
   }
   const OpenDialog = () => {
     setOpenDialog(true)
@@ -94,6 +119,7 @@ const ReservationCalendar = () => {
 
   useEffect(() => {
     const fetchBookings = async () => {
+      try{
        await axios(`${Reservation_URL}`).then((res) =>{
         const mappedArray = res.data.response?.map((d) => {
        return({   ...d,
@@ -103,9 +129,11 @@ const ReservationCalendar = () => {
         setBookings(mappedArray);
       }
       );
-    };
+    }catch(error){
+      toast.error(error.response.data.error)
+    }}
     fetchBookings()
-  }, [bookings]);
+  }, []);
   return (
 
     <Box m={3}>
@@ -167,6 +195,7 @@ const ReservationCalendar = () => {
         <DialogTitle id="event-dialog-title">
         {"Event Selected With "}
         {"Reservation ID: "} {eventid}
+        {"Users :"} {playerOneUsername} {playerTwoUsername}
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="event-dialog-description">
