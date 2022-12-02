@@ -1,11 +1,14 @@
-import React, {  useEffect, useRef, useState } from "react";
-import axios from "axios";
-import { GET_ALL_USERS } from "../util/ApiMethods";
+import React, { useState, useEffect } from "react";
 import { styles } from "../util/styles";
-import { toast } from "react-hot-toast";
 import { Modal, Typography, TextField, Button } from "@mui/material";
 import { Stack } from "@mui/system";
+import Select from 'react-select';
 import { useForm, Controller } from "react-hook-form";
+import  toast  from "react-hot-toast";
+import axios from "axios";
+
+import { GetAllJobTitles_URL, GET_ALL_USERS } from "../util/ApiMethods";
+
 
 
 const style = {
@@ -20,7 +23,7 @@ const style = {
     alignItems: 'center',
     borderRadius: '20px',
      width: '8cm',
-     height: '5cm'
+     height: '12cm'
   },
 
   buttonSignup:{
@@ -33,93 +36,167 @@ const style = {
     boxShadow: '1px 1px 3px 1px #00193A;',
     },
     m: 1
+  },
+
+  selectField:{
+    width:'200px'
   }
 }
 
-const [firstName, setFirstName] = useState('');
-const [lastName, setLastName] = useState('');
-const [email, setEmail] = useState('');
-const [password, setPassword] = useState('');
-const [userName, setUserName] = useState('');
-const [jobTitle, setJobTitle] = useState('');
-
 const SignupModal = (props) => {
 
-  const handleClose = () => props.handleOpen(false);
+   const handleClose = () => props.handleOpen(false);
 
   const {
     control,
     handleSubmit,
-    watch,
-    formState: { errors },
+    formState: {errors}
   } = useForm();
 
-  const handleUsernameChange = (event, errors) => {
-    setUsername(event.target.value)
-  }
+  const [userName, setUserName] = useState('');
+  const [firstName, setFirstName] = useState('');
+  const [lastName, setLastName] = useState('');
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [jobTitle, setJobTitle] = useState('');
+  const [signUpError,setSignUpError] = useState(true);
+  const [selectedJobTitle, setSelectedJobTitle] = useState(null);
 
-  const handlePasswordChange = (event, errors) => {
-    setPassword(event.target.value)
-  }
 
-  const handleFirstNameChange = (event, errors) => {
-    setFirstName(event.target.value)
-  }
-
-  const handleLastNameChange = (event, errors) => {
-    setLastName(event.target.value)
-  }
-
-  const handleEmailChange = (event, errors) => {
-    setEmail(event.target.value)
-  }
-
-  const handleJobTitleChange = (event, errors) => {
-    setJobTitle(event.target.value)
-  }
-
-  let initialRender = useRef(true)
-
-  useEffect(
-    () => {
-      
-      console.log(errors)
-
-      if (initialRender.current){
-        initialRender.current = false;
+  useEffect(() => {
+    const fetchJobTitles = async () => {
+      await axios.get(`${GetAllJobTitles_URL}`).then((response) => {
+        const mappedJobTitles = response.data.response?.map((d) => {
+          return({
+            label: d.title,
+            value: d.job_id })
+          });
+        setJobTitle(mappedJobTitles);
       }
+      );
+    };
+    fetchJobTitles();
+  }, []);
 
-      else {
-        if(userName == user.userName){
-          setSignupError(false)
-        }
-      }
-    }
-  )
+
+  const onSubmit = ((data) => {
+    const payload = {
+        userName: userName,
+        password: password,
+        firstName: firstName,
+        lastName: lastName,
+        email: email,
+        jobTitle: selectedJobTitle.value,
+        totalGames: 0,
+        wins: 0,
+        accountType: 1
+    };
+    axios.post(`${GET_ALL_USERS}`, payload)
+    .then(() => {
+      setSignUpError(false)
+      toast.success("Signup Sucessful")
+      handleClose();
+    })
+    .catch((error) => {
+      if(error.request)
+        toast.error("Something went wrong");
+      else if(error.response)
+      toast.success("Sign-up Successful");
+        setSignUpError(true);
+    });
+  })
+
 
   return (
     <Modal
       open={props.open}
       onClose={handleClose}
     >
-      <Stack sx={style.signupBox}>
+      <Stack display='flex' spacing={1} align="center" direction="column" paddingLeft={5} paddingRight={5} sx={style.signupBox}>
         <Typography fontWeight={'bold'}> Sign Up </Typography>
-        <form onSubmit={handleSubmit(onSubmit)}>
+        <form onSubmit={handleSubmit(onSubmit)} padding={5}>
           <Controller 
               control={control}
-              name="username"
-              render={({ field }) =>
+              name="user_name"
+              render={({ field }) => (
               <TextField variant="outlined" size="small" sx={styles.textFields}
               {...field}
               placeholder = "Username"
               required
-              value={user.userName}
+              value={userName}
               onChange={e => setUserName(e.target.value)}/>
+            )}
+            />
+            <Controller 
+              control={control}
+              name="first_name"
+              render={({ field }) => (
+              <TextField variant="outlined" size="small" sx={styles.textFields}
+              {...field}
+              placeholder = "First Name"
+              required
+              value={firstName}
+              onChange={e => setFirstName(e.target.value)}/>
+            )}
+            />
+            <Controller 
+              control={control}
+              name="last_name"
+              render={({ field }) => (
+              <TextField variant="outlined" size="small" sx={styles.textFields}
+              {...field}
+              placeholder = "Last Name"
+              required
+              value={lastName}
+              onChange={e => setLastName(e.target.value)}/>
+            )}
+            />
+            <Controller
+              control={control}
+              name="SelectJobTitle"
+              render={({ field }) =>
+              <Select
+                styles={style.selectField}
+                {...field}
+                options = {jobTitle} 
+                onChange = {setSelectedJobTitle} 
+                defaultValue = {selectedJobTitle}
+                placeholder = "Select Job Title"
+                required
+                error={!!errors.SelectJobTitle}
+              helperText={errors.SelectJobTitle && `${errors.SelectJobTitle.message}`}
+            />
             }
+          />
+            <Controller 
+              control={control}
+              name="email"
+              render={({ field }) => (
+              <TextField variant="outlined" size="small" sx={styles.textFields}
+              {...field}
+              placeholder = "Email"
+              required
+              type="email"
+              value={email}
+              onChange={e => setEmail(e.target.value)}/>
+            )}
+            />
+            <Controller 
+              control={control}
+              name="password"
+              render={({ field }) => (
+              <TextField variant="outlined" size="small" sx={styles.textFields}
+              {...field}
+              placeholder = "Password"
+              required
+              type="password"
+              value={password}
+              onChange={e => setPassword(e.target.value)}/>
+            )}
+            />
           <Button sx={style.buttonSignup} type="submit">Submit</Button>
         </form>
       </Stack>
-
     </Modal>
   )
 }
