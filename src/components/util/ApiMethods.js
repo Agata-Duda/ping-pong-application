@@ -54,6 +54,15 @@ export const getAllUsers = async () => {
     await axios.get(`${GET_ALL_USERS}`)
   }
 
+  //For getting users from event selected and displaying username in dialog 
+  export const getUserByID = async (userId) => {
+    await axios.get(`${GET_ALL_USERS}/${userId}`)
+  }
+
+  export const postUser = async (user) => {
+    await axios.post(`${GET_ALL_USERS}`, user)
+  }
+=======
 export const getUserNameByID = async (playerOne) => {
   await axios.get(`${GET_ALL_USERS}/${playerOne}`)
 }
