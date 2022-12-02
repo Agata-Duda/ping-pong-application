@@ -62,7 +62,7 @@ export const getAllUsers = async () => {
   export const postUser = async (user) => {
     await axios.post(`${GET_ALL_USERS}`, user)
   }
-=======
+
 export const getUserNameByID = async (playerOne) => {
   await axios.get(`${GET_ALL_USERS}/${playerOne}`)
 }
