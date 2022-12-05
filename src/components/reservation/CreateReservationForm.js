@@ -87,7 +87,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
       }
 
   return (
-    <form onSubmit={handleSubmit(onSubmitReservation)} padding={5}>
+    <form onSubmit={handleSubmit(onSubmitReservation)} padding={5} sx={{minWidth: 120}}>
 
       <Typography align="center"> Start Time:  {new Date(timeDate.start).toString().split('+')[0]}</Typography>
       <Typography align="center" paddingBottom={5}> End Time: {new Date(timeDate.end).toString().split('+')[0]} </Typography>
@@ -99,7 +99,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
           control={control}
           name="SelectPlayerOne"
           render={({ field }) => 
-          <Select sx={styles.form}
+          <Select
             {...field}
             options={userNames}
             onChange={setSelectedPlayerOne}
@@ -109,7 +109,6 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
             error={!!errors.SelectPlayerOne}
             helperText={errors.SelectPlayerOne && `${errors.SelectPlayerOne.message}`}
           />
-        
         }
         />
         </Stack>
@@ -119,7 +118,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
           control={control}
           name="SelectPlayerTwo"
           render={({ field }) => 
-          <Select sx={styles.selectField}
+          <Select
             {...field}
             label="Select Player Two"
             options={userNames}
