@@ -15,76 +15,51 @@ import EventDialog from "./EventDialog";
 import Form from "./CreateReservationForm";
 import UpdateForm from "./UpdateReservationForm";
 import { deleteReservationById, Reservation_URL } from "../util/ApiMethods";
-import { getPlayerOneUsername } from "../util/FunctionMethods";
 
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
 
 const ReservationCalendar = () => {
-  const [bookings, setBookings] = useState();
-  const [open, setOpen] = useState();
-  const [openUpdate, setOpenUpdate] = useState();
-  const [timeDate, setTimeDate] = useState([]);
-  const [openDialog, setOpenDialog] = useState(false)
-  const [ selected, setSelected ] = useState();
+  const [bookings, setBookings] = useState()
+  const [open, setOpen] = useState()
+  const [openUpdate, setOpenUpdate] = useState()
+  const [timeDate, setTimeDate] = useState([])
+  const [openOptionsDialog, setOpenOptionsDialog] = useState(false)
+  const [ selected, setSelected ] = useState()
   const [openDeleteDialog, setOpenDeleteDialog] = useState(false)
   const [eventid, setId] = useState()
-  const [ playerOne, setPlayerOne ] = useState()
-  // const [ playerTwo, setPlayerTwo ] = useState()
-  // const [ playerOneUsername, setPlayerOneUsername ] = useState()
-  // const [ playerTwoUsername, setPlayerTwoUsername ] = useState()
-  const [ updateEventStart, setUpdateEventStart] = useState()
+  const [updateEventStart, setUpdateEventStart] = useState()
   const [updateEventEnd, setUpdateEventEnd ] = useState()
-
-  // const { playerTwoUsername } = useQuery("playerTwo", () => getPlayerTwoUsername(playerTwo))
+  const [ playerUsernames, setPlayerUsernames ] = useState([])
 
   const handleSelected = (event) => {
     setSelected(event);
     console.log(event)
-    setPlayerOne(event.player_1)
-    // setPlayerTwo(event.player_2)
+    setPlayerUsernames(event.player_1 + event.player_2)
     setId(event.booking_id)
     setUpdateEventStart(event.event_start)
     setUpdateEventEnd(event.event_finish)
-    OpenDialog()
-  }
-  const { data: playerOneUsername } = useQuery(["playerOne"], () => getPlayerOneUsername(playerOne),
-  {enabled: !!playerOne})
-  console.log(playerOneUsername);
-
-  //   const getPlayerOneUsername = async () => {
-  //   try{
-  //     await axios.get(`${GET_ALL_USERS}/${playerOne}`).then((res) => {
-  //       setPlayerOneUsername(res?.data.response.userName) 
-  //       console.log(res?.data.response.userName)
-  //     })
-  //     await axios.get(`${GET_ALL_USERS}/${playerTwo}`).then((res) => { 
-  //       setPlayerTwoUsername(res?.data.response.userName) 
-  //       console.log(res?.data.response.userName)
-  //     })
-  //   }catch(error){
-  //     toast.error(error.response.data.error)
-  //   }
-  // }
-
-  const OpenDialog = () => {
-    setOpenDialog(true)
+    handleOpenOptionsDialog()
   }
 
-  const CloseDialog = () => {
-    setOpenDialog(false)
+  const handleOpenOptionsDialog = () => {
+    setOpenOptionsDialog(true)
+  }
+
+  const handleCloseOptionsDialog = () => {
+    setOpenOptionsDialog(false)
   }
   
   const handleConfirmationDelete  = () => {
     setOpenDeleteDialog(true)
-    CloseDialog()
+    handleCloseOptionsDialog()
   }
 
   const handleCloseDeleteDialog = () => {
     setOpenDeleteDialog(false)
   }
 
-  const handleDelete = () => {
+  const handleDeleteReservation = () => {
     console.log(eventid)
       deleteReservationById(eventid)
       handleCloseDeleteDialog()
@@ -95,7 +70,7 @@ const ReservationCalendar = () => {
   };
 
   const openUpdateDrawer = () =>{
-    CloseDialog()
+    handleCloseOptionsDialog()
     setOpenUpdate(true);
   }
   const closeUpdateDrawer = () =>{
@@ -133,6 +108,7 @@ const ReservationCalendar = () => {
     }}
     fetchBookings()
   }, []);
+
   return (
 
     <Box m={3}>
@@ -186,12 +162,12 @@ const ReservationCalendar = () => {
       </Drawer>
 
       <EventDialog
-      open={openDialog}
-      close={CloseDialog}
+      open={openOptionsDialog}
+      close={handleCloseOptionsDialog}
       titles={"Selected Event with reservation ID: " + eventid} 
-      subtitle={" Players : " + playerOneUsername + " " }
+      subtitle={" Players : " + playerUsernames[0] + playerUsernames[5]}
       description="Do you want to delete or update this event?"
-      closeDialog={CloseDialog}
+      closeDialog={handleCloseOptionsDialog}
       actionButtons=
       {
       <Box>
@@ -206,7 +182,7 @@ const ReservationCalendar = () => {
       subtitle={"Please confirm if you want to delete reservation with ID: " + eventid}
       description="Do you want to delete this reservation?"
       closeDialog={handleCloseDeleteDialog}
-      actionButtons={<Button onClick={handleDelete}>Delete</Button>}
+      actionButtons={<Button onClick={handleDeleteReservation}>Delete</Button>}
       />
     </Box>
   );
