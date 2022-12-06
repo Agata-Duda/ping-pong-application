@@ -26,7 +26,8 @@ export const postBooking = async (booking) => {
   };
 
   export const getAllReservations = async () => {
-    await axios.get(`${Reservation_URL}`);
+    const {response} = await axios.get(`${Reservation_URL}`);
+    return response
   };
 
   export const getBookingById = async (id) => {
