@@ -18,8 +18,9 @@ import EventsCard from "../components/home/EventsCard"
 
 const Home = () => (
   <PageTemplate>
-    <Box>
-      <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
+    <Stack direction="row">
+      <Stack direction="column">
+      <Stack justifyContent="left" alignItems="center" direction="column" m={3}>
         <OptionCardLarge
            image={bookingCardImage}
           title="Make a Reservation"
@@ -35,14 +36,17 @@ const Home = () => (
           title="Predictions"
           path={routes.predictionView} />
       </Stack>
-      <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
+      <Stack justifyContent="left" alignItems="center" direction="column" m={3}>
         <OptionCardLarge
           image={ScoreBoardCardImage}
           title="Tournament Leaderboards"
           path={routes.leaderboardView} />
       </Stack>
-    </Box>
-    <EventsCard/>
+      </Stack>
+      <Stack margin="auto">
+    <EventsCard alignItems="center"/>
+    </Stack>
+    </Stack>
   </PageTemplate>
 )
 export default Home
