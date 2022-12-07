@@ -28,7 +28,7 @@ const LoginForm = () => {
     axios
       .get(`${GetUserByUsername_URL}`.concat(username))
       .then((response) => {
-        setUser(response.data.response[0])
+        setUser(response.data.response)
       })
       .catch((error) => toast.error("Username does not exist"));
   };
