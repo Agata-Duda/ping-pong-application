@@ -45,7 +45,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
       const mappedUsers = res.data.response?.map((d) => {
         return({
           label: d.userName,
-          value: d.userId})
+          value: d.userName})
         });
         setUserName(mappedUsers)
       }
@@ -60,7 +60,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
       const mappedTournaments = res.data.response?.map((d) => {
         return({
           label: d.tournamentName,
-          value: d.tournamentId })
+          value: d.tournamentName })
         });
         setTournaments(mappedTournaments)
       }
@@ -79,7 +79,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
         event_finish: timeDate.end,
         player_1_score: null,
         player_2_score: null,
-        tournament_id: selectedTournament.value
+        tournament_name: selectedTournament.value
       })
         closeDrawer()
       toast.success("Reservation Created Successfully!")
