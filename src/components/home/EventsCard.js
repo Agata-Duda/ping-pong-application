@@ -1,27 +1,28 @@
 import { useQuery } from "react-query";
-import React, {useState} from "react"
+import React, {useContext} from "react"
 import { Box } from "@mui/system"
 import { Typography } from "@mui/material"
 
 import { OpponentCard } from "./OpponentCard"
 import { getAllReservations } from "../util/ApiMethods"
+import { AppContext } from "../../context/appContext"
 
 const EventsCard = () => {
 
-  const [user, setUser] = useState({});
+  const {user} = useContext(AppContext);
   const {data : bookings, isFetching} = useQuery("booking",() => getAllReservations());
-
+  //console.log(user.userName);
 
   !isFetching && (bookings.sort((a, b) => (
      Math.abs(Date.now() - new Date(a.event_start)) - Math.abs(Date.now() - new Date(b.event_start))
   )))
 
-  !isFetching && (bookings.filter(event => event.event_start > Date.now() ))
-    
+  !isFetching && (bookings.filter(event => event.event_start > Date.now())) 
+  !isFetching &&  (bookings.filter(eventUser => eventUser.player_2 === user.userName))
 return(
 <Box>
 <Typography align="center" varient="h2"> Your Next Match </Typography>
-{!isFetching && (bookings?.map((booking, index) => index < 1 &&  ( 
+{!isFetching && (bookings?.map((booking, index) => index < 1 && ( 
       <OpponentCard  
       key={booking.booking_id}
       player1Username={booking.player_1}
