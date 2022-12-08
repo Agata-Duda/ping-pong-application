@@ -9,7 +9,8 @@ import { getAllReservations } from "../util/ApiMethods"
 import { AppContext } from "../../context/appContext"
 
 const EventsCard = () => {
-const date = new Date();
+
+  const date = new Date().toJSON();
   const {user} = useContext(AppContext);
   const {data : bookings, isFetching} = useQuery("booking",() => getAllReservations());
   //console.log(user.userName);
@@ -17,9 +18,10 @@ const date = new Date();
   !isFetching && (bookings.sort((a, b) => (
      Math.abs(Date.now() - new Date(a.event_start)) - Math.abs(Date.now() - new Date(b.event_start))
   )))
-
-  !isFetching && (bookings.filter(event => event.event_start >= date))
-  const bookingFiltered = (!isFetching &&  bookings.filter(eventUser => eventUser.player_2 === user.userName))
+    
+  const bookingFilteredByDate = (!isFetching && (bookings.filter(event => event.event_start >= date)))
+  // console.log(bookingFilteredByDate)
+  const bookingFiltered = (!isFetching &&  bookingFilteredByDate.filter(eventUser => eventUser.player_2 === user.userName || eventUser.player_1 === user.userName))
 return(
 <Box>
 <Typography align="center" varient="h2"> Your Next Match </Typography>
@@ -33,7 +35,7 @@ return(
 )))
   }
 <Typography align="center" varient="h1"> Upcoming Matches </Typography>
-{!isFetching && (bookings?.map((booking, index) => index < 2 &&  (
+{!isFetching && (bookingFilteredByDate?.map((booking, index) => index < 2 &&  (
       <OpponentCard  
       key={booking.booking_id}
       player1Username={booking.player_1}
