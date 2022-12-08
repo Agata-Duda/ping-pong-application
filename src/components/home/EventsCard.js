@@ -17,12 +17,12 @@ const EventsCard = () => {
      Math.abs(Date.now() - new Date(a.event_start)) - Math.abs(Date.now() - new Date(b.event_start))
   )))
 
-  !isFetching && (bookings.filter(event => event.event_start > Date.now())) 
-  !isFetching &&  (bookings.filter(eventUser => eventUser.player_2 === user.userName))
+  !isFetching && (bookings.filter(event => event.event_start > Date.now()))
+  const bookingFiltered = (!isFetching &&  bookings.filter(eventUser => eventUser.player_2 === user.userName))
 return(
 <Box>
 <Typography align="center" varient="h2"> Your Next Match </Typography>
-{!isFetching && (bookings?.map((booking, index) => index < 1 && ( 
+{!isFetching && (bookingFiltered.map((booking, index) => index < 1 && (
       <OpponentCard  
       key={booking.booking_id}
       player1Username={booking.player_1}
