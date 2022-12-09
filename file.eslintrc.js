@@ -21,6 +21,7 @@ module.exports = {
     "quotes": ["warn", "double"],
     "quote-props": ["warn", "consistent"],
     "max-lines": ["warn", { "max": 200, "skipBlankLines": true }],
-    "max-len": ["error", { "code": 500 }]
+    "max-len": ["error", { "code": 500 }],
+    "react-hooks/exhaustive-deps": "warn"
   }
 }
