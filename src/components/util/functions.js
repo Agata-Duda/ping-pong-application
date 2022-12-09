@@ -1,0 +1,1 @@
+export const SORT_ARRAY_BY_WINS = (entry1, entry2) => (entry1.wins < entry2.wins) ? 1 : (entry1.wins > entry2.wins) ? -1 : 0 
