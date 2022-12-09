@@ -14,7 +14,6 @@ const labelStyle = {
 const CreateTournamentForm = () => {
     const { register, handleSubmit, reset} = useForm()
     const current = new Date()
-    console.log(current)
 
     const onSubmitTournament = (tournament) => {
         postTournament(

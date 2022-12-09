@@ -76,8 +76,6 @@ const LoginForm = () => {
       if (password !== user.Password)
         toast.error("Incorrect password")
 
-      console.log(loginError)
-
     },[user]
   )
 
