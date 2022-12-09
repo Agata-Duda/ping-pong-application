@@ -13,12 +13,14 @@ import predictionCardImage from "../Images/predictionCardImage.png"
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png"
 import match from "../Images/match.png"
 import { OpponentCard } from "../components/home/OpponentCard"
+import EventsCard from "../components/home/EventsCard"
 
 
 const Home = () => (
   <PageTemplate>
-    <Box>
-      <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
+    <Stack direction="row">
+      <Stack direction="column">
+      <Stack justifyContent="left" alignItems="center" direction="column" m={3}>
         <OptionCardLarge
            image={bookingCardImage}
           title="Make a Reservation"
@@ -34,38 +36,17 @@ const Home = () => (
           title="Predictions"
           path={routes.predictionView} />
       </Stack>
-      <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
+      <Stack justifyContent="left" alignItems="center" direction="column" m={3}>
         <OptionCardLarge
           image={ScoreBoardCardImage}
           title="Tournament Leaderboards"
           path={routes.leaderboardView} />
       </Stack>
-    </Box>
-    <Box>
-      <Typography varient="h2"> Your Next Match </Typography>
-      <OpponentCard
-        player1Avatar="Avatar1"
-        player2Avatar="Avatar2"
-        player1Username="Joan Joe"
-        player2Username="John Joe"
-        matchDate="Tuesday 1st October, 2022"
-        matchStartTime="12:15"/>
-   <Typography varient="h1"> Upcoming Matches </Typography>
-      <OpponentCard
-        player1Avatar="Avatar1"
-        player2Avatar="Avatar2"
-        player1Username="Joan Joe"
-        player2Username="John Joe"
-        matchDate="Tuesday 1st October, 2022"
-        matchStartTime="12:15"/>
-      <OpponentCard
-        player1Avatar="Avatar1"
-        player2Avatar="Avatar2"
-        player1Username="Joan Joe"
-        player2Username="John Joe"
-        matchDate="Tuesday 1st October, 2022"
-        matchStartTime="12:15"/>
-    </Box>
+      </Stack>
+      <Stack margin="auto">
+    <EventsCard alignItems="center"/>
+    </Stack>
+    </Stack>
   </PageTemplate>
 )
 export default Home

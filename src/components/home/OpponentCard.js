@@ -5,6 +5,9 @@ import Typography from "@mui/material/Typography"
 import React from "react"
 import PropTypes from "prop-types"
 import { Stack } from "@mui/system"
+import { getAllReservations } from "../util/ApiMethods"
+
+
 
 // TODO object
 const style = {
@@ -61,8 +64,8 @@ export const OpponentCard = ({ player1Avatar, player2Avatar, player1Username, pl
   </Card>
 )
 OpponentCard.propTypes = {
-  player1Username: PropTypes.string.isRequired,
-  player2Username: PropTypes.string.isRequired,
-  matchDate: PropTypes.string.isRequired,
-  matchStartTime: PropTypes.string.isRequired
+  playerOneUsername: PropTypes.object,
+  playerTwoUsername: PropTypes.object,
+  matchDate: PropTypes.string,
+  matchStartTime: PropTypes.string
 }
