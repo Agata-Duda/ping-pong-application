@@ -13,14 +13,11 @@ const EventsCard = () => {
   const date = new Date().toJSON();
   const {user} = useContext(AppContext);
   const {data : bookings, isFetching} = useQuery("booking",() => getAllReservations());
-  //console.log(user.userName);
 
   !isFetching && (bookings.sort((a, b) => (
      Math.abs(Date.now() - new Date(a.event_start)) - Math.abs(Date.now() - new Date(b.event_start))
   )))
-    
   const bookingFilteredByDate = (!isFetching && (bookings.filter(event => event.event_start >= date)))
-  // console.log(bookingFilteredByDate)
   const bookingFiltered = (!isFetching &&  bookingFilteredByDate.filter(eventUser => eventUser.player_2 === user.userName || eventUser.player_1 === user.userName))
 return(
 <Box>
