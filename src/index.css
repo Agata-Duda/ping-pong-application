@@ -12,18 +12,6 @@ code {
     monospace;
 }
 
-.navbar {
-  display: flex;
-  align-items: center;
-  max-width:100%;
-  height: 1.1cm;
-  justify-items: center;
-  border-bottom: 1px solid #f2f2f2;
-  background-color: #ff0041;
-  color: #00193A;
-  padding-left: 0cm;
-}
-
 .header-logo{
   padding-top: 0cm;
   padding-bottom: 15px;
@@ -39,124 +27,6 @@ code {
   align-items: right;
 }
 
-.user{
-  padding-left:1cm;
-}
-
-.username{
-  display: inline-block;
-  padding-left: .4cm;
-  vertical-align:bottom;
-  font-size: 16px;
-  font-style: italic;
-  color: white;
-}
-
-#UserAccount-Icon{
-  padding: .1cm;
-  font-size: 36px;
-  color: #f2f2f2;
-}
-
-.tabs{
-  padding-left: 48%;
-}
-
-#UserAccount-Icon:link,
-.bookingLink:link,
-.predictionLink:link,
-.scoreBoardLink:link,
-.homeLink:link{
-  padding-left: 1cm;
-  text-decoration: none;
-  color: #f56200;
-  font-size: 18px;
-  font-weight: bold;
-}
-
-#UserAccount-Icon:active,
-.bookingLink:active,
-.homeLink:active,
-.predictionLink:active,
-.scoreBoardLink:active{
-  color: white;
-}
-
-.bookingLink:hover,
-.homeLink:hover,
-.predictionLink:hover,
-.scoreBoardLink:hover{
-	  font-size: 18px;
-    color: white;
-	  text-shadow: 1px 1px 1px #00193A;
-}
-
-.bookingLink:visited,
-.homeLink:visited,
-.predictionLink:visited,
-.scoreBoardLink:visited{
-  color: whitesmoke;
-}
-
-.Footer{
-  color: #f2f2f2;
-  background-image: linear-gradient(
-    to right,
-    #ff0041,
-    #FD3A2D,
-    #FE612C,
-    #FF872C,
-    #FFA12C
-   );
-   margin-top: 22vw;
-   width: 100%;
-   justify-items: center;
-   align-items: center;
-   display: flex;
-   position: fixed;
-   left: 0;
-   bottom: 0;
-}
-
-.FooterImg{
-  display: inline-block;
-  padding-left: 500px;
-  padding-right: 0cm;
-  height: 45px;
-}
-
-.adminContact{
-  padding-left: 50px;
-  text-align:justify;
-}
-
-#contactAdminHeadingFooter{
-  font-size: 16px;
-  font-weight: 700;
-  padding-left: 1px;
-}
-#contactDetailsFooter{
-  font-size: 14px;
-}
-
-.emailLink:link{
-  text-decoration: none;
-  color: white;
-  font-size: 14px;
-}
-.emailLink:visited{
-  text-decoration: none;
-  color: white;
-}
-.emailLink:hover{
- opacity: 60%;
-  color: white;
-}
-.trading{
-  padding-bottom: 10px;
-  padding-top: 0px;
-  font-size: 12px;
-}
 .userAccount{
   background-color: #ffffff;
 }
@@ -171,46 +41,10 @@ code {
   text-decoration: none;
 }
 
-.BookingCard,
-.PredictionCard,
-.ScoreBoardCard{
-  box-shadow: 1px 1px 5px 1px #00193A;
-  padding: 10px;
-  margin-left: 30px;
-  margin-top: 20px;
-  height: 180px;
-  width: 250px;
-  margin-right: 40px;
-}
-.BookingCard:hover,
-.PredictionCard:hover,
-.ScoreBoardCard:hover{
-  box-shadow: 2px 2px 5px 3px #00193A;
-}
-.BookingCardImg{
-  height: 3cm;
-  width: 2.5cm;
-  display: block;
-  margin: auto;
-  width: 50%;
-}
-
-.CardHolder p{
-  font-size: 16px;
-  text-decoration: none;
-  text-align: center;
-  color: black;
-}
-.ScoreBoardCardImg{
-  height: 3cm;
-  padding-top: 5px;
-  display: block;
-  margin: auto;
-  width: 70%;
-}
 a{
   text-decoration: none;
 }
+
 .UserDetailsContainer{
   box-shadow: 1px 1px 5px 1px #00193A;
   padding: 40px;
@@ -254,6 +88,9 @@ a{
   width: 160px;
   margin-right: 10px;
 }
+/*
+Commented because Button was overriding navbar button styles
+
 Button{
   height: .7cm;
   width: 3.5cm;
@@ -270,4 +107,21 @@ Button{
 Button:hover{
   box-shadow: 1px 1px 5px 1px #00193A;
 
+} */
+.dateTime{
+  /* TODO very big padding*/
+  padding-bottom: 220px;
+}
+
+.OpponentCardDiv{
+  display: inline;
+  float: right;
+  margin-right: 70px;
+}
+.OptionCardsDiv{
+  float: left;
+  margin-left: 70px;
+}
+h3{
+  text-align: match-parent;
 }

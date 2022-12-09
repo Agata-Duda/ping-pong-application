@@ -1,14 +1,18 @@
-import React  from "react";
+import React,{ useState } from "react"
 
-export const AppContext = React.createContext();
+import PropTypes from "prop-types"
+
+export const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-    const context = {
-        username : " JohnDoe123 "
-    };
+  const [user, setUser] = useState({});
 
-    return (
-        <AppContext.Provider value={context}>                    {children}
-        </AppContext.Provider>    );
+  return (
+    <AppContext.Provider value={{user, setUser}}>
+      {children}
+    </AppContext.Provider>)
 };
-export default AppProvider;
+export default AppProvider
+AppProvider.propTypes = {
+  children: PropTypes.element
+}
