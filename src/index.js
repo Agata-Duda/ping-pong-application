@@ -12,10 +12,10 @@ const queryClient = new QueryClient();
 ReactDOM.render(
   <LocalizationProvider dateAdapter={AdapterDayjs}>
     <AppProvider>
-      <QueryClientProvider client={queryClient}>
-        <React.StrictMode>
-          <App />
-        </React.StrictMode>
+    <QueryClientProvider client={queryClient}>
+      <React.StrictMode>
+        <App />
+      </React.StrictMode>
       </QueryClientProvider>
     </AppProvider>
   </LocalizationProvider>,

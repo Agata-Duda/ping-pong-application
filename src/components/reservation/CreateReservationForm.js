@@ -5,7 +5,7 @@ import { useForm, Controller } from "react-hook-form"
 import toast from "react-hot-toast"
 import { v4 } from "uuid"
 
-import { Tournament_URL, GET_ALL_USERS, postBooking } from "../util/ApiMethods"
+import { Tournament_URL, GET_ALL_USERS, postBooking, GetUserByUsername_URL } from "../util/ApiMethods"
 import { Typography, Button, Box, Stack } from "@mui/material"
 
 const styles = {
@@ -79,7 +79,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
         event_finish: timeDate.end,
         player_1_score: null,
         player_2_score: null,
-        tournament_name: selectedTournament.value
+        tournamentName: selectedTournament.value
       })
         closeDrawer()
       toast.success("Reservation Created Successfully!")
@@ -87,7 +87,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
       }
 
   return (
-    <form onSubmit={handleSubmit(onSubmitReservation)} padding={5} sx={{minWidth: 120}}>
+    <form onSubmit={handleSubmit(onSubmitReservation)} padding={5}>
 
       <Typography align="center"> Start Time:  {new Date(timeDate.start).toString().split('+')[0]}</Typography>
       <Typography align="center" paddingBottom={5}> End Time: {new Date(timeDate.end).toString().split('+')[0]} </Typography>
@@ -99,7 +99,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
           control={control}
           name="SelectPlayerOne"
           render={({ field }) => 
-          <Select
+          <Select sx={styles.form}
             {...field}
             options={userNames}
             onChange={setSelectedPlayerOne}
@@ -109,6 +109,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
             error={!!errors.SelectPlayerOne}
             helperText={errors.SelectPlayerOne && `${errors.SelectPlayerOne.message}`}
           />
+        
         }
         />
         </Stack>
@@ -118,7 +119,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
           control={control}
           name="SelectPlayerTwo"
           render={({ field }) => 
-          <Select
+          <Select sx={styles.selectField}
             {...field}
             label="Select Player Two"
             options={userNames}

@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Calendar, momentLocalizer } from "react-big-calendar";
 import toast from "react-hot-toast";
-import { useQuery } from "react-query";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import axios from "axios";
