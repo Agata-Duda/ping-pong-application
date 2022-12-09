@@ -30,6 +30,6 @@ const styles = {
 
 export const Header = () => (
     <AppBar position="fixed" sx={styles.header}>
-      <Link to="/"> <Box component="img" src={logo} sx={styles.logo} alt="logo" /></Link>
+      <Link to="/home"> <Box component="img" src={logo} sx={styles.logo} alt="logo" /></Link>
     </AppBar>
   )
