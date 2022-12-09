@@ -1,7 +1,6 @@
 export const routes = {
-    loginView: "/LoginView",
-    home: "/",
-    register: "/LoginView",
+    loginView: "/",
+    home: "/home",
     userAccountView: "/UserAccountView",
     reservationsView: "/ReservationsView",
     predictionView: "/PredicitionView",
