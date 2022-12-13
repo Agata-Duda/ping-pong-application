@@ -101,7 +101,6 @@ const LeaderboardTable = (props) => {
 
   const handleChangeRowsPerPage = (event) => {
     setRowsPerPage(parseInt(event.target.value, 10));
-    console.log(event.target.value)
     setPage(0);
   };
 

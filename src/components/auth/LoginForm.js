@@ -54,8 +54,6 @@ const LoginForm = () => {
   useEffect (
     () => {
 
-      console.log(errors)
-
       if (initialRender.current) {
         initialRender.current = false;
       }
