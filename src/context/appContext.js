@@ -6,9 +6,10 @@ export const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [tournaments, setTournaments] = useState([])
 
   return (
-    <AppContext.Provider value={{user, setUser}}>
+    <AppContext.Provider value={{user, setUser, tournaments, setTournaments}}>
       {children}
     </AppContext.Provider>)
 };
