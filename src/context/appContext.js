@@ -6,6 +6,7 @@ export const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
   const [user, setUser] = useState({});
+  const [tournaments, setTournaments] = useState([])
 
   useEffect(() => {
     const data = (window.localStorage.getItem('UserLoggedIn'));
@@ -17,7 +18,7 @@ const AppProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AppContext.Provider value={{user, setUser}}>
+    <AppContext.Provider value={{user, setUser, tournaments, setTournaments}}>
       {children}
     </AppContext.Provider>)
 };

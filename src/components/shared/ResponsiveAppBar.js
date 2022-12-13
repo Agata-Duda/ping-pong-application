@@ -68,7 +68,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null)
   }
-
+  
   return (
     <AppBar position="static" sx={styles.navbar}>
       <Container maxWidth="xl">
