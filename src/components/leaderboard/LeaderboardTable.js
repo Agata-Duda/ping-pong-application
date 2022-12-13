@@ -1,9 +1,8 @@
-import { BorderColor, BorderColorOutlined, PropaneSharp } from '@mui/icons-material';
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
 import LastPageIcon from '@mui/icons-material/LastPage';
-import { TableFooter, TablePagination } from '@mui/material';
+import { TablePagination } from '@mui/material';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
 import Paper from '@mui/material/Paper';
@@ -15,7 +14,7 @@ import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
 import PropTypes from 'prop-types';
-import React, { useEffect, useState } from 'react';
+import React, { Fragment, useEffect, useState } from 'react';
 import { SORT_ARRAY_BY_WINS } from '../util/functions';
 
 function createData( player, tournament, wins, losses, gamesPlayed) {
@@ -43,7 +42,8 @@ function TablePaginationActions(props) {
   };
 
   return (
-    <Box sx={{ flexShrink: 0, ml: 2.5 }}>
+    <Fragment>
+      <Box sx={{ flexShrink: 0, ml: 2.5 }}>
       <IconButton
         onClick={handleFirstPageButtonClick}
         disabled={page === 0}
@@ -73,6 +73,8 @@ function TablePaginationActions(props) {
         {theme.direction === 'rtl' ? <FirstPageIcon /> : <LastPageIcon />}
       </IconButton>
     </Box>
+    </Fragment>
+    
   );
 }
 
@@ -122,31 +124,29 @@ const LeaderboardTable = (props) => {
       }  
     }
     >
-          <Table sx={{ minWidth: 650 }} aria-label="tournament table">
+          <Table aria-label="tournament table">
             <TableHead>
               <TableRow>
                 <TableCell align="center"> Rank </TableCell>
                 <TableCell align="center"> Player </TableCell>
                 <TableCell align="center"> Tournament </TableCell>
                 <TableCell align="center"> Wins </TableCell>
-                <TableCell align="center">Losses</TableCell>
-                <TableCell align="center">Games Played</TableCell>
+                <TableCell align="center"> Losses </TableCell>
+                <TableCell align="center"> Games Played </TableCell>
               </TableRow>
             </TableHead>
-            {console.log(props.usernameFilter)}
             {
               <TableBody>
-                {
-                (rowsPerPage > 0
+                {(rowsPerPage > 0
                   ? rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage)
                   : rows)
-                  .sort(SORT_ARRAY_BY_WINS)
+                  .sort(props.valueFilter)
                   .filter(props.usernameFilter === "" ? () => true : (event) => event.username.startsWith( props.usernameFilter))
                   .map((row, index) => (               
                   
                   <TableRow
                     key={row.leaderboard_id}
-                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }}   
+                    sx={{ '&:last-child td, &:last-child th': { border: 0 } }} 
                   >
                     <TableCell scope="row" align="center">{page > 0 ? index + rowsPerPage + 1 : index + 1}</TableCell>
                     <TableCell align="center">{row.username}</TableCell>
@@ -156,11 +156,14 @@ const LeaderboardTable = (props) => {
                     <TableCell align="center">{row.total_games}</TableCell>
                   </TableRow>
                 ))}
-                </TableBody>
+                {emptyRows > 0 && (
+                  <TableRow style={{ height: 53 * emptyRows }}>
+                    <TableCell colSpan={6} />
+                  </TableRow>
+                )}
+              </TableBody>
             }
-              
           </Table>
-          <TableFooter >
             <TablePagination
                 rowsPerPageOptions={[5, 10, 25, { label: 'All', value: -1 }]}
                 colSpan={3}
@@ -176,8 +179,7 @@ const LeaderboardTable = (props) => {
                 onPageChange={handleChangePage}
                 onRowsPerPageChange={handleChangeRowsPerPage}
                 ActionsComponent={TablePaginationActions}
-              />
-          </TableFooter> 
+              /> 
         </TableContainer>  
   );
 }
