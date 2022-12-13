@@ -93,7 +93,7 @@ const LeaderboardView = () => {
         <Grid item sm={12} md={5} lg={5}>
           <Box paddingTop={1}>
             <Typography align="center" variant="h4">
-              Podium: {selectedTournament === undefined ? "All Tournaments" : selectedTournament}
+              Standings: {selectedTournament === undefined ? "All Tournaments" : selectedTournament}
             </Typography>
             {leaderboardEntries.length >= 3 && <LeaderboardPodium enoughEntries={true} leaderboardEntries={leaderboardEntries}/>}
             {leaderboardEntries.length < 3 && <LeaderboardPodium enoughEntries={false}/>}

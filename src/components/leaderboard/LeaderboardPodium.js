@@ -63,7 +63,7 @@ const LeaderboardPodium = (props) => {
             </Paper>
           </Box>
           <Typography>
-              Not Enough Players to Display Podium
+              Not Enough Players to Display Standings
             </Typography>
         </Stack>
       </CardContent>
