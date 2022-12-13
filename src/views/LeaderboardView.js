@@ -16,7 +16,6 @@ const LeaderboardView = () => {
   const [leaderboardEntries, setLeaderboardEntries] = useState([])
   const [tournaments, setTournaments] = useState([])
   const [selectedTournament, setSelectedTournament] = useState()
-  const [numberOfRows, setNumberOfRows] = useState(5)
   const [usernameFilter, setUsernameFilter] = useState("")
   const [valueFilter, setValueFilter] = useState()
 
@@ -140,7 +139,6 @@ const LeaderboardView = () => {
               <LeaderboardTable
                 selectedTournament={selectedTournament}
                 leaderboardEntries={leaderboardEntries}
-                numberOfRows={numberOfRows}
                 usernameFilter={usernameFilter}
                 valueFilter={valueFilter}
               />
