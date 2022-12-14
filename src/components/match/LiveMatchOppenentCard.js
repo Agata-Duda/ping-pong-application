@@ -5,7 +5,6 @@ import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
 import { toast, Toast } from "react-hot-toast"
-import PropTypes from "prop-types"
 import { Stack } from "@mui/system"
 import { Button } from "@mui/material"
 
