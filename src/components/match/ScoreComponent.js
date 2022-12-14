@@ -1,10 +1,10 @@
-import Card from "@mui/material/Card"
-import CardContent from "@mui/material/CardContent"
-import Typography from "@mui/material/Typography"
-import React, { useEffect, useState } from "react"
+import React from "react"
 import PropTypes from "prop-types"
+
+import Typography from "@mui/material/Typography"
 import { Stack } from "@mui/system"
 import { Button } from "@mui/material"
+
 
 
 const ScoreComponent = ({
@@ -33,6 +33,15 @@ const ScoreComponent = ({
 
     return (<Stack>{ setAmount }</Stack>);
     
+}
+ScoreComponent.propTypes = {
+    setNumber: PropTypes.number,
+    incrementPlayer1: PropTypes.func,
+    incrementPlayer2: PropTypes.func,
+    decrementPlayer1: PropTypes.func,
+    decrementPlayer2: PropTypes.func,
+    scorePlayer1: PropTypes.arrayOf(PropTypes.number),
+    scorePlayer2: PropTypes.arrayOf(PropTypes.number),
 }
 
 export default ScoreComponent

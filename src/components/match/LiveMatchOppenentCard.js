@@ -1,36 +1,38 @@
+import React, { useEffect, useState } from "react"
+import PropTypes from "prop-types"
+
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
-import React, { useState } from "react"
 import { toast, Toast } from "react-hot-toast"
 import PropTypes from "prop-types"
 import { Stack } from "@mui/system"
 import { Button } from "@mui/material"
+
 import ScoreComponent from "./ScoreComponent"
 import { updateReservationByIdGameCompletion } from "../util/ApiMethods"
 
 
 
-// TODO object
 const style = {
-  "opponentCard": {
-    "width": "650px",
-    "margin-right": "10px",
-    "margin-bottom": "10px",
-    "height": "370px",
-    "border-radius": "20px",
-    "background-color": "#F2E0E0"
+  opponentCard: {
+    width: "650px",
+    marginRight: "10px",
+    marginBottom: "10px",
+    height: "370px",
+    borderRadius: "20px",
+    backgroundColor: "#F2E0E0"
   },
-  "content": {
-    "background": "#F2E0E0"
+  content: {
+    background: "#F2E0E0"
   },
-  "playerStack1": {
-    "margin-left": "5px",
-    "margin-right": "10px"
+  playerStack1: {
+    marginLeft: "5px",
+    marginRight: "10px"
   },
-  "playerStack2": {
-    "margin-left": "10px",
-    "margin-right": "5px"
+  playerStack2: {
+    marginLeft: "10px",
+    marginRight: "5px"
   }
 }
 
