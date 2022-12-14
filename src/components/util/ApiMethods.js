@@ -41,8 +41,12 @@ export const postBooking = async (booking) => {
     return data;
   };
 
-export const updateReservationById = async (eventid, userId, booking) => {
-  await axios.put(`${Reservation_URL}/${eventid}/gameComplete/false/userId/${userId}`, booking);
+export const updateReservationById = async (eventid, userName, booking) => {
+  await axios.put(`${Reservation_URL}/${eventid}/gameComplete/false/userName/${userName}`, booking);
+};
+
+export const updateReservationByIdGameCompletion = async (eventid, userName, booking) => {
+  await axios.put(`${Reservation_URL}/${eventid}/gameComplete/true/userName/${userName}`, booking);
 };
 
 export const updateMatchScore = async (id) => {
