@@ -1,19 +1,20 @@
+import React from "react";
+import PropTypes from "prop-types";
+
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import React from "react";
-import PropTypes from "prop-types";
 import { CardMedia, Divider, Icon, Paper, paperClasses }from "@mui/material";
 import { IconButton, Avatar, Grid, Stack, Box } from "@mui/material";
+
 import { border, borderRadius } from "@mui/system";
 
-// TODO object
 const style = {
 LeaderboardPodiumCard: {
     width: "100%",
     height: "100%",
-    "border-radius": "20px",
-    "background-color": "#F2E0E0",
+    borderRadius: "20px",
+    backgroundColor: "#F2E0E0",
     border: 1 
   },
   content: {

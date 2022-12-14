@@ -1,3 +1,6 @@
+import PropTypes from 'prop-types';
+import React, { Fragment, useEffect, useState } from 'react';
+
 import FirstPageIcon from '@mui/icons-material/FirstPage';
 import KeyboardArrowLeft from '@mui/icons-material/KeyboardArrowLeft';
 import KeyboardArrowRight from '@mui/icons-material/KeyboardArrowRight';
@@ -13,8 +16,7 @@ import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-import PropTypes from 'prop-types';
-import React, { Fragment, useEffect, useState } from 'react';
+
 import { SORT_ARRAY_BY_WINS } from '../util/functions';
 
 function createData( player, tournament, wins, losses, gamesPlayed) {

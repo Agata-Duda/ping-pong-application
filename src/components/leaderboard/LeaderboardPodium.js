@@ -1,6 +1,7 @@
+
+import {Card, CardContent, CardMedia, Stack, Box, Grid, Typography, Paper} from "@mui/material"
 import { SORT_ARRAY_BY_WINS } from "../util/functions"
 import { LeaderboardPodiumCard } from "./LeaderboardPodiumCard"
-import {Card, CardContent, CardMedia, Stack, Box, Grid, Typography, Paper} from "@mui/material"
 
 import medalFirst from "../../Images/medalFirst.png"
 import medalSecond from "../../Images/medalSecond.png"
