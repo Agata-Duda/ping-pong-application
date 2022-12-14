@@ -87,7 +87,6 @@ export default function UpdateReservationForm ({ eventid, closeUpdateDrawer, upd
       toast.success("Reservation Updated Successfully!")
 
       }
-      console.log(user.userId)
 
   return (
     <form onSubmit={handleSubmit(onSubmitReservation)} padding={5}>

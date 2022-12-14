@@ -1,15 +1,15 @@
 import React, { useContext } from "react"
 
+import AccountCircleOutlinedIcon from "@mui/icons-material/AccountCircleOutlined"
+
 import { PageTemplate } from "../templates/PageTemplate"
 import { AppContext } from "../context/appContext"
-import {PersonalDetailsCard} from "../components/userAccount/PersonalDetailsCard";
 
 const UserAccountView = () => {
-  const {user} = useContext(AppContext);
+  const [user] = useContext(AppContext);
 
   return (
     <PageTemplate>
-     <PersonalDetailsCard/>
     </PageTemplate>
   )
 }

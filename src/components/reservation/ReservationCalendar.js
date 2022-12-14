@@ -33,7 +33,6 @@ const ReservationCalendar = () => {
 
   const handleSelected = (event) => {
     setSelected(event);
-    console.log(event)
     setPlayerUsernames(event.player_1 + event.player_2)
     setId(event.booking_id)
     setUpdateEventStart(event.event_start)
@@ -59,7 +58,6 @@ const ReservationCalendar = () => {
   }
 
   const handleDeleteReservation = () => {
-    console.log(eventid)
       deleteReservationById(eventid)
       handleCloseDeleteDialog()
     }

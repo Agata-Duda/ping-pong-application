@@ -59,7 +59,7 @@ const settings = [
 ]
 
 const ResponsiveAppBar = () => {
-  const { user, setUser } = useContext(AppContext)
+  const {user, setUser } = useContext(AppContext)
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
@@ -77,8 +77,7 @@ const ResponsiveAppBar = () => {
   const handleCloseUserMenu = () => {
     setAnchorElUser(null)
   }
-
-
+  
   return (
     <AppBar position="static" sx={styles.navbar}>
       <Container maxWidth="xl">

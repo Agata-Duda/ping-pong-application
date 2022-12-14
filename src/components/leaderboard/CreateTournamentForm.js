@@ -29,7 +29,6 @@ const CreateTournamentForm = () => {
         reset()
     }
     return(
-        //TODO: change style later 
          <Collapsible trigger={<b style={labelStyle}>Create Tournament</b>} triggerWhenOpen={<b style={labelStyle}>Create</b>}>
             <Box sx={{paddingLeft:5}}>
                 <form onSubmit={handleSubmit(onSubmitTournament)}>

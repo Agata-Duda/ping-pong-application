@@ -1,6 +1,8 @@
 import React from "react"
 
 import { Stack } from "@mui/material"
+import { Box } from "@mui/material"
+ import { Typography } from "@mui/material"
 
 import { routes } from "../components/util/routes"
 import { OptionCardLarge } from "../components/home/OptionCardLarge"
@@ -10,7 +12,8 @@ import bookingCardImage from "../Images/bookingCardImage.png"
 import predictionCardImage from "../Images/predictionCardImage.png"
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png"
 import match from "../Images/match.png"
-import EventsCard from "../components/home/EventsCard"
+import { OpponentCard } from "../components/home/OpponentCard"
+import { EventsCard } from "../components/home/EventsCard"
 
 
 const Home = () => (
