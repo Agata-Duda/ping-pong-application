@@ -47,7 +47,16 @@ const pages =
     path: routes.matchView
   }
 ]
-const settings = ["Account", "Logout"]
+const settings = [
+    {
+        title: "User Account",
+        path: routes.userAccountView
+    },
+    {
+        title: "Log out",
+        path: routes.loginView
+    },
+]
 
 const ResponsiveAppBar = () => {
   const { user, setUser } = useContext(AppContext)
@@ -183,9 +192,12 @@ const ResponsiveAppBar = () => {
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
             >
-              {settings.map((setting) => (
-                <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                  <Typography textAlign="center">{setting}</Typography>
+              {settings.map(({title, path}) => (
+                <MenuItem  key={`${title}-${path}`}
+                           component={Link}
+                           to={path}
+                          onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{title}</Typography>
                 </MenuItem>
               ))}
             </Menu>

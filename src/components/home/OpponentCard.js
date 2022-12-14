@@ -5,9 +5,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Stack } from "@mui/system"
 
-
-
-// TODO object
 const style = {
   "opponentCard": {
     "width": "430px",
