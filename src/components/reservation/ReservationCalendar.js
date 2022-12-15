@@ -4,6 +4,7 @@ import toast from "react-hot-toast";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import moment from "moment";
 import axios from "axios";
+import { format } from "date-fns";
 
 import Drawer from "@mui/material/Drawer";
 import Button from "@mui/material/Button"
@@ -33,7 +34,7 @@ const ReservationCalendar = () => {
 
   const handleSelected = (event) => {
     setSelected(event);
-    setPlayerUsernames(event.player_1 + event.player_2)
+    setPlayerUsernames(event.player_1 + " vs " + event.player_2)
     setId(event.booking_id)
     setUpdateEventStart(event.event_start)
     setUpdateEventEnd(event.event_finish)
@@ -119,9 +120,12 @@ const ReservationCalendar = () => {
         }}
         localizer={localizer}
         events={bookings}
-        titleAccessor="booking_id"
+        titleAccessor={bookings => bookings.player_1 + " vs " + bookings.player_2 + 
+        " - " + format(bookings.event_start, "hh:mm")}
         startAccessor="event_start"
         endAccessor="event_finish"
+        min={new Date(2022, 11, 15, 8, 30, 0)}
+        max={new Date(2022, 11, 15, 18, 0, 0)}
         timeslots={1}
         step={10}
         style={{ height: 500 }}
@@ -162,7 +166,7 @@ const ReservationCalendar = () => {
       open={openOptionsDialog}
       close={handleCloseOptionsDialog}
       titles={"Selected Event with reservation ID: " + eventid} 
-      subtitle={" Players : " + playerUsernames[0] + playerUsernames[5]}
+      subtitle={" Players : " + playerUsernames}
       description="Do you want to delete or update this event?"
       closeDialog={handleCloseOptionsDialog}
       actionButtons=

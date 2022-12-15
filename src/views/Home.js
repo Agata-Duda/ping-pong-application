@@ -1,8 +1,6 @@
 import React from "react"
 
 import { Stack } from "@mui/material"
-import { Box } from "@mui/material"
- import { Typography } from "@mui/material"
 
 import { routes } from "../components/util/routes"
 import { OptionCardLarge } from "../components/home/OptionCardLarge"
