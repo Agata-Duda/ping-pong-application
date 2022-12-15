@@ -15,7 +15,6 @@ const LoginForm = () => {
   const {
     control,
     handleSubmit,
-    watch,
     formState: { errors },
   } = useForm();
   const { user, setUser } = useContext(AppContext);
@@ -54,8 +53,6 @@ const LoginForm = () => {
 
   useEffect (
     () => {
-
-      console.log(errors)
 
       if (initialRender.current) {
         initialRender.current = false;

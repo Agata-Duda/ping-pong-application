@@ -84,6 +84,12 @@ export const postTournament = async (tournament) => {
     await axios.post(`${Tournament_URL}/`, tournament)
   }
   
-  export const getAllTournaments = async () => {
-    await axios.get(`${Tournament_URL}`);
-  }
+export const getAllTournaments = async () => {
+  await axios.get(`${Tournament_URL}`)
+}
+
+export const Leaderboard_URL = "http://localhost:8000/leaderboard-service";
+
+export const GetAllLeaderboardEntries = async () => {
+  await axios.get(`${Leaderboard_URL}`)
+}
