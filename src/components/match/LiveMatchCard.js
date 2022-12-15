@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import { useQuery } from "react-query";
 
 import { Box } from "@mui/system"
@@ -18,7 +18,7 @@ export const LiveMatchCard = () => {
      )))
      const bookingFilteredByDate = (!isFetching && (bookings.filter(event => event.event_start >= date)))
      const bookingFiltered = (!isFetching &&  bookingFilteredByDate.filter(eventUser => eventUser.player_2 === user.userName || eventUser.player_1 === user.userName))
-     
+
     return(
         <Box>
             {!isFetching && (bookingFiltered.map((booking, index) => index < 1 && (
@@ -33,7 +33,9 @@ export const LiveMatchCard = () => {
                 tournament={booking.tournamentName}
                 matchDate={(booking.event_start).toString().split("T")[0]}
                 matchStartTime={(booking.event_start).toString().split("T")[1].replace(":00", "")}
-                setNumber={booking.sets}/>
+                setNumber={booking.sets}
+                player1Score={booking.player_1_score}
+                player2Score={booking.player_2_score}/>
             )))}
         </Box>
     )

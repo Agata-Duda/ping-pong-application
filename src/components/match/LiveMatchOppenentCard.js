@@ -105,6 +105,7 @@ const determineWinner = () => {
   }).then(toast.success("Scores Submitted"))
 }
 
+
 const onSubmitScore = () => {
   determineWinner()
 }
@@ -139,16 +140,16 @@ return(
         </Stack>
         <Stack justifyContent="center" alignItems="center" direction="column">
             <Typography variant="h5">Score</Typography>
-            <ScoreComponent
-            setNumber={setNumber}
-            incrementPlayer1={incrementScorePlayer1} 
-            incrementPlayer2={incrementScorePlayer2}
-            decrementPlayer1={decrementScorePlayer1} 
-            decrementPlayer2={decrementScorePlayer2}
-            scorePlayer1={scorePlayer1}
-            scorePlayer2={scorePlayer2}
-            />
-            <Button onClick={onSubmitScore}>Submit</Button>
+              <ScoreComponent
+                setNumber={setNumber}
+                incrementPlayer1={incrementScorePlayer1} 
+                incrementPlayer2={incrementScorePlayer2}
+                decrementPlayer1={decrementScorePlayer1} 
+                decrementPlayer2={decrementScorePlayer2}
+                scorePlayer1={scorePlayer1}
+                scorePlayer2={scorePlayer2}
+              />
+              <Button alignItems="center" onClick={onSubmitScore} >Submit</Button>
         </Stack>
     </CardContent>
   </Card>
