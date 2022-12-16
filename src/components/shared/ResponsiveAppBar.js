@@ -1,53 +1,51 @@
-import React, { useContext } from "react"
-import { Link } from "react-router-dom"
+import React, { useContext } from "react";
+import { Link } from "react-router-dom";
 
-import AppBar from "@mui/material/AppBar"
-import Box from "@mui/material/Box"
-import Toolbar from "@mui/material/Toolbar"
-import IconButton from "@mui/material/IconButton"
-import Typography from "@mui/material/Typography"
-import Menu from "@mui/material/Menu"
-import MenuIcon from "@mui/icons-material/Menu"
-import Container from "@mui/material/Container"
-import Avatar from "@mui/material/Avatar"
-import Button from "@mui/material/Button"
-import Tooltip from "@mui/material/Tooltip"
-import MenuItem from "@mui/material/MenuItem"
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import IconButton from "@mui/material/IconButton";
+import Typography from "@mui/material/Typography";
+import Menu from "@mui/material/Menu";
+import MenuIcon from "@mui/icons-material/Menu";
+import Container from "@mui/material/Container";
+import Avatar from "@mui/material/Avatar";
+import Button from "@mui/material/Button";
+import Tooltip from "@mui/material/Tooltip";
+import MenuItem from "@mui/material/MenuItem";
 
-import { AppContext } from "../../context/appContext"
-import { routes } from "../util/routes"
-
+import { AppContext } from "../../context/appContext";
+import { routes } from "../util/routes";
 
 const styles = {
-  "navbar": {
-    "background-color": "#ff0041"
-  }
-}
+  navbar: {
+    "background-color": "#ff0041",
+  },
+};
 
-const pages =
-[
+const pages = [
   {
     title: "Home",
-    path: routes.home
+    path: routes.home,
   },
   {
     title: "Reservations",
-    path: routes.reservationsView
+    path: routes.reservationsView,
   },
   {
     title: "Leaderboard",
-    path: routes.leaderboardView
+    path: routes.leaderboardView,
   },
   {
-    title: "Prediction",
-    path: routes.predictionView
+    title: "Tournaments",
+    path: routes.tournamentView,
   },
   {
     title: "Match",
-    path: routes.matchView
-  }
-]
-const settings = ["Account", "Logout"]
+    path: routes.matchView,
+  },
+];
+const settings = ["Account", "Logout"];
 
 const ResponsiveAppBar = () => {
   const {user, setUser } = useContext(AppContext)
@@ -55,15 +53,15 @@ const ResponsiveAppBar = () => {
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
   const handleOpenNavMenu = (event) => {
-    setAnchorElNav(event.currentTarget)
-  }
+    setAnchorElNav(event.currentTarget);
+  };
   const handleOpenUserMenu = (event) => {
-    setAnchorElUser(event.currentTarget)
-  }
+    setAnchorElUser(event.currentTarget);
+  };
 
   const handleCloseNavMenu = () => {
-    setAnchorElNav(null)
-  }
+    setAnchorElNav(null);
+  };
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null)
@@ -79,19 +77,19 @@ const ResponsiveAppBar = () => {
             component="a"
             href={routes.userDetailsPage}
             sx={{
-              "mr": 2,
-              "display": { "xs": "none", "md": "flex" },
-              "fontFamily": "monospace",
-              "fontWeight": 700,
-              "letterSpacing": ".3rem",
-              "color": "inherit",
-              "textDecoration": "none"
+              mr: 2,
+              display: { xs: "none", md: "flex" },
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
-            { user.userName }
+            {user.userName}
           </Typography>
 
-          <Box sx={{ "flexGrow": 1, "display": { "xs": "flex", "md": "none" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
               aria-label="account of current user"
@@ -106,18 +104,18 @@ const ResponsiveAppBar = () => {
               id="menu-appbar"
               anchorEl={anchorElNav}
               anchorOrigin={{
-                "vertical": "bottom",
-                "horizontal": "left"
+                vertical: "bottom",
+                horizontal: "left",
               }}
               keepMounted
               transformOrigin={{
-                "vertical": "top",
-                "horizontal": "left"
+                vertical: "top",
+                horizontal: "left",
               }}
               open={Boolean(anchorElNav)}
               onClose={handleCloseNavMenu}
               sx={{
-                "display": { "xs": "block", "md": "none" }
+                display: { xs: "block", md: "none" },
               }}
             >
               {pages.map((page) => (
@@ -134,50 +132,50 @@ const ResponsiveAppBar = () => {
             component="a"
             href={routes.userDetailsPage}
             sx={{
-              "mr": 2,
-              "display": { "xs": "flex", "md": "none" },
-              "flexGrow": 1,
-              "fontFamily": "monospace",
-              "fontWeight": 700,
-              "letterSpacing": ".3rem",
-              "color": "inherit",
-              "textDecoration": "none"
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
             }}
           >
-            { user.userName }
+            {user.userName}
           </Typography>
-          <Box sx={{ "flexGrow": 1, "display": { "xs": "none", "md": "flex" } }}>
+          <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map(({ title, path }) => (
               <Button
                 key={`${title}-${path}`}
                 component={Link}
                 to={path}
                 onClick={handleCloseNavMenu}
-                sx={{ "my": 2, "color": "white", "display": "block" }}
+                sx={{ my: 2, color: "white", display: "block" }}
               >
                 {title}
               </Button>
             ))}
           </Box>
 
-          <Box sx={{ "flexGrow": 0 }}>
+          <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
-              <IconButton onClick={handleOpenUserMenu} sx={{ "p": 0 }}>
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
             </Tooltip>
             <Menu
-              sx={{ "mt": "45px" }}
+              sx={{ mt: "45px" }}
               id="menu-appbar"
               anchorEl={anchorElUser}
               anchorOrigin={{
-                "vertical": "top",
-                "horizontal": "right"
+                vertical: "top",
+                horizontal: "right",
               }}
               keepMounted
               transformOrigin={{
-                "vertical": "top",
-                "horizontal": "right"
+                vertical: "top",
+                horizontal: "right",
               }}
               open={Boolean(anchorElUser)}
               onClose={handleCloseUserMenu}
@@ -192,6 +190,6 @@ const ResponsiveAppBar = () => {
         </Toolbar>
       </Container>
     </AppBar>
-  )
-}
-export default ResponsiveAppBar
+  );
+};
+export default ResponsiveAppBar;

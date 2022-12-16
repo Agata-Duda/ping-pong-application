@@ -4,7 +4,7 @@ import { Modal, Typography, TextField, Button } from "@mui/material";
 import { Stack } from "@mui/system";
 import Select from 'react-select';
 import { useForm, Controller } from "react-hook-form";
-import  toast  from "react-hot-toast";
+import toast  from "react-hot-toast";
 import axios from "axios";
 
 import { GetAllJobTitles_URL, GET_ALL_USERS } from "../util/ApiMethods";
@@ -79,7 +79,7 @@ const SignupModal = (props) => {
   }, []);
 
 
-  const onSubmit = ((data) => {
+  const onSubmit = (() => {
     const payload = {
         userName: userName,
         password: password,

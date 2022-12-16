@@ -1,4 +1,5 @@
 import axios from "axios";
+import { toast } from "react-hot-toast";
 
 export const Reservation_URL = "http://localhost:8000/reservation-service";
 
@@ -82,14 +83,31 @@ export const Tournament_URL = "http://localhost:8000/tournament-service";
 
 export const postTournament = async (tournament) => {
     await axios.post(`${Tournament_URL}/`, tournament)
+      .then(() => toast.success("Tournament Created: " + tournament.tournamentName))
+      .catch((error) => {
+        toast.error(error.response.data.response)
+        throw error.response.data.response
+      })
   }
   
 export const getAllTournaments = async () => {
+  return await axios.get(`${Tournament_URL}`)
+}
+
+export const getTournamentByUsername = async () => {
   await axios.get(`${Tournament_URL}`)
 }
 
 export const Leaderboard_URL = "http://localhost:8000/leaderboard-service";
 
 export const GetAllLeaderboardEntries = async () => {
-  await axios.get(`${Leaderboard_URL}`)
+  return await axios.get(`${Leaderboard_URL}`)
+}
+
+export const GetAllLeaderboardEntriesByUsername = async (username) => {
+  return await axios.get(`${Leaderboard_URL}/userGames/`.concat(username)).catch((error) => {throw error})
+}
+
+export const JoinTournament = async (leaderboardEntryDate) => {
+  return await axios.post(`${Leaderboard_URL}`, leaderboardEntryDate).catch(error => {throw error})
 }

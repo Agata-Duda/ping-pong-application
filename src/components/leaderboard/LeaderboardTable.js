@@ -120,8 +120,8 @@ const LeaderboardTable = (props) => {
     <TableContainer 
       component={Paper}
       sx={{
-        border: 1,
-        borderColor: "#00193A"
+        // border: 1,
+        // borderColor: "#00193A"
       }  
     }
     >
