@@ -2,7 +2,7 @@ import React, { useEffect, useContext, useState, useRef } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Redirect } from "react-router-dom";
 import axios from "axios";
-import { toast }  from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 import { Box, Typography, TextField, Button, Stack} from "@mui/material";
 import { AppContext } from "../../context/appContext";
@@ -29,7 +29,7 @@ const LoginForm = () => {
       .then((response) => {
         setUser(response.data.response)
       })
-      .catch((error) => toast.error("Username does not exist"));
+      .catch(() => toast.error("Username does not exist"));
   };
 
   const handleSignupButtonClick = (e) => {

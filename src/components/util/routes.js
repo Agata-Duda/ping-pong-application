@@ -1,10 +1,10 @@
 export const routes = {
-    loginView: "/",
-    home: "/home",
-    userAccountView: "/UserAccountView",
-    reservationsView: "/ReservationsView",
-    predictionView: "/PredicitionView",
-    leaderboardView: "/LeaderboardView",
-    matchView: "/MatchView",
-    test: "/test",
-  };
+  loginView: "/",
+  home: "/home",
+  userAccountView: "/UserAccountView",
+  reservationsView: "/ReservationsView",
+  tournamentView: "/TournamentView",
+  leaderboardView: "/LeaderboardView",
+  matchView: "/MatchView",
+  test: "/test",
+};
