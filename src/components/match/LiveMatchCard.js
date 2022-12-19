@@ -18,7 +18,7 @@ export const LiveMatchCard = () => {
     !isFetching && (bookings.sort((a, b) => (
         Math.abs(Date.now() - new Date(a.event_start)) - Math.abs(Date.now() - new Date(b.event_start))
      )))
-     const bookingFilteredByDate = (!isFetching && (bookings.filter(event => event.event_start >= date)))
+     const bookingFilteredByDate = (!isFetching && (bookings.filter(event => event.event_finish >= date)))
      const bookingFiltered = (!isFetching &&  bookingFilteredByDate.filter(eventUser => eventUser.player_2 === user.userName || eventUser.player_1 === user.userName))
 
     return(
