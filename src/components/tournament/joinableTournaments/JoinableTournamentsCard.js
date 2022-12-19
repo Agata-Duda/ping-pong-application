@@ -1,5 +1,5 @@
 import { Card, Typography, CardContent } from "@mui/material"
-import { Box, Stack } from "@mui/system"
+import { Stack } from "@mui/system"
 import DateDisplayTemplate from "../../../templates/DateDisplayTemplate"
 import { styles } from "../../util/styles"
 import JoinTournamentButton from "./JoinTournamentButton"

@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState, useContext } from "react"
 import Select from "react-select"
 import LeaderboardPodium from "../components/leaderboard/LeaderboardPodium"
 import LeaderboardTable from "../components/leaderboard/LeaderboardTable"
-import { Leaderboard_URL, Tournament_URL } from "../components/util/ApiMethods"
+import { Leaderboard_URL } from "../components/util/ApiMethods"
 import { PageTemplate } from "../templates/PageTemplate"
 import { SORT_ARRAY_BY_WINS, SORT_ARRAY_BY_TOTAL_GAMES, SORT_ARRAY_BY_LOSSES } from "../components/util/functions"
 import { AppContext } from "../context/appContext"
@@ -29,7 +29,6 @@ const LeaderboardView = () => {
   }
 
   const fetchTournaments = async () => {
-    console.log(tournamentsContext);
       const mappedTournaments = tournamentsContext?.map((d) => {
         return({
           label: d.tournamentName,

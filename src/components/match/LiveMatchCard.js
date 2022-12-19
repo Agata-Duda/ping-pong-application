@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext} from "react";
 import { useQuery } from "react-query";
 
 import { Box } from "@mui/system"
@@ -6,6 +6,8 @@ import { Box } from "@mui/system"
 import { getAllReservations} from "../util/ApiMethods"
 import { AppContext } from "../../context/appContext"
 import LiveMatchOpponentCard from "./LiveMatchOppenentCard"
+import MatchTimer from "./MatchTimer";
+
 
 export const LiveMatchCard = () => {
 
@@ -22,6 +24,9 @@ export const LiveMatchCard = () => {
     return(
         <Box>
             {!isFetching && (bookingFiltered.map((booking, index) => index < 1 && (
+                <>
+                <MatchTimer 
+                eventFinish={booking.event_finish}/>
                 <LiveMatchOpponentCard
                 key={booking.booking_id}
                 loggedInUser={user.userName}
@@ -36,6 +41,7 @@ export const LiveMatchCard = () => {
                 setNumber={booking.sets}
                 player1Score={booking.player_1_score}
                 player2Score={booking.player_2_score}/>
+                </>
             )))}
         </Box>
     )
