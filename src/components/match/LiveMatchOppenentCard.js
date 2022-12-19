@@ -52,7 +52,7 @@ const LiveMatchOpponentCard = ({
 
 const [scorePlayer1, setScorePlayer1] = useState([0,0,0,0,0])
 const [scorePlayer2, setScorePlayer2] = useState([0,0,0,0,0])
-console.log(eventEnd)
+
 const incrementScorePlayer1 = (index) => {
     const scoreCounterPlayer1 = [...scorePlayer1]
     scoreCounterPlayer1[index] += 1

@@ -5,7 +5,7 @@ import { useForm, Controller } from "react-hook-form"
 import toast from "react-hot-toast"
 import { v4 } from "uuid"
 
-import { Tournament_URL, GET_ALL_USERS, postBooking, GetUserByUsername_URL } from "../util/ApiMethods"
+import { Tournament_URL, GET_ALL_USERS, postBooking } from "../util/ApiMethods"
 import { Typography, Button, Box, Stack } from "@mui/material"
 
 const styles = {
