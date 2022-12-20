@@ -9,8 +9,9 @@ const AppProvider = ({ children }) => {
   const [tournaments, setTournaments] = useState([])
 
   useEffect(() => {
-    const data = (window.localStorage.getItem('UserLoggedIn'));
-    if( data !== null) setUser(JSON.parse(data))
+    const userData = (window.localStorage.getItem('UserLoggedIn'));
+    if( userData !== null) setUser(JSON.parse(userData))
+
   }, []);
 
   useEffect(() => {
@@ -18,7 +19,13 @@ const AppProvider = ({ children }) => {
   }, [user]);
 
   return (
-    <AppContext.Provider value={{user, setUser, tournaments, setTournaments}}>
+    <AppContext.Provider value={{
+      user, 
+      setUser,
+      tournaments,
+      setTournaments
+      }}
+    >
       {children}
     </AppContext.Provider>)
 };

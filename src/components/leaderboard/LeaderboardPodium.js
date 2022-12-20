@@ -48,7 +48,7 @@ const LeaderboardPodium = (props) => {
     }
     
     else return (
-      <Card sx={{ border: 1, borderRadius: 5}}>
+      <Card sx={{ borderRadius: 5}}>
         <CardContent sx={{padding: 1}}>
           <Stack spacing={1} justifyContent="space-evenly" alignItems="center">
             <Box justifyItems="center" alignSelf="center" width="50%">

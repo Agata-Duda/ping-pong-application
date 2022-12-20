@@ -6,7 +6,7 @@ import React, { useEffect, useRef, useState, useContext } from "react"
 import Select from "react-select"
 import LeaderboardPodium from "../components/leaderboard/LeaderboardPodium"
 import LeaderboardTable from "../components/leaderboard/LeaderboardTable"
-import { Leaderboard_URL, Tournament_URL } from "../components/util/ApiMethods"
+import { headersConfig, Leaderboard_URL, Tournament_URL } from "../components/util/ApiMethods"
 import { PageTemplate } from "../templates/PageTemplate"
 import { SORT_ARRAY_BY_WINS, SORT_ARRAY_BY_TOTAL_GAMES, SORT_ARRAY_BY_LOSSES } from "../components/util/functions"
 import { AppContext } from "../context/appContext"
@@ -23,7 +23,7 @@ const LeaderboardView = () => {
   let initialRender= useRef(true)
 
   const fetchLeaderboardData = () => {
-    axios.get(`${Leaderboard_URL}/filterByTournament/`.concat(selectedTournament)).then((response) => {
+    axios.get(`${Leaderboard_URL}/filterByTournament/`.concat(selectedTournament), headersConfig).then((response) => {
       setLeaderboardEntries(response.data.response);
     });
   }
@@ -42,7 +42,7 @@ const LeaderboardView = () => {
   
 
   const fetchAllLeaderboardData = () => {
-    axios.get(`${Leaderboard_URL}`).then((response) => {
+    axios.get(`${Leaderboard_URL}`, headersConfig).then((response) => {
       setLeaderboardEntries(response.data.response);
     });
   }
