@@ -5,7 +5,7 @@ import PropTypes from "prop-types"
 export const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  const [user, setUser] = useState({});
+  const [user, setUser] = useState("");
   const [tournaments, setTournaments] = useState([])
 
   useEffect(() => {

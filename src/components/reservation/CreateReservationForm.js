@@ -9,8 +9,6 @@ import {
   Tournament_URL,
   User_URL,
   postBooking,
-  GetUserByUsername_URL,
-  headersConfig,
 } from "../util/ApiMethods";
 import { Typography, Button, Box, Stack } from "@mui/material";
 
@@ -49,7 +47,7 @@ export default function CreateReservationForm({ timeDate, closeDrawer }) {
 
   useEffect(() => {
     const fetchUsers = async () => {
-      await axios(`${User_URL}`, headersConfig).then((res) => {
+      await axios(`${User_URL}`).then((res) => {
         const mappedUsers = res.data.response?.map((d) => {
           return {
             label: d.userName,
@@ -64,7 +62,7 @@ export default function CreateReservationForm({ timeDate, closeDrawer }) {
 
   useEffect(() => {
     const fetchTournament = async () => {
-      await axios.get(`${Tournament_URL}`, headersConfig).then((res) => {
+      await axios.get(`${Tournament_URL}`).then((res) => {
         const mappedTournaments = res.data.response?.map((d) => {
           return {
             label: d.tournamentName,

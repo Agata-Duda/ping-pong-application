@@ -7,7 +7,7 @@ import { useForm, Controller } from "react-hook-form";
 import toast from "react-hot-toast";
 import axios from "axios";
 
-import { GetAllJobTitles_URL, headersConfig, User_URL } from "../util/ApiMethods";
+import { GetAllJobTitles_URL, User_URL } from "../util/ApiMethods";
 
 const style = {
   signupBox: {
@@ -61,7 +61,7 @@ const SignupModal = (props) => {
 
   useEffect(() => {
     const fetchJobTitles = async () => {
-      await axios.get(`${GetAllJobTitles_URL}`, headersConfig).then((response) => {
+      await axios.get(`${GetAllJobTitles_URL}`).then((response) => {
         const mappedJobTitles = response.data.response?.map((d) => {
           return {
             label: d.title,
@@ -72,7 +72,7 @@ const SignupModal = (props) => {
       });
     };
     fetchJobTitles();
-  }, []);
+  }, [props.open]);
 
   const onSubmit = () => {
     const payload = {
@@ -112,7 +112,7 @@ const SignupModal = (props) => {
         sx={style.signupBox}
       >
         <Typography fontWeight={"bold"}> Sign Up </Typography>
-        <form onSubmit={handleSubmit(onSubmit)} padding={5}>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <Controller
             control={control}
             name="user_name"

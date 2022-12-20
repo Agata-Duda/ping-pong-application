@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 import { Box, Typography, TextField, Button, Stack} from "@mui/material";
 import { AppContext } from "../../context/appContext";
-import { authenticateUser, GetUserByUsername_URL, getUserDetails } from "../util/ApiMethods";
+import { authenticateUser, getUserDetails } from "../util/ApiMethods";
 import { routes } from "../util/routes";
 import SignupModal from "./SignupModal";
 import { styles } from "../util/styles";
@@ -16,8 +16,8 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { user, setUser} = useContext(AppContext);
-  const [ loginError, setLoginError ] = useState(true);
+  const { setUser} = useContext(AppContext);
+  const [loggedIn, setLoggedIn] = useState(false)
   const [ username, setUsername ] = useState();
   const [ password, setPassword ] = useState();
   const [signupModal, setSignupModalOpen] = useState(false);
@@ -46,19 +46,22 @@ const LoginForm = () => {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value)
   }
+  
+  localStorage.clear()
 
   if(jwt.length > 0) {
     localStorage.setItem("jwt", jwt)
-    if (localStorage.getItem("jwt") !== null) {
-      getUserDetails(username).then((response) => setUser(response.data.response))
-      return <Redirect to={routes.home} />
+    getUserDetails(username)
+    .then((response) => {
+      setUser(response.data.response)
+      setLoggedIn(true)
     }
+    )
   }
 
-  localStorage.setItem("UserLoggedIn", JSON.stringify(user))
-
   return (
-    <Stack spacing={1} align="center" direction="column" sx={styles.loginBox} >
+    <Stack paddingTop={2} spacing={1} align="center" direction="column" sx={styles.loginBox} >
+    {loggedIn && <Redirect to={routes.home} />}  
     <Typography fontWeight={'bold'}> Login </Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
         <Controller

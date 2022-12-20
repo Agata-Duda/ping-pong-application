@@ -1,5 +1,5 @@
 // TODO from me - App.css and index.css needs to be within one file and one file to be used throughout whole app
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Navigate } from "react-router-dom";
 import React, { useEffect, useContext } from "react";
 import { Toaster } from "react-hot-toast";
 
@@ -18,18 +18,6 @@ import { AppContext } from "./context/appContext";
 // TODO General comment: you can use React-Query to fetch data from the backend
 
 function App() {
-
-  const {setTournaments} = useContext(AppContext)
-
-  const AuthWrapper = () => {
-    return isExpired(localStorage.getItem('token')
-      ? <Navigate to="/login" replace />
-      : <Outlet />)
-  }
-
-  useEffect(() => {
-    getAllTournaments().then(response => setTournaments(response.data.response))
-  },[])
 
   return (
     <Router>

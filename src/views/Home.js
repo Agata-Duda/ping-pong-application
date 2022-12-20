@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 
 import { Stack } from "@mui/material"
 
@@ -10,10 +10,19 @@ import bookingCardImage from "../Images/bookingCardImage.png";
 import predictionCardImage from "../Images/predictionCardImage.png";
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png";
 import match from "../Images/match.png";
-import { OpponentCard } from "../components/home/OpponentCard";
 import { EventsCard } from "../components/home/EventsCard";
+import { AppContext } from "../context/appContext";
+import { getAllTournaments } from "../components/util/ApiMethods";
 
-const Home = () => (
+const Home = () => {
+
+  const {setTournaments} = useContext(AppContext)
+
+  useEffect(() => {
+    getAllTournaments().then(response => setTournaments(response.data.response))
+  },[])
+
+  return (
   <PageTemplate>
     <Stack direction="row">
       <Stack direction="column">
@@ -59,5 +68,7 @@ const Home = () => (
       </Stack>
     </Stack>
   </PageTemplate>
-);
+  )
+}
+
 export default Home;

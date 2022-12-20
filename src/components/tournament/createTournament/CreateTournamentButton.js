@@ -18,7 +18,7 @@ const CreateTournamentButton = ({accountType}) => {
                 <span>
                     <Button 
                         variant="contained"
-                        disabled={accountType === "REGULAR"}
+                        disabled={accountType !== "ROLE_ADMIN"}
                         startIcon={<AddIcon />}
                         onClick={handleOpen}
                         sx={{
