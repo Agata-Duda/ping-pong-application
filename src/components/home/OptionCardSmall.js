@@ -28,7 +28,7 @@ export const OptionCardSmall = ({ image, title, path }) => (
   <Card component={Link} to={path} sx={styles.card}>
     <CardMedia
       component="img"
-      height="105"
+      height="150"
       width="255"
       image={image}
       alt="option description"

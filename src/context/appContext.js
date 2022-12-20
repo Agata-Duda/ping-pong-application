@@ -1,4 +1,4 @@
-import React,{ useEffect, useState } from "react"
+import React,{ useState, useEffect } from "react"
 
 import PropTypes from "prop-types"
 
@@ -19,6 +19,7 @@ const AppProvider = ({ children }) => {
   }, [user]);
 
   return (
+
     <AppContext.Provider value={{
       user, 
       setUser,

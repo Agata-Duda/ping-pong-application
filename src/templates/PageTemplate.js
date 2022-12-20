@@ -1,10 +1,9 @@
-import PropTypes from "prop-types"
 import React from "react"
-
+import PropTypes from "prop-types"
 import { Box } from "@mui/material"
 
 import { Header } from "../components/shared/Header"
-import ResponsiveAppBar from "../components/shared/ResponsiveAppBar"
+import {ResponsiveAppBar} from "../components/shared/ResponsiveAppBar"
 
 const styles = {
   box: {

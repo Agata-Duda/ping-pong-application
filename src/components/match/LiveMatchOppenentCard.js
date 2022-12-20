@@ -1,6 +1,6 @@
+
 import React, { useState } from "react"
 import PropTypes from "prop-types"
-
 
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
@@ -11,8 +11,6 @@ import { Button, Tooltip} from "@mui/material"
 
 import ScoreComponent from "./ScoreComponent"
 import { updateReservationByIdGameCompletion } from "../util/ApiMethods"
-
-
 
 const style = {
   opponentCard: {

@@ -5,9 +5,6 @@ import React from "react"
 import PropTypes from "prop-types"
 import { Stack } from "@mui/system"
 
-
-
-// TODO object
 const style = {
   "opponentCard": {
     "width": "430px",
@@ -30,7 +27,7 @@ const style = {
   }
 }
 
-export const OpponentCard = ({ player1Avatar, player2Avatar, player1Username, player2Username, matchDate, matchStartTime }) => (
+export const OpponentCard = ({ player1Username, player2Username, matchDate, matchStartTime }) => (
   <Card sx={style.opponentCard}>
     <CardContent>
     <Stack justifyContent="center" alignItems="center" direction="row" >
