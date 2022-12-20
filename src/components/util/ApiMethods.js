@@ -84,17 +84,17 @@ export const getJobs = async () => {
 }
 
 export const getAllUsers = async () => {
-    await axios.get(`${GET_ALL_USERS}`)
+    await axios.get(`${User_URL}`)
   }
   //For getting users from event selected and displaying username in dialog 
   export const getUserByID = async (userId) => {
-    const data =  await axios.get(`${GET_ALL_USERS}/${userId}`).then((res) => {
+    const data =  await axios.get(`${User_URL}/${userId}`).then((res) => {
       return(res?.data.response)
     })
     return data
   }
 export const updateUserDetails = async (userId, updatedUserDetails) => {
-  await axios.put(`${GET_ALL_USERS}/${userId}`, updatedUserDetails)
+  await axios.put(`${User_URL}/${userId}`, updatedUserDetails)
       .then(() => toast.success("Successfully Updated User!"))
       .catch((error) => toast.error("Error"));
 
