@@ -1,13 +1,16 @@
-import React, { useEffect, useState } from "react"
+
+import React, { useState } from "react"
 import PropTypes from "prop-types"
 
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
+import { toast } from "react-hot-toast"
 import { Stack } from "@mui/system"
-import { Button } from "@mui/material"
+import { Button, Tooltip} from "@mui/material"
 
 import ScoreComponent from "./ScoreComponent"
+import { updateReservationByIdGameCompletion } from "../util/ApiMethods"
 
 const style = {
   opponentCard: {
@@ -30,50 +33,82 @@ const style = {
     marginRight: "5px"
   }
 }
+
 const LiveMatchOpponentCard = ({
+    bookingId,
+    loggedInUser,
     player1Username, 
-    player2Username, 
+    player2Username,
+    eventStart,
+    eventEnd,
+    tournament,
     matchDate, 
     matchStartTime, 
-    setNumber, 
-    scorePlayer1,
-    scorePlayer2,
-    setScorePlayer1, 
-    setScorePlayer2}) => {
+    setNumber,
+    player1Score,
+    player2Score}) => {
 
+const [scorePlayer1, setScorePlayer1] = useState([0,0,0,0,0])
+const [scorePlayer2, setScorePlayer2] = useState([0,0,0,0,0])
 
 const incrementScorePlayer1 = (index) => {
-    // let initialScore = scorePlayer1
-    scorePlayer1[index] = scorePlayer1[index] + 1
-    setScorePlayer1(scorePlayer1)
-    console.log(scorePlayer1)
+    const scoreCounterPlayer1 = [...scorePlayer1]
+    scoreCounterPlayer1[index] += 1
+    setScorePlayer1(scoreCounterPlayer1)
 }
 
 const incrementScorePlayer2 = (index) => {
-    scorePlayer2[index] = scorePlayer2[index] + 1
-    setScorePlayer2(scorePlayer2)
-    console.log(scorePlayer2)
+    const scoreCounterPlayer2 = [...scorePlayer2]
+    scoreCounterPlayer2[index] += 1
+    setScorePlayer2(scoreCounterPlayer2)
 }
 
 const decrementScorePlayer1 = (index) => {
-    if(scorePlayer1[index] > 0){
-    scorePlayer1[index] = scorePlayer1[index] - 1
-    setScorePlayer1(scorePlayer1)
-    console.log(scorePlayer1)
+    const scoreCounterPlayer1 = [...scorePlayer1]
+    if(scoreCounterPlayer1[index] > 0){
+    scoreCounterPlayer1[index] -=  1
+    setScorePlayer1(scoreCounterPlayer1)
     }
 }
 
 const decrementScorePlayer2 = (index) => {
-    if(scorePlayer2[index] > 0){
-    scorePlayer2[index] = scorePlayer2[index] - 1
-    setScorePlayer2(scorePlayer2)
-    console.log(scorePlayer2)
+    const scoreCounterPlayer2 = [...scorePlayer2]
+    if(scoreCounterPlayer2[index] > 0){
+    scoreCounterPlayer2[index] -= 1
+    setScorePlayer2(scoreCounterPlayer2)
     }
 }
 
-useEffect(() => {
+const determineWinner = () => {
+  const scoreCounterPlayer1 = [...scorePlayer1]
+  const scoreCounterPlayer2 = [...scorePlayer2]
+  let player_1Score = 0;
+  let player_2Score = 0;
+  
+  for (let index = 0; index < setNumber; index++) {
+    if (scoreCounterPlayer1[index] > scoreCounterPlayer2[index]) {
+      player_1Score += 1
+    } if (scoreCounterPlayer2[index] > scoreCounterPlayer1[index]) {
+      player_2Score += 1
+    }
+  } 
 
-}, [incrementScorePlayer1, incrementScorePlayer2])
+  updateReservationByIdGameCompletion(bookingId,loggedInUser,{
+    booking_id: bookingId,
+    player_1: player1Username,
+    player_2: player2Username,
+    sets: setNumber,
+    event_start: eventStart,
+    event_finish: eventEnd,
+    tournamentName: tournament,
+    player_1_score: player_1Score,
+    player_2_score: player_2Score
+  }).then(toast.success("Scores Submitted"))
+}
+
+const onSubmitScore = () => {
+  determineWinner()
+};
 
 return(
   <Card sx={style.opponentCard}>
@@ -105,21 +140,26 @@ return(
         </Stack>
         <Stack justifyContent="center" alignItems="center" direction="column">
             <Typography variant="h5">Score</Typography>
-            <ScoreComponent
-            setNumber={setNumber}
-            incrementPlayer1={incrementScorePlayer1} 
-            incrementPlayer2={incrementScorePlayer2}
-            decrementPlayer1={decrementScorePlayer1} 
-            decrementPlayer2={decrementScorePlayer2}
-            scorePlayer1={scorePlayer1}
-            scorePlayer2={scorePlayer2}
-            />
-            <Button>Submit</Button>
+              <ScoreComponent 
+                setNumber={setNumber}
+                incrementPlayer1={incrementScorePlayer1} 
+                incrementPlayer2={incrementScorePlayer2}
+                decrementPlayer1={decrementScorePlayer1} 
+                decrementPlayer2={decrementScorePlayer2}
+                scorePlayer1={scorePlayer1}
+                scorePlayer2={scorePlayer2}
+              />
+              <Tooltip title = {player1Score + player2Score > 0 ? "Scores Submitted" : null}>
+                <span>
+              <Button disabled={(player1Score + player2Score > 0)} onClick={onSubmitScore} >Submit</Button>
+              </span>
+              </Tooltip>
         </Stack>
     </CardContent>
   </Card>
 )
 }
+
 LiveMatchOpponentCard.propTypes = {
   playerOneUsername: PropTypes.object,
   playerTwoUsername: PropTypes.object,

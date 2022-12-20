@@ -2,19 +2,20 @@ import { Box, TextField, Typography } from "@mui/material"
 import Grid from "@mui/material/Unstable_Grid2/Grid2"
 import { Stack } from "@mui/system"
 import axios from "axios"
-import React, { useEffect, useRef, useState } from "react"
+import React, { useEffect, useRef, useState, useContext } from "react"
 import Select from "react-select"
-import CreateTournamentForm from "../components/leaderboard/CreateTournamentForm"
 import LeaderboardPodium from "../components/leaderboard/LeaderboardPodium"
 import LeaderboardTable from "../components/leaderboard/LeaderboardTable"
-import { Leaderboard_URL, Tournament_URL } from "../components/util/ApiMethods"
+import { headersConfig, Leaderboard_URL } from "../components/util/ApiMethods"
 import { PageTemplate } from "../templates/PageTemplate"
 import { SORT_ARRAY_BY_WINS, SORT_ARRAY_BY_TOTAL_GAMES, SORT_ARRAY_BY_LOSSES } from "../components/util/functions"
+import { AppContext } from "../context/appContext"
 
 const LeaderboardView = () => {
 
   const [leaderboardEntries, setLeaderboardEntries] = useState([])
-  const [tournaments, setTournaments] = useState([])
+  const {tournaments: tournamentsContext} = useContext(AppContext)
+  const [tournaments, setTournaments] = useState()
   const [selectedTournament, setSelectedTournament] = useState()
   const [usernameFilter, setUsernameFilter] = useState("")
   const [valueFilter, setValueFilter] = useState()
@@ -22,14 +23,13 @@ const LeaderboardView = () => {
   let initialRender= useRef(true)
 
   const fetchLeaderboardData = () => {
-    axios.get(`${Leaderboard_URL}/filterByTournament/`.concat(selectedTournament)).then((response) => {
+    axios.get(`${Leaderboard_URL}/filterByTournament/`.concat(selectedTournament), headersConfig).then((response) => {
       setLeaderboardEntries(response.data.response);
     });
   }
 
   const fetchTournaments = async () => {
-    axios.get(`${Tournament_URL}`).then((response) => {
-      const mappedTournaments = response.data.response?.map((d) => {
+      const mappedTournaments = tournamentsContext?.map((d) => {
         return({
           label: d.tournamentName,
           value: d.tournamentName })
@@ -37,11 +37,11 @@ const LeaderboardView = () => {
 
         mappedTournaments.push({label: "All Tournaments", value: "All Tournaments"})
         setTournaments(mappedTournaments)
-    })
-  }
+    }
+  
 
   const fetchAllLeaderboardData = () => {
-    axios.get(`${Leaderboard_URL}`).then((response) => {
+    axios.get(`${Leaderboard_URL}`, headersConfig).then((response) => {
       setLeaderboardEntries(response.data.response);
     });
   }
@@ -111,19 +111,16 @@ const LeaderboardView = () => {
                   <Select
                     options = {tournaments}
                     onChange = {handleChange}
-                    defaultValue = {tournaments[0]}
                     placeholder = "All Tournaments"
                     required
                   /> 
                 </Box>
                 <Stack>
-                  <CreateTournamentForm/>
                   <Stack direction="row">
                     <Select
-                    options = {filterOptions}
-                    onChange = {handleFilterChange}
-                    defaultValue = {tournaments[0]}
-                    placeholder = "Filter"
+                      options = {filterOptions}
+                      onChange = {handleFilterChange}
+                      placeholder = "Filter"
                     />  
                     <TextField
                       id="outlined-uncontrolled"

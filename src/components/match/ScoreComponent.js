@@ -16,14 +16,9 @@ const ScoreComponent = ({
     scorePlayer1,
     scorePlayer2}) => {
 
-        console.log(scorePlayer1)
-        // useEffect(() => {
-            
-        // },[incrementPlayer1, incrementPlayer2])
     const setAmount = [] 
 
     for (let index = 0; index < setNumber; index++) {
-        console.log(scorePlayer1[index])
         setAmount.push(
     <Stack key={index} justifyContent="center" alignItems="center" direction="row">
         <Button onClick={() => incrementPlayer1(index)}>+</Button>

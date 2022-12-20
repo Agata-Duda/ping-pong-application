@@ -4,7 +4,7 @@ import Select from "react-select"
 import { useForm, Controller } from "react-hook-form"
 import toast from "react-hot-toast"
 
-import { Tournament_URL, GET_ALL_USERS, updateReservationById } from "../util/ApiMethods"
+import { Tournament_URL, User_URL, updateReservationById, headersConfig } from "../util/ApiMethods"
 import { Typography, Button, Box, Stack } from "@mui/material"
 import { useContext } from "react"
 import { AppContext } from "../../context/appContext"
@@ -33,7 +33,7 @@ export default function UpdateReservationForm ({ eventid, closeUpdateDrawer, upd
   const [ selectedPlayerTwo, setSelectedPlayerTwo ] = useState(null)
   const [ selectedTournament, setSelectedTournament ] = useState(null)
   const [ selectedSets, setSelectedSets ] = useState(null)
-  const { user, setUser } = useContext(AppContext)
+  const { user } = useContext(AppContext)
 
   const setsOptions = [
     { value: "1", label: "1"},
@@ -43,7 +43,7 @@ export default function UpdateReservationForm ({ eventid, closeUpdateDrawer, upd
 
   useEffect(() => {
     const fetchUsers = async () => {
-      await axios(`${GET_ALL_USERS}`).then((res) =>{
+      await axios(`${User_URL}`, headersConfig).then((res) =>{
       const mappedUsers = res.data.response?.map((d) => {
         return({
           label: d.userName,
@@ -58,7 +58,7 @@ export default function UpdateReservationForm ({ eventid, closeUpdateDrawer, upd
 
   useEffect(() => {
     const fetchTournament = async () => {
-      await axios.get(`${Tournament_URL}`).then((res) =>{
+      await axios.get(`${Tournament_URL}`, headersConfig).then((res) =>{
       const mappedTournaments = res.data.response?.map((d) => {
         return({
           label: d.tournamentName,

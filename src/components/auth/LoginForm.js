@@ -1,12 +1,11 @@
-import React, { useEffect, useContext, useState, useRef } from "react";
+import React, { useContext, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Redirect } from "react-router-dom";
-import axios from "axios";
-import { toast }  from "react-hot-toast";
+import { toast } from "react-hot-toast";
 
 import { Box, Typography, TextField, Button, Stack} from "@mui/material";
 import { AppContext } from "../../context/appContext";
-import { GetUserByUsername_URL } from "../util/ApiMethods";
+import { authenticateUser, getUserDetails } from "../util/ApiMethods";
 import { routes } from "../util/routes";
 import SignupModal from "./SignupModal";
 import { styles } from "../util/styles";
@@ -17,70 +16,45 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { user, setUser } = useContext(AppContext);
-  const [ loginError, setLoginError ] = useState(true);
+  const { user, setUser} = useContext(AppContext);
   const [ username, setUsername ] = useState();
   const [ password, setPassword ] = useState();
   const [signupModal, setSignupModalOpen] = useState(false);
-
-  const GetUser = () => {
-    axios
-      .get(`${GetUserByUsername_URL}`.concat(username))
-      .then((response) => {
-        setUser(response.data.response)
-      })
-      .catch((error) => toast.error("Username does not exist"));
-  };
+  const [jwt, setJwt] = useState("")
 
   const handleSignupButtonClick = (e) => {
     e.preventDefault()
     setSignupModalOpen(true)
   }
 
-  const onSubmit = (data) => {
-    GetUser()
+  const onSubmit = () => {
+    const userCredentialsPayload = {
+      username: username,
+      password: password
+    }
+
+    authenticateUser(userCredentialsPayload)
+      .then((response) => setJwt(response.data.jwt))
+      .catch((error) => toast.error("Try again - Invalid Credentials"))
   };
 
-  const handleUsernameChange = (event, errors) => {
+  const handleUsernameChange = (event) => {
     setUsername(event.target.value)
   }
 
-  const handlePasswordChange = (event, errors) => {
+  const handlePasswordChange = (event) => {
     setPassword(event.target.value)
   }
 
-  let initialRender = useRef(true)
-
-  useEffect (
-    () => {
-
-      if (initialRender.current) {
-        initialRender.current = false;
-      }
-
-      else {
-        if (username !== user.userName) {
-          setLoginError(true);
-        }
-        else if(password !== user.password) {
-            setLoginError(true);
-          }
-        else {
-          setLoginError(false);
-        }
-      }
-
-      if (password !== user.Password)
-        toast.error("Incorrect password")
-
-    },[user]
-  )
-
-  if(!loginError) {
-    toast.remove()
-    return <Redirect to={routes.home} />
+  if(jwt.length > 0) {
+    localStorage.setItem("jwt", jwt)
+    if (localStorage.getItem("jwt") !== null) {
+      getUserDetails(username).then((response) => setUser(response.data.response))
+      return <Redirect to={routes.home} />
+    }
   }
 
+  localStorage.setItem("UserLoggedIn", JSON.stringify(user))
 
   return (
     <Stack spacing={1} align="center" direction="column" sx={styles.loginBox} >

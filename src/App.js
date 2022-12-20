@@ -1,7 +1,7 @@
 // TODO from me - App.css and index.css needs to be within one file and one file to be used throughout whole app
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"
-import React from "react"
-import { Toaster } from "react-hot-toast"
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import React, { useEffect, useContext } from "react";
+import { Toaster } from "react-hot-toast";
 
 import Home from "./views/Home"
 import LoginView from "./views/LoginView"
@@ -15,7 +15,15 @@ import { routes } from "./components/util/routes"
 import { TestView } from "./views/TestView"
 
 // TODO General comment: you can use React-Query to fetch data from the backend
-function App () {
+
+function App() {
+
+  const {setTournaments} = useContext(AppContext)
+
+  useEffect(() => {
+    getAllTournaments().then(response => setTournaments(response.data.response))
+  },[])
+
   return (
       <Router>
         <div><Toaster/></div>
@@ -34,4 +42,4 @@ function App () {
   )
 }
 
-export default App
+export default App;
