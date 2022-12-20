@@ -2,8 +2,6 @@ import React, { useState } from "react"
 
 import { Stack } from "@mui/material"
 
-import { Stack } from "@mui/material"
-
 import { PageTemplate } from "../templates/PageTemplate"
 import { FutureMatchCard } from "../components/match/FutureMatchCard"
 import { LiveMatchCard } from "../components/match/LiveMatchCard"

@@ -6,7 +6,7 @@ import {Stack} from "@mui/system";
 
 import {style} from "../components/userAccount/userStyle"
 import {ProgressAccountCard} from "../components/userAccount/ProgressAccountCard";
-import UserTextField from "../components/userAccount/UserTextField";
+import UsertextField from "../components/userAccount/UsertextField";
 
 const UserAccountView = () => {
   const {user} = useContext(AppContext);
@@ -14,7 +14,7 @@ const UserAccountView = () => {
   return (
     <PageTemplate>
       <Stack sx={style.ViewStack} justifyContent={"space-evenly"} direction={"row"}>
-          <UserTextField/>
+          <UsertextField/>
           <ProgressAccountCard/>
       </Stack>
 

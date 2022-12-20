@@ -11,7 +11,8 @@ export const styles = {
       alignItems: 'center',
       borderRadius: '20px',
        width: '8cm',
-       height: '5cm'
+       height: '5cm',
+      padding: '0.5cm'
     },
     buttonLogin:{
       width: '5rem',

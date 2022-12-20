@@ -3,7 +3,7 @@ export const routes = {
     home: "/home",
     userAccountView: "/UserAccountView",
     reservationsView: "/ReservationsView",
-    predictionView: "/PredicitionView",
+    tournamentView: "/TournamentView",
     leaderboardView: "/LeaderboardView",
     matchView: "/MatchView",
     notFoundView: "/NotFoundView",

@@ -203,7 +203,5 @@ export const ResponsiveAppBar = () => {
       </Container>
     </AppBar>
   )
-}
-  );
 };
 export default ResponsiveAppBar;
