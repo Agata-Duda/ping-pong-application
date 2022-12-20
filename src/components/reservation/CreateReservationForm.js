@@ -7,22 +7,7 @@ import { v4 } from "uuid"
 
 import { Tournament_URL, GET_ALL_USERS, postBooking, GetUserByUsername_URL } from "../util/ApiMethods"
 import { Typography, Button, Box, Stack } from "@mui/material"
-
-const styles = {
-
-  buttonSubmit: {
-    color: 'white',
-    margin: '4rem',
-    width: '6rem',
-    backgroundColor: '#FF0041',
-    '&:hover': {
-      backgroundColor: '#FF0041',
-      borderColor: '#0062cc',
-      boxShadow: '1px 1px 3px 1px #00193A;',
-    },
-  }
-}
-
+import {style} from "../userAccount/userStyle"
 
 export default function CreateReservationForm ({ timeDate, closeDrawer }) {
   const [ userNames, setUserName ] = useState([]);
@@ -99,7 +84,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
           control={control}
           name="SelectPlayerOne"
           render={({ field }) => 
-          <Select sx={styles.form}
+          <Select
             {...field}
             options={userNames}
             onChange={setSelectedPlayerOne}
@@ -119,7 +104,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
           control={control}
           name="SelectPlayerTwo"
           render={({ field }) => 
-          <Select sx={styles.selectField}
+          <Select
             {...field}
             label="Select Player Two"
             options={userNames}
@@ -172,7 +157,7 @@ export default function CreateReservationForm ({ timeDate, closeDrawer }) {
         />
         
         </Stack>
-      <Box align="center"> <Button sx={styles.buttonSubmit} type="submit"> Submit </Button></Box>
+      <Box align="center"> <Button sx={style.buttonSubmit} type="submit"> Submit </Button></Box>
      
       </Stack>
     </form>

@@ -10,6 +10,7 @@ import ReservationsView from "./views/ReservationsView"
 import PredictionView from "./views/PredictionView"
 import LeaderboardView from "./views/LeaderboardView"
 import MatchView from "./views/MatchView"
+import NotFoundView from "./views/NotFoundView";
 import { routes } from "./components/util/routes"
 import { TestView } from "./views/TestView"
 
@@ -26,6 +27,7 @@ function App () {
           <Route path = {routes.predictionView} component={PredictionView}/>
           <Route path = {routes.leaderboardView} component={LeaderboardView}/>
           <Route path = {routes.matchView} component={MatchView}/>
+            <Route path = "*" component={NotFoundView}/>
           <Route path = {routes.test} component={TestView}/>
         </Switch>
       </Router>    

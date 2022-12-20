@@ -7,7 +7,8 @@ import React from "react"
 import PropTypes from "prop-types"
 
 const styles = {
-  "card": {
+  card: {
+    width: "430px",
     "float": "left",
     "margin-left": "5px",
     "margin-right": "5px",
@@ -29,8 +30,7 @@ export const OptionCardLarge = ({ image, title, path }) => (
   <Card component={Link} to={path} sx={styles.card}>
     <CardMedia
       component="img"
-      height="105"
-      width="535"
+      height="155px"
       image={image}
       alt="option description"
     />
@@ -42,6 +42,7 @@ export const OptionCardLarge = ({ image, title, path }) => (
   </Card>
 )
 OptionCardLarge.propTypes = {
+
   image: PropTypes.string.isRequired,
   title: PropTypes.string.isRequired,
   path: PropTypes.string.isRequired

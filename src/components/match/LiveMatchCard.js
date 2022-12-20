@@ -15,6 +15,7 @@ export const LiveMatchCard = () => {
 
     const date = new Date().toJSON();
     const {user} = useContext(AppContext);
+    console.log(user)
     const {data : bookings, isFetching} = useQuery("booking",() => getAllReservations());
 
     !isFetching && (bookings.sort((a, b) => (

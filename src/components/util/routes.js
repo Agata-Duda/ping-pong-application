@@ -6,5 +6,6 @@ export const routes = {
     predictionView: "/PredicitionView",
     leaderboardView: "/LeaderboardView",
     matchView: "/MatchView",
+    notFoundView: "/NotFoundView",
     test: "/test",
   };

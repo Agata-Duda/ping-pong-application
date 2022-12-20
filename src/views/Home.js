@@ -18,15 +18,15 @@ import { EventsCard } from "../components/home/EventsCard"
 
 const Home = () => (
   <PageTemplate>
-    <Stack direction="row">
-      <Stack direction="column">
-      <Stack justifyContent="left" alignItems="center" direction="column" m={3}>
+    <Stack direction="row" paddingTop={5} justifyContent={"space-evenly"} spacing={5}>
+      <Stack direction="column"  justifyContent="space-evenly" spacing={2}>
+      <Stack justifyContent="space-evenly" alignItems="center" direction="column" spacing={2}  >
         <OptionCardLarge
            image={bookingCardImage}
           title="Make a Reservation"
           path={routes.reservationsView} />
       </Stack>
-      <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
+      <Stack justifyContent="left" alignItems="center" direction="row">
         <OptionCardSmall
           image={match}
           title="Match"
@@ -36,7 +36,7 @@ const Home = () => (
           title="Predictions"
           path={routes.predictionView} />
       </Stack>
-      <Stack justifyContent="left" alignItems="center" direction="column" m={3}>
+      <Stack justifyContent="left" alignItems="center" direction="column">
         <OptionCardLarge
           image={ScoreBoardCardImage}
           title="Tournament Leaderboards"

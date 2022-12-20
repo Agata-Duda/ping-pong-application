@@ -1,4 +1,5 @@
 import axios from "axios";
+import {toast} from "react-hot-toast";
 
 export const Reservation_URL = "http://localhost:8000/reservation-service";
 
@@ -30,9 +31,7 @@ export const postBooking = async (booking) => {
     const data = await axios.get(`${Reservation_URL}`).then((res) => {
 
      return(res?.data.response)
-
     })
-
     return data
 
   };
@@ -57,21 +56,38 @@ export const GET_ALL_USERS = "http://localhost:8000/user-service";
 export const GetUserByUsername_URL = "http://localhost:8000/user-service/filter/";
 export const GetAllJobTitles_URL = "http://localhost:8000/user-service/jobTitles/";
 
+export const getJobs = async () => {
+ const data = await axios.get(`${GetAllJobTitles_URL}`).then((res) => {
+   return(res?.data.response)
+ })
+  return data
+}
+
 export const getAllUsers = async () => {
     await axios.get(`${GET_ALL_USERS}`)
   }
 
   //For getting users from event selected and displaying username in dialog 
   export const getUserByID = async (userId) => {
-    await axios.get(`${GET_ALL_USERS}/${userId}`)
+    const data =  await axios.get(`${GET_ALL_USERS}/${userId}`).then((res) => {
+      return(res?.data.response)
+    })
+    return data
   }
+export const updateUserDetails = async (userId, updatedUserDetails) => {
+  await axios.put(`${GET_ALL_USERS}/${userId}`, updatedUserDetails)
+      .then(() => toast.success("Successfully Updated User!"))
+      .catch((error) => toast.error("Error"));
+
+}
+
 
   export const postUser = async (user) => {
     await axios.post(`${GET_ALL_USERS}`, user)
   }
 
 export const getUserNameByID = async (playerOne) => {
-  await axios.get(`${GET_ALL_USERS}/${playerOne}`)
+   await axios.get(`${GET_ALL_USERS}/${playerOne}`)
 }
 
 export const Tournament_URL = "http://localhost:8000/tournament-service";

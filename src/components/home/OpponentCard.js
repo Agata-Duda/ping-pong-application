@@ -27,7 +27,7 @@ const style = {
   }
 }
 
-export const OpponentCard = ({ player1Avatar, player2Avatar, player1Username, player2Username, matchDate, matchStartTime }) => (
+export const OpponentCard = ({ player1Username, player2Username, matchDate, matchStartTime }) => (
   <Card sx={style.opponentCard}>
     <CardContent>
     <Stack justifyContent="center" alignItems="center" direction="row" >

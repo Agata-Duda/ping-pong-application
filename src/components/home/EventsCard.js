@@ -39,7 +39,7 @@ export const EventsCard = () => {
       {!isFetching &&
         bookingFiltered.map(
           (booking, index) =>
-            index < 1 && (
+            index < 2 && (
               <OpponentCard
                 key={booking.booking_id}
                 player1Username={booking.player_1}
