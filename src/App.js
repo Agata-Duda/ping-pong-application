@@ -21,12 +21,6 @@ function App() {
 
   const {setTournaments} = useContext(AppContext)
 
-  const AuthWrapper = () => {
-    return isExpired(localStorage.getItem('token')
-      ? <Navigate to="/login" replace />
-      : <Outlet />)
-  }
-
   useEffect(() => {
     getAllTournaments().then(response => setTournaments(response.data.response))
   },[])
