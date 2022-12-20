@@ -1,11 +1,11 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { Redirect } from "react-router-dom";
 import { toast } from "react-hot-toast";
 
 import { Box, Typography, TextField, Button, Stack} from "@mui/material";
 import { AppContext } from "../../context/appContext";
-import { authenticateUser, GetUserByUsername_URL, getUserDetails } from "../util/ApiMethods";
+import { authenticateUser, getUserDetails } from "../util/ApiMethods";
 import { routes } from "../util/routes";
 import SignupModal from "./SignupModal";
 import { styles } from "../util/styles";
@@ -17,7 +17,6 @@ const LoginForm = () => {
     formState: { errors },
   } = useForm();
   const { user, setUser} = useContext(AppContext);
-  const [ loginError, setLoginError ] = useState(true);
   const [ username, setUsername ] = useState();
   const [ password, setPassword ] = useState();
   const [signupModal, setSignupModalOpen] = useState(false);

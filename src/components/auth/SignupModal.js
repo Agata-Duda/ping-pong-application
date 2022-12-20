@@ -56,7 +56,7 @@ const SignupModal = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [jobTitle, setJobTitle] = useState("");
-  const [signUpError, setSignUpError] = useState(true);
+  const [ setSignUpError ] = useState(true);
   const [selectedJobTitle, setSelectedJobTitle] = useState(null);
 
   useEffect(() => {

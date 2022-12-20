@@ -28,7 +28,7 @@ export const postNewBooking = async (
 };
 
 export const postBooking = async (booking) => {
-  return await axios.post(`${Reservation_URL}`, booking, headersConfig);
+  return await axios.post(`${Reservation_URL}`, booking, headersConfig).then(() => toast.success("Reservation Created Successfully!")).catch((error) => toast.error("Users selected Not Part of Selected Tournament"));
 };
 
 export const getAllReservations = async () => {

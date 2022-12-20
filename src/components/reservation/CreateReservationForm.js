@@ -2,15 +2,13 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
-import toast from "react-hot-toast";
 import { v4 } from "uuid";
 
 import {
   Tournament_URL,
   User_URL,
   postBooking,
-  GetUserByUsername_URL,
-  headersConfig,
+  headersConfig
 } from "../util/ApiMethods";
 import { Typography, Button, Box, Stack } from "@mui/material";
 
@@ -90,7 +88,6 @@ export default function CreateReservationForm({ timeDate, closeDrawer }) {
       tournamentName: selectedTournament.value,
     });
     closeDrawer();
-    toast.success("Reservation Created Successfully!");
   };
 
   return (
