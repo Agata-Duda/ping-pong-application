@@ -48,7 +48,7 @@ const pages = [
 const settings = ["Account", "Logout"];
 
 const ResponsiveAppBar = () => {
-  const {user, setUser } = useContext(AppContext)
+  const {user} = useContext(AppContext)
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 

@@ -7,10 +7,9 @@ import { OptionCardLarge } from "../components/home/OptionCardLarge";
 import { PageTemplate } from "../templates/PageTemplate";
 import { OptionCardSmall } from "../components/home/OptionCardSmall";
 import bookingCardImage from "../Images/bookingCardImage.png";
-import predictionCardImage from "../Images/predictionCardImage.png";
+import tournaments from "../Images/tournaments.png";
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png";
 import match from "../Images/match.png";
-import { OpponentCard } from "../components/home/OpponentCard";
 import { EventsCard } from "../components/home/EventsCard";
 
 const Home = () => (
@@ -36,8 +35,8 @@ const Home = () => (
             path={routes.matchView}
           />
           <OptionCardSmall
-            image={predictionCardImage}
-            title="Predictions"
+            image={tournaments}
+            title="Tournaments"
             path={routes.tournamentView}
           />
         </Stack>

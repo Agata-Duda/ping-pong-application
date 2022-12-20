@@ -1,5 +1,5 @@
 import { Card, Typography, CardContent } from "@mui/material"
-import { Box, Stack } from "@mui/system"
+import { Stack } from "@mui/system"
 import WinLossDisplayTemplate from "../../../templates/WinLossDisplayTemplate"
 import { styles } from "../../util/styles"
 

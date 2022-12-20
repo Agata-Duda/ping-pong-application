@@ -1,12 +1,13 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import PropTypes from "prop-types"
+
 
 import Card from "@mui/material/Card"
 import CardContent from "@mui/material/CardContent"
 import Typography from "@mui/material/Typography"
-import { toast, Toast } from "react-hot-toast"
+import { toast } from "react-hot-toast"
 import { Stack } from "@mui/system"
-import { Button } from "@mui/material"
+import { Button, Tooltip} from "@mui/material"
 
 import ScoreComponent from "./ScoreComponent"
 import { updateReservationByIdGameCompletion } from "../util/ApiMethods"
@@ -45,7 +46,9 @@ const LiveMatchOpponentCard = ({
     tournament,
     matchDate, 
     matchStartTime, 
-    setNumber}) => {
+    setNumber,
+    player1Score,
+    player2Score}) => {
 
 const [scorePlayer1, setScorePlayer1] = useState([0,0,0,0,0])
 const [scorePlayer2, setScorePlayer2] = useState([0,0,0,0,0])
@@ -105,10 +108,9 @@ const determineWinner = () => {
   }).then(toast.success("Scores Submitted"))
 }
 
-
 const onSubmitScore = () => {
   determineWinner()
-}
+};
 
 return(
   <Card sx={style.opponentCard}>
@@ -140,7 +142,7 @@ return(
         </Stack>
         <Stack justifyContent="center" alignItems="center" direction="column">
             <Typography variant="h5">Score</Typography>
-              <ScoreComponent
+              <ScoreComponent 
                 setNumber={setNumber}
                 incrementPlayer1={incrementScorePlayer1} 
                 incrementPlayer2={incrementScorePlayer2}
@@ -149,12 +151,17 @@ return(
                 scorePlayer1={scorePlayer1}
                 scorePlayer2={scorePlayer2}
               />
-              <Button alignItems="center" onClick={onSubmitScore} >Submit</Button>
+              <Tooltip title = {player1Score + player2Score > 0 ? "Scores Submitted" : null}>
+                <span>
+              <Button disabled={(player1Score + player2Score > 0)} onClick={onSubmitScore} >Submit</Button>
+              </span>
+              </Tooltip>
         </Stack>
     </CardContent>
   </Card>
 )
 }
+
 LiveMatchOpponentCard.propTypes = {
   playerOneUsername: PropTypes.object,
   playerTwoUsername: PropTypes.object,

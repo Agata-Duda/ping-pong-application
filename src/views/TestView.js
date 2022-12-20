@@ -6,7 +6,7 @@ import { PageTemplate } from "../templates/PageTemplate"
 import { OptionCardLarge } from "../components/home/OptionCardLarge"
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png"
 import bookingCardImage from "../Images/bookingCardImage.png"
-import predictionCardImage from "../Images/predictionCardImage.png"
+import tournaments from "../Images/tournaments.png"
 import { routes } from "../components/util/routes"
 
 export const TestView = () => (
@@ -20,7 +20,7 @@ export const TestView = () => (
           path={routes.bookingPage}
         />
         <OptionCardLarge
-          image={predictionCardImage}
+          image={tournaments}
           title="Prediction service"
           description="Who will win the match?"
           path={routes.predictionPage}

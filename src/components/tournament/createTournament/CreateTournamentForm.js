@@ -5,7 +5,6 @@ import { DatePicker } from "@mui/x-date-pickers"
 import Select from "react-select"
 import { postTournament } from "../../util/ApiMethods"
 import { styles } from "../../util/styles"
-import { Box } from "@mui/system"
  
 const CreateTournamentForm = ({handleClose}) => {
 
