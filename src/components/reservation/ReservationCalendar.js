@@ -95,8 +95,8 @@ const ReservationCalendar = () => {
        await axios(`${Reservation_URL}`).then((res) =>{
         const mappedArray = res.data.response?.map((d) => {
        return({   ...d,
-          event_start: new Date(d.event_start.concat(".000Z")),
-          event_finish: new Date(d.event_finish.concat(".000Z"))})
+          event_start: new Date(d.event_start.concat(".000")),
+          event_finish: new Date(d.event_finish.concat(".000"))})
         });
         setBookings(mappedArray);
       }
