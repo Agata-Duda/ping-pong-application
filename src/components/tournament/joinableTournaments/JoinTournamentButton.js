@@ -15,11 +15,13 @@ const JoinTournamentButton = ({tournamentName}) => {
             tournamentName: tournamentName
         }
 
-        JoinTournament(payload).catch(error => {
-            if(error.response)
-                toast.error("Already a member of this tournament")
-            else
-                toast.error("Something went wrong - Try again later")
+        JoinTournament(payload)
+            .then(() => toast.success("Joined " + tournamentName))
+            .catch(error => {
+                if(error.response)
+                    toast.error("Already a member of this tournament")
+                else
+                    toast.error("Something went wrong - Try again later")
         })
     }
 

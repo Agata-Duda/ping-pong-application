@@ -1,26 +1,17 @@
-import React, { useContext, useEffect } from "react";
+import { Stack } from "@mui/material";
+import React from "react";
 
-import { Stack } from "@mui/material"
-
-import { routes } from "../components/util/routes";
+import { EventsCard } from "../components/home/EventsCard";
 import { OptionCardLarge } from "../components/home/OptionCardLarge";
-import { PageTemplate } from "../templates/PageTemplate";
 import { OptionCardSmall } from "../components/home/OptionCardSmall";
+import { routes } from "../components/util/routes";
 import bookingCardImage from "../Images/bookingCardImage.png";
+import match from "../Images/match.png";
 import predictionCardImage from "../Images/predictionCardImage.png";
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png";
-import match from "../Images/match.png";
-import { EventsCard } from "../components/home/EventsCard";
-import { AppContext } from "../context/appContext";
-import { getAllTournaments } from "../components/util/ApiMethods";
+import { PageTemplate } from "../templates/PageTemplate";
 
 const Home = () => {
-
-  const {setTournaments} = useContext(AppContext)
-
-  useEffect(() => {
-    getAllTournaments().then(response => setTournaments(response.data.response))
-  },[])
 
   return (
   <PageTemplate>

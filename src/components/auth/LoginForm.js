@@ -36,7 +36,12 @@ const LoginForm = () => {
 
     authenticateUser(userCredentialsPayload)
       .then((response) => setJwt(response.data.jwt))
-      .catch((error) => toast.error("Try again - Invalid Credentials"))
+      .catch((error) => {
+        if(error.response.status === 500) {
+          toast.error("Cannot connect to server - Try again later")
+        }
+        else toast.error("Try again - Invalid Credentials")
+      })
   };
 
   const handleUsernameChange = (event) => {
@@ -52,11 +57,10 @@ const LoginForm = () => {
   if(jwt.length > 0) {
     localStorage.setItem("jwt", jwt)
     getUserDetails(username)
-    .then((response) => {
-      setUser(response.data.response)
-      setLoggedIn(true)
-    }
-    )
+      .then((response) => {
+        setUser(response.data.response)
+        setLoggedIn(true)
+  })
   }
 
   return (

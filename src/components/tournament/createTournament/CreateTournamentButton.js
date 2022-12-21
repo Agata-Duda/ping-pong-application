@@ -13,7 +13,7 @@ const CreateTournamentButton = ({accountType}) => {
     return (
         <Box>
             <Tooltip
-                title = {accountType === "REGULAR" ? "Only Administrators can create tournaments" : null}
+                title = {accountType !== "ROLW_ADMIN" ? "Only Administrators can create tournaments" : null}
             >
                 <span>
                     <Button 
