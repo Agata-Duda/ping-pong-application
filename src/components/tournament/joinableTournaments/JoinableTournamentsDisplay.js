@@ -18,7 +18,6 @@ const JoinableTournamentsDisplay = ({tournaments}) => {
         ))
       }
     </Stack>
-
   )
 }
 

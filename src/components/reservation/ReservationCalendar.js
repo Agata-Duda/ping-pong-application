@@ -121,7 +121,7 @@ const ReservationCalendar = () => {
         localizer={localizer}
         events={bookings}
         titleAccessor={bookings => bookings.player_1 + " vs " + bookings.player_2 + 
-        " - " + format(bookings.event_start, "hh:mm")}
+        " - " + format(bookings.event_start, "HH:mm")}
         startAccessor="event_start"
         endAccessor="event_finish"
         min={new Date(2022, 11, 15, 8, 30, 0)}
