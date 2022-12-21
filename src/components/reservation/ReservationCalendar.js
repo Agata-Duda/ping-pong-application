@@ -95,8 +95,8 @@ const ReservationCalendar = () => {
        await axios(`${Reservation_URL}`).then((res) =>{
         const mappedArray = res.data.response?.map((d) => {
        return({   ...d,
-          event_start: new Date(d.event_start.concat(".000Z")),
-          event_finish: new Date(d.event_finish.concat(".000Z"))})
+          event_start: new Date(d.event_start.concat(".000")),
+          event_finish: new Date(d.event_finish.concat(".000"))})
         });
         setBookings(mappedArray);
       }
@@ -121,7 +121,7 @@ const ReservationCalendar = () => {
         localizer={localizer}
         events={bookings}
         titleAccessor={bookings => bookings.player_1 + " vs " + bookings.player_2 + 
-        " - " + format(bookings.event_start, "hh:mm")}
+        " - " + format(bookings.event_start, "HH:mm")}
         startAccessor="event_start"
         endAccessor="event_finish"
         min={new Date(2022, 11, 15, 8, 30, 0)}
