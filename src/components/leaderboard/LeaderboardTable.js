@@ -117,14 +117,7 @@ const LeaderboardTable = (props) => {
     )
 
   else return (
-    <TableContainer 
-      component={Paper}
-      sx={{
-        // border: 1,
-        // borderColor: "#00193A"
-      }  
-    }
-    >
+    <TableContainer component={Paper}>
           <Table aria-label="tournament table">
             <TableHead>
               <TableRow>

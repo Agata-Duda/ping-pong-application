@@ -18,7 +18,7 @@ const WinLossDisplayTemplate = ({wins, totalGames, position}) => {
                 mx: 8
             }}
         >
-            <Typography variant={position === "1st" ? "h6" : "subtitle1"}>W: {wins}</Typography>
+            <Typography sx={{display: "flex"}} variant={position === "1st" ? "h6" : "subtitle1"}>W: {wins}</Typography>
             <Divider orientation="vertical" flexItem />
             <Typography variant={position === "1st" ? "h6" : "subtitle1"} component="div">L: {parseInt(totalGames) - parseInt(wins)}</Typography>
         </Stack>

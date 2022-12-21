@@ -14,7 +14,7 @@ import { Typography } from "@mui/material";
 import EventDialog from "./EventDialog";
 import Form from "./CreateReservationForm";
 import UpdateForm from "./UpdateReservationForm";
-import { deleteReservationById, Reservation_URL, headersConfig } from "../util/ApiMethods";
+import { deleteReservationById, Reservation_URL } from "../util/ApiMethods";
 
 moment.locale("en-GB");
 const localizer = momentLocalizer(moment);
@@ -92,11 +92,11 @@ const ReservationCalendar = () => {
   useEffect(() => {
     const fetchBookings = async () => {
       try{
-       await axios(`${Reservation_URL}`, headersConfig).then((res) =>{
+       await axios(`${Reservation_URL}`).then((res) =>{
         const mappedArray = res.data.response?.map((d) => {
        return({   ...d,
-          event_start: new Date(d.event_start.concat(".000Z")),
-          event_finish: new Date(d.event_finish.concat(".000Z"))})
+          event_start: new Date(d.event_start.concat(".000")),
+          event_finish: new Date(d.event_finish.concat(".000"))})
         });
         setBookings(mappedArray);
       }

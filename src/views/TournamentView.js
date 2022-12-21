@@ -1,15 +1,21 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
+import { Divider, Typography } from "@mui/material";
+import { Stack } from "@mui/system";
+import CreateTournamentButton from "../components/tournament/createTournament/CreateTournamentButton";
+import JoinableTournamentsDisplay from "../components/tournament/joinableTournaments/JoinableTournamentsDisplay";
+import TournamentsDisplay from "../components/tournament/myTournaments/TournamentsDisplay";
+import { getAllTournaments } from "../components/util/ApiMethods";
 import { AppContext } from "../context/appContext";
 import { PageTemplate } from "../templates/PageTemplate";
-import CreateTournamentButton from "../components/tournament/createTournament/CreateTournamentButton";
-import { Stack } from "@mui/system";
-import { Divider, Typography } from "@mui/material";
-import TournamentsDisplay from "../components/tournament/myTournaments/TournamentsDisplay";
-import JoinableTournamentsDisplay from "../components/tournament/joinableTournaments/JoinableTournamentsDisplay";
 
 const PredictionView = () => {
 
-  const { user, tournaments } = useContext(AppContext)
+  const { user } = useContext(AppContext)
+  const [tournaments, setTournaments] = useState()
+
+  useEffect(() => {
+    getAllTournaments().then(response => setTournaments(response.data.response))
+  },[])
 
   return (
   <PageTemplate>
