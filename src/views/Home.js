@@ -10,6 +10,7 @@ import tournaments from "../Images/tournaments.png";
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png";
 import match from "../Images/match.png";
 import { PageTemplate } from "../templates/PageTemplate";
+import { Footer } from "../components/shared/Footer"
 
 const Home = () => {
 
@@ -58,6 +59,7 @@ const Home = () => {
         <EventsCard alignItems="center" />
       </Stack>
     </Stack>
+    <Footer/>
   </PageTemplate>
   )
 }
