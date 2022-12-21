@@ -4,7 +4,7 @@ import { Box } from "@mui/material"
 
 import { Header } from "../components/shared/Header"
 import {ResponsiveAppBar} from "../components/shared/ResponsiveAppBar"
-import { Footer } from "../components/shared/Footer"
+
 
 const styles = {
   box: {
@@ -17,7 +17,6 @@ export const PageTemplate = ({ children }) => (
     <Header/>
     <ResponsiveAppBar/>
     {children}
-    <Footer/>
   </Box>
 )
 
