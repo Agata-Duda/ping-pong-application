@@ -1,18 +1,19 @@
+import { Stack } from "@mui/material";
 import React from "react";
 
-import { Stack } from "@mui/material"
-
-import { routes } from "../components/util/routes";
+import { EventsCard } from "../components/home/EventsCard";
 import { OptionCardLarge } from "../components/home/OptionCardLarge";
-import { PageTemplate } from "../templates/PageTemplate";
 import { OptionCardSmall } from "../components/home/OptionCardSmall";
+import { routes } from "../components/util/routes";
 import bookingCardImage from "../Images/bookingCardImage.png";
 import tournaments from "../Images/tournaments.png";
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png";
 import match from "../Images/match.png";
-import { EventsCard } from "../components/home/EventsCard";
+import { PageTemplate } from "../templates/PageTemplate";
 
-const Home = () => (
+const Home = () => {
+
+  return (
   <PageTemplate>
     <Stack direction="row">
       <Stack direction="column">
@@ -58,5 +59,7 @@ const Home = () => (
       </Stack>
     </Stack>
   </PageTemplate>
-);
+  )
+}
+
 export default Home;

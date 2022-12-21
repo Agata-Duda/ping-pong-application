@@ -3,6 +3,7 @@ import { GetAllLeaderboardEntriesByUsername } from "../../util/ApiMethods";
 import MyTournamentsCard from "./MyTournamentsCard";
 import { Stack } from "@mui/system";
 import PropTypes from "prop-types";
+import { Grid } from "@mui/material";
 
 const TournamentsDisplay = ({username}) => {
   const [myLeaderboardEntries, setMyLeaderboardEntries] = useState([]);
@@ -14,18 +15,20 @@ const TournamentsDisplay = ({username}) => {
   },[])
 
   return ( 
-    <Stack direction="row" alignItems="center" justifyContent="flex-start" spacing={2}>
+    <Grid container direction="row" alignItems="center" justifyContent="flex-start" spacing={2}>
       {
         myLeaderboardEntries.map((entry, index) => (
+          <Grid item xs={6} sm={6} md={4} lg={2}>
             <MyTournamentsCard
               key={"tournament-card" + index}
               tournamentName={entry.tournamentName}
               wins={entry.wins}
               totalGames={entry.total_games}
             />
+          </Grid>        
         ))
       }
-    </Stack>
+      </Grid>
 
   )
 }

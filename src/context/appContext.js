@@ -5,8 +5,7 @@ import PropTypes from "prop-types"
 export const AppContext = React.createContext()
 
 const AppProvider = ({ children }) => {
-  const [user, setUser] = useState({});
-  const [tournaments, setTournaments] = useState([])
+  const [user, setUser] = useState("");
 
   useEffect(() => {
     const userData = (window.localStorage.getItem('UserLoggedIn'));
@@ -22,9 +21,7 @@ const AppProvider = ({ children }) => {
 
     <AppContext.Provider value={{
       user, 
-      setUser,
-      tournaments,
-      setTournaments
+      setUser
       }}
     >
       {children}

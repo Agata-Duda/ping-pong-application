@@ -16,7 +16,8 @@ const LoginForm = () => {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  const { user, setUser} = useContext(AppContext);
+  const { setUser} = useContext(AppContext);
+  const [loggedIn, setLoggedIn] = useState(false)
   const [ username, setUsername ] = useState();
   const [ password, setPassword ] = useState();
   const [signupModal, setSignupModalOpen] = useState(false);
@@ -35,7 +36,12 @@ const LoginForm = () => {
 
     authenticateUser(userCredentialsPayload)
       .then((response) => setJwt(response.data.jwt))
-      .catch((error) => toast.error("Try again - Invalid Credentials"))
+      .catch((error) => {
+        if(error.response.status === 500) {
+          toast.error("Cannot connect to server - Try again later")
+        }
+        else toast.error("Try again - Invalid Credentials")
+      })
   };
 
   const handleUsernameChange = (event) => {
@@ -45,19 +51,21 @@ const LoginForm = () => {
   const handlePasswordChange = (event) => {
     setPassword(event.target.value)
   }
+  
+  localStorage.clear()
 
   if(jwt.length > 0) {
     localStorage.setItem("jwt", jwt)
-    if (localStorage.getItem("jwt") !== null) {
-      getUserDetails(username).then((response) => setUser(response.data.response))
-      return <Redirect to={routes.home} />
-    }
+    getUserDetails(username)
+      .then((response) => {
+        setUser(response.data.response)
+        setLoggedIn(true)
+  })
   }
 
-  localStorage.setItem("UserLoggedIn", JSON.stringify(user))
-
   return (
-    <Stack spacing={1} align="center" direction="column" sx={styles.loginBox} >
+    <Stack paddingTop={2} spacing={1} align="center" direction="column" sx={styles.loginBox} >
+    {loggedIn && <Redirect to={routes.home} />}  
     <Typography fontWeight={'bold'}> Login </Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
         <Controller
