@@ -32,4 +32,5 @@ export const Header = () => (
     <AppBar position="fixed" sx={styles.header}>
       <Link to="/home"> <Box component="img" src={logo} sx={styles.logo} alt="logo" /></Link>
     </AppBar>
+   
   )
