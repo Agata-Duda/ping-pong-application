@@ -43,7 +43,7 @@ const pages = [
   {
     title: "Match",
     path: routes.matchView
-  }
+  },
 ]
 const settings = [
     {
@@ -57,7 +57,7 @@ const settings = [
 ]
 
 export const ResponsiveAppBar = () => {
-  const {user, setUser } = useContext(AppContext)
+  const {user} = useContext(AppContext)
   const [anchorElNav, setAnchorElNav] = React.useState(null)
   const [anchorElUser, setAnchorElUser] = React.useState(null)
 
@@ -74,6 +74,10 @@ export const ResponsiveAppBar = () => {
 
   const handleCloseUserMenu = () => {
     setAnchorElUser(null)
+  }
+
+  const handleRedirect = () => {
+    window.open("https://zinkworks.atlassian.net/wiki/spaces/GT1/pages/160661507/Ping+Pong+AI+Application", "_blank").focus()
   }
   
   return (
@@ -97,23 +101,9 @@ export const ResponsiveAppBar = () => {
           >
             {user.userName}
           </Typography>
-            <Link
-                variant="h6"
-                noWrap
-                href={"www.google.com"}
-                sx={{
-                    mr: 2,
-                    display: { xs: "none", md: "flex" },
-                    fontFamily: "monospace",
-                    fontWeight: 700,
-                    letterSpacing: ".3rem",
-                    color: "inherit",
-                    textDecoration: "none",
-                }}
-            >
-                Docs
-            </Link>
-
+          <MenuItem onClick={handleRedirect}>
+                  <Typography textAlign="center">Docs</Typography>
+          </MenuItem>
           <Box sx={{ flexGrow: 1, display: { xs: "flex", md: "none" } }}>
             <IconButton
               size="large"
@@ -150,6 +140,25 @@ export const ResponsiveAppBar = () => {
               ))}
             </Menu>
           </Box>
+
+          <Typography
+            variant="h5"
+            noWrap
+            component="a"
+            href={routes.userDetailsPage}
+            sx={{
+              mr: 2,
+              display: { xs: "flex", md: "none" },
+              flexGrow: 1,
+              fontFamily: "monospace",
+              fontWeight: 700,
+              letterSpacing: ".3rem",
+              color: "inherit",
+              textDecoration: "none",
+            }}
+          >
+            {user.userName}
+          </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: "none", md: "flex" } }}>
             {pages.map(({ title, path }) => (
               <Button
@@ -165,7 +174,7 @@ export const ResponsiveAppBar = () => {
           </Box>
 
           <Box sx={{ flexGrow: 0 }}>
-            <Tooltip title="Open settings">
+            <Tooltip title="User Account">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                 <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
               </IconButton>
