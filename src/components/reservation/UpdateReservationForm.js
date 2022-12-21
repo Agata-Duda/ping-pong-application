@@ -94,7 +94,7 @@ export default function UpdateReservationForm ({ eventid, closeUpdateDrawer, upd
       <Typography align="center"> Start Time:  {new Date(updateEventStart).toString().split('+')[0]}</Typography>
       <Typography align="center" paddingBottom={5}> End Time: {new Date(updateEventEnd).toString().split('+')[0]} </Typography>
 
-      <Stack spacing={3} direction="column" paddingLeft={1} paddingRight>
+      <Stack spacing={3} direction="column" paddingLeft={2} paddingRight>
         <Stack spacing={0}>
         <Typography fontWeight={'bold'}> Select Player One </Typography>
         <Controller 

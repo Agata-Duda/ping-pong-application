@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
-import { styles } from "../util/styles";
 import { Modal, Typography, TextField, Button } from "@mui/material";
-import { Stack } from "@mui/system";
+import {Box, Stack} from "@mui/system";
 import Select from "react-select";
 import { useForm, Controller } from "react-hook-form";
 import toast from "react-hot-toast";
 import axios from "axios";
 
 import { GetAllJobTitles_URL, User_URL } from "../util/ApiMethods";
+import {AuthStyles} from "./AuthStyles";
 
 const style = {
   signupBox: {
@@ -20,8 +20,8 @@ const style = {
     justifyContent: "center",
     alignItems: "center",
     borderRadius: "20px",
-    width: "8cm",
-    height: "12cm",
+    width: "5.5cm",
+    paddingTop: "1rem"
   },
 
   buttonSignup: {
@@ -36,9 +36,6 @@ const style = {
     m: 1,
   },
 
-  selectField: {
-    width: "200px",
-  },
 };
 
 const SignupModal = (props) => {
@@ -105,14 +102,16 @@ const SignupModal = (props) => {
       <Stack
         display="flex"
         spacing={1}
-        align="center"
+        alignItems="center"
         direction="column"
         paddingLeft={5}
         paddingRight={5}
         sx={style.signupBox}
       >
-        <Typography fontWeight={"bold"}> Sign Up </Typography>
+
+        <Typography sx={AuthStyles.title} variant={"h6"}> Sign Up </Typography>
         <form onSubmit={handleSubmit(onSubmit)}>
+          <Stack paddingRight={1} paddingLeft={1} spacing={1} >
           <Controller
             control={control}
             name="user_name"
@@ -120,7 +119,7 @@ const SignupModal = (props) => {
               <TextField
                 variant="outlined"
                 size="small"
-                sx={styles.textFields}
+                sx={AuthStyles.textFields}
                 {...field}
                 placeholder="Username"
                 required
@@ -136,7 +135,7 @@ const SignupModal = (props) => {
               <TextField
                 variant="outlined"
                 size="small"
-                sx={styles.textFields}
+                sx={AuthStyles.textFields}
                 {...field}
                 placeholder="First Name"
                 required
@@ -152,7 +151,7 @@ const SignupModal = (props) => {
               <TextField
                 variant="outlined"
                 size="small"
-                sx={styles.textFields}
+                sx={AuthStyles.textFields}
                 {...field}
                 placeholder="Last Name"
                 required
@@ -166,7 +165,9 @@ const SignupModal = (props) => {
             name="SelectJobTitle"
             render={({ field }) => (
               <Select
-                styles={style.selectField}
+                  marginTop={1}
+                  marginBottom={1}
+                  sx={AuthStyles.select}
                 {...field}
                 options={jobTitle}
                 onChange={setSelectedJobTitle}
@@ -187,7 +188,7 @@ const SignupModal = (props) => {
               <TextField
                 variant="outlined"
                 size="small"
-                sx={styles.textFields}
+                sx={AuthStyles.textFields}
                 {...field}
                 placeholder="Email"
                 required
@@ -204,7 +205,7 @@ const SignupModal = (props) => {
               <TextField
                 variant="outlined"
                 size="small"
-                sx={styles.textFields}
+                sx={AuthStyles.textFields}
                 {...field}
                 placeholder="Password"
                 required
@@ -214,10 +215,13 @@ const SignupModal = (props) => {
               />
             )}
           />
-          <Button sx={style.buttonSignup} type="submit">
-            Submit
-          </Button>
+            <Box align="center">
+              <Button sx={style.buttonSignup} type="submit"> Submit </Button>
+            </Box>
+
+          </Stack>
         </form>
+
       </Stack>
     </Modal>
   );

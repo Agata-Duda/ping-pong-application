@@ -17,6 +17,7 @@
     "date-fns": "^2.29.3",
     "dayjs": "^1.11.5",
     "eslint-config-react-app": "^7.0.1",
+    "install-scripts": "^1.2.0",
     "modules": "^0.4.0",
     "moment": "^2.29.4",
     "prop-types": "^15.8.1",

@@ -130,7 +130,6 @@ export default function CreateReservationForm({ timeDate, closeDrawer }) {
             name="SelectPlayerTwo"
             render={({ field }) => (
               <Select
-                sx={styles.selectField}
                 {...field}
                 label="Select Player Two"
                 options={userNames}
