@@ -10,13 +10,12 @@ import tournaments from "../Images/tournaments.png";
 import ScoreBoardCardImage from "../Images/ScoreBoardCardImage.png";
 import match from "../Images/match.png";
 import { PageTemplate } from "../templates/PageTemplate";
-import { Footer } from "../components/shared/Footer"
 
 const Home = () => {
 
   return (
   <PageTemplate>
-    <Stack direction="row">
+    <Stack paddingLeft={30} alignItems="center" justifyContent="center" direction="row">
       <Stack direction="column">
         <Stack
           justifyContent="left"
@@ -30,7 +29,7 @@ const Home = () => {
             path={routes.reservationsView}
           />
         </Stack>
-        <Stack justifyContent="left" alignItems="center" direction="row" m={3}>
+        <Stack justifyContent="center" alignItems="center" direction="row" m={3}>
           <OptionCardSmall
             image={match}
             title="Match"
@@ -59,7 +58,6 @@ const Home = () => {
         <EventsCard alignItems="center" />
       </Stack>
     </Stack>
-    <Footer/>
   </PageTemplate>
   )
 }

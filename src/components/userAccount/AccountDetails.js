@@ -8,7 +8,7 @@ import {style} from "./userStyle"
 import {AppContext} from "../../context/appContext";
 
 export const AccountDetails = () => {
-    const {user, setUser} = useContext(AppContext);
+    const {user} = useContext(AppContext);
 
     return (
         <Box>

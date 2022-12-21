@@ -90,6 +90,7 @@ const LoginForm = () => {
               {...field}
               onChange={handlePasswordChange}
               placeholder = "Password"
+              type="password"
               required
               error={errors.loginRequired}
               helperText={errors.Username && `${errors.Username.message}`}
