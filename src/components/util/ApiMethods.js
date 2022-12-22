@@ -66,7 +66,8 @@ export const getBookingById = async (id) => {
 export const updateReservationById = async (eventid, userName, booking) => {
   await axios.put(
     `${Reservation_URL}/${eventid}/gameComplete/false/userName/${userName}`,
-    booking);
+    booking).then(() => toast.success("Reservation Updated Successfully!"))
+    .catch((error) => toast.error("Error Updating Reservation"));
 };
 
 export const updateReservationByIdGameCompletion = async (
