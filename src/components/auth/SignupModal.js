@@ -53,7 +53,6 @@ const SignupModal = (props) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [jobTitle, setJobTitle] = useState("");
-  const [ setSignUpError ] = useState(true);
   const [selectedJobTitle, setSelectedJobTitle] = useState(null);
 
   useEffect(() => {
@@ -81,19 +80,17 @@ const SignupModal = (props) => {
       jobTitle: selectedJobTitle.value,
       totalGames: 0,
       wins: 0,
-      accountType: 1,
+      accountType: "ROLE_REGULAR",
     };
     axios
       .post(`${User_URL}`, payload)
       .then(() => {
-        setSignUpError(false);
-        toast.success("Signup Sucessful");
-        handleClose();
+        toast.success("Sign-up Sucessful")
+        handleClose()
       })
       .catch((error) => {
-        if (error.request) toast.error("Something went wrong");
+        if (error.request) toast.error(error.response.data.response);
         else if (error.response) toast.success("Sign-up Successful");
-        setSignUpError(true);
       });
   };
 

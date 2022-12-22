@@ -72,19 +72,18 @@ export default function UpdateReservationForm ({ eventid, closeUpdateDrawer, upd
   }, []);
 
   const onSubmitReservation = () => {
-    updateReservationById(eventid,user.userId,{
+    updateReservationById(eventid,user.userName,{
         booking_id:  eventid,
-        player_1: selectedPlayerOne.value,
-        player_2: selectedPlayerTwo.value,
+        player_1: selectedPlayerOne.label,
+        player_2: selectedPlayerTwo.label,
         sets: parseInt(selectedSets.value),
         event_start: updateEventStart,
         event_finish: updateEventEnd,
         player_1_score: null,
         player_2_score: null,
-        tournament_id: selectedTournament.value
+        tournamentName: selectedTournament.label
       })
         closeUpdateDrawer()
-      toast.success("Reservation Updated Successfully!")
 
       }
 
