@@ -5,6 +5,7 @@ import { DatePicker } from "@mui/x-date-pickers"
 import Select from "react-select"
 import { postTournament } from "../../util/ApiMethods"
 import { styles } from "../../util/styles"
+import {AuthStyles} from "../../auth/AuthStyles";
  
 const CreateTournamentForm = ({handleClose}) => {
 
@@ -53,7 +54,7 @@ const CreateTournamentForm = ({handleClose}) => {
         px={5}
         py={2}
     >
-        <Typography fontWeight={'bold'}> Create Tournament </Typography>
+        <Typography sx={AuthStyles.title}> Create Tournament </Typography>
         <form onSubmit={handleSubmit(onSubmit)} padding={5}>
           <Stack spacing={2} alignItems="stretch">
             <Controller 
